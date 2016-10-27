@@ -1,0 +1,17 @@
+Package: indikatoR
+Type: Package
+Title: Produsere figurer for nasjonalt indikatorprosjekt
+Version: 0.1
+Date: 2016-10-07
+Author: Kevin Thon, Alexander Walnum
+Authors@R: c(person("Thon", "Kevin", email = "kevin.thon@skde.no", role = c("cre", "aut")),
+          person("Walnum", "Alexander", email = "Alexander.Walnum@unn.no", role = "aut"))
+Maintainer: Kevin Thon <kevin.thon@skde.no>
+Description: Fellesfunksjoner for bruk i fremstilling av nasjonale indikatorer
+    utviklet i indikatorprosjektet ved SKDE.
+License: GPL-2
+Encoding: UTF-8
+Depends: R (>= 3.0.2), rapbase
+Imports: tidyr
+LazyData: TRUE
+RoxygenNote: 5.0.1
