@@ -143,7 +143,7 @@ indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=titt
                                    decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal)
 
 
-load("C:/GIT/indikatoR/data/Hoftebrudd_Preoperativ_liggetid_sh.RData")
+# load("C:/GIT/indikatoR/data/Hoftebrudd_Preoperativ_liggetid_sh.RData")
 
 Andeler <- Hoftebrudd_Preoperativ_liggetid_sh[ , -c(3,4,7)]
 Andeler <- Andeler[, c(1,2,4,3)]
@@ -176,7 +176,7 @@ indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=titt
 
 ###### Produksjon
 
-load("C:/GIT/indikatoR/data/Hoftebrudd_Produksjon_sh.RData")
+# load("C:/GIT/indikatoR/data/Hoftebrudd_Produksjon_sh.RData")
 
 Antall <- Hoftebrudd_Produksjon_sh[ , -c(3,4,5)]
 names(Antall)[names(Antall)=='Totalt.antall'] <- 'antall'
@@ -191,7 +191,7 @@ indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=800
                                     skriftStr=skriftStr, pktStr=pktStr)
 
 
-load("C:/GIT/indikatoR/data/Hoftebrudd_Produksjon_bo.RData")
+# load("C:/GIT/indikatoR/data/Hoftebrudd_Produksjon_bo.RData")
 Antall <- Hoftebrudd_Produksjon_bo[ , -c(1,4,5,6)]
 names(Antall)[names(Antall)=='n'] <- 'antall'
 names(Antall)[names(Antall)=='Boomraade'] <- 'bohf'
@@ -221,7 +221,7 @@ outfile <- 'Hofte_operasjonsmetode_bo_ujustert.png'
 indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel)
 
 
-load("C:/GIT/indikatoR/data/Hoftebrudd_Produksjon_sh.RData")
+# load("C:/GIT/indikatoR/data/Hoftebrudd_Produksjon_sh.RData")
 
 Andeler <- Hoftebrudd_Produksjon_sh
 Andeler <- Andeler[Andeler$aar==2015, ]
@@ -260,7 +260,7 @@ indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=wi
 ############## Proteser ###########################################
 ######################################################################
 
-load("C:/GIT/indikatoR/data/Hofteproteser_rater.RData")
+# load("C:/GIT/indikatoR/data/Hofteproteser_rater.RData")
 
 Andeler <- Hofteproteser_rater
 outfile <- 'Hofteproteser_rater_bo.png'
@@ -278,7 +278,7 @@ pktStr=1.5
 indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=width, height=height, til100=til100,
                                    decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal, xtekst ='Rater pr. 1000 innbyggere')
 
-load("C:/GIT/indikatoR/data/Kneproteser_rater.RData")
+# load("C:/GIT/indikatoR/data/Kneproteser_rater.RData")
 
 Andeler <- Kneproteser_rater
 outfile <- 'Kneproteser_rater_bo.png'
@@ -378,7 +378,7 @@ indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=t
 
 ## Revaskularisering
 
-load("C:/GIT/indikatoR/data/Revaskularisering_bo.RData")
+# load("C:/GIT/indikatoR/data/Revaskularisering_bo.RData")
 
 Antall <- Revaskularisering_bo[, -4]
 names(Antall)[3] <- 'Antall'
@@ -398,7 +398,7 @@ AntTilfeller <- AntTilfeller[,-1]
 N <- N[,-1]
 
 
-load("C:/GIT/indikatoR/data/Revaskularisering_sh.RData")
+# load("C:/GIT/indikatoR/data/Revaskularisering_sh.RData")
 
 Antall <- Revaskularisering_sh[, -4]
 names(Antall) <- c('aar', 'bohf', 'Antall', 'N')

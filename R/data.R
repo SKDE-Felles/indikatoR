@@ -15,9 +15,9 @@
 #'   }
 #'   \item AntTotalt: Radnavn er sykehusnavn, kolonnene er
 #'    \itemize{
-#'    \item 2013: Antall tilfeller i 2013
-#'    \item 2014: Antall tilfeller i 2014
-#'    \item 2015: Antall tilfeller i 2015
+#'    \item 2013: Antall totalt i 2013
+#'    \item 2014: Antall totalt i 2014
+#'    \item 2015: Antall totalt i 2015
 #'   }
 #' }
 "Brystbevarende_sh"
