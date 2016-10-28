@@ -85,7 +85,7 @@ indikatorFigAntallGrVar <- function(Antall, outfile, tittel, width=800, height=7
   par('mar'= oldpar_mar)
   par('fig'= oldpar_fig)
 
-  if (outfile != '') {savePlot(outfile, type='pdf')}
+  if (outfile != '') {savePlot(outfile, type=substr(outfile, nchar(outfile)-2, nchar(outfile)))}
 
 
 

@@ -145,6 +145,6 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
 
   # if (outfile != '') {dev.off()}
 
-  if (outfile != '') {savePlot(outfile, type='png')}
+  if (outfile != '') {savePlot(outfile, type=substr(outfile, nchar(outfile)-2, nchar(outfile)))}
 
 }

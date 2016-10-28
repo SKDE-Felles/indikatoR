@@ -133,6 +133,6 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
   par('oma'= oldpar_oma)
   # if (outfile != '') {dev.off()}
 
-  if (outfile != '') {savePlot(outfile, type='png')}
+  if (outfile != '') {savePlot(outfile, type=substr(outfile, nchar(outfile)-2, nchar(outfile)))}
 
 }

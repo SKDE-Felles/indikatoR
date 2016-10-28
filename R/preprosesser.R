@@ -199,6 +199,17 @@ indikatorLastdataOgPreprosesser <- function()
   names(Kneproteser_rater) <- c('aar', 'bohf', 'andel', 'antall', 'N')
   save(Kneproteser_rater, file = "Kneproteser_rater.RData")
 
+  ## NKR rater ###############
+  Prolapskirurgi_rater <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Rygg/NPR/Rater_Prolapskirurgi.csv',
+                                  sep = ';', header = T, encoding = 'native', strip.white=TRUE)
+
+  Prolapskirurgi_rater <- Prolapskirurgi_rater[, -2]
+  Prolapskirurgi_rater <- Prolapskirurgi_rater[, c(1:3,5,4)]
+  names(Prolapskirurgi_rater) <- c('aar', 'bohf', 'andel', 'antall', 'N')
+  save(Prolapskirurgi_rater, file = "Prolapskirurgi_rater.RData")
+
+
+
   ## produksjon
 
   Hofteprotese_Produksjon_sh <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Proteser/Resultater/Hofte_Proteser_behandler.csv',

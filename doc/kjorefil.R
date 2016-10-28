@@ -502,6 +502,26 @@ indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=t
                        width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1)
 
 
+################# Prolapsrater ############################################
+#############################################################
+
+
+Andeler <- Prolapskirurgi_rater
+outfile <- 'Prolapskirurgi_rater.pdf'
+tittel <- 'Rater prolapskirurgi etter boområde'
+width=800
+height=700
+decreasing=F
+terskel=30
+minstekrav = NA
+maal = NA
+til100 = F
+skriftStr=1.3
+pktStr=1.5
+
+indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=width, height=height, til100=til100,
+                       decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal, xtekst ='Rater pr. 1000 innbyggere')
+
 ################# DEBUG ZONE BELOW ############################################
 
 

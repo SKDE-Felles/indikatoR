@@ -79,7 +79,7 @@ indikatorFigAndelStabelGrVar_justert <- function(Antall, outfile='', tittel='Tit
 
   # if (outfile != '') {dev.off()}
 
-  if (outfile != '') {savePlot(outfile, type='png')}
+  if (outfile != '') {savePlot(outfile, type=substr(outfile, nchar(outfile)-2, nchar(outfile)))}
 
 
 

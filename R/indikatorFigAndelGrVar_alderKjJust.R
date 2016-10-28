@@ -149,6 +149,6 @@ indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800,
   par('mar'= oldpar_mar)
   par('fig'= oldpar_fig)
 
-  if (outfile != '') {savePlot(outfile, type='png')}
+  if (outfile != '') {savePlot(outfile, type=substr(outfile, nchar(outfile)-2, nchar(outfile)))}
 
 }
