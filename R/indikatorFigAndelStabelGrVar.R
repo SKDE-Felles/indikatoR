@@ -11,7 +11,8 @@
 #'
 #' @export
 #'
-indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3, sideTxt='Boområde/opptaksområde', terskel=30)
+indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3, width=800, height=700,
+                                         sideTxt='Boområde/opptaksområde', terskel=30)
   {
 
   Andeler[Andeler$N < terskel, 1:3] <- NA

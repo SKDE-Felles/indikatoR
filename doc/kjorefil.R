@@ -196,7 +196,7 @@ Antall <- Hoftebrudd_Produksjon_bo[ , -c(1,4,5,6)]
 names(Antall)[names(Antall)=='n'] <- 'antall'
 names(Antall)[names(Antall)=='Boomraade'] <- 'bohf'
 
-outfile <- 'Hoftebrudd_produksjon_bo.png'
+outfile <- 'Hoftebrudd_produksjon_bo.pdf'
 tittel <- c('Antall hoftebrudd meldt til Nasjonalt Hoftebruddregister', 'i 2013-15, per boområde')
 pktStr <- 1.3
 skriftStr <- 1.3
@@ -217,8 +217,18 @@ names(Andeler)[names(Andeler)=='Pinning'] <- 'To skruer eller pinner'
 
 tittel <- 'Operasjonsmetoder ved lårhalsbrudd 2015, boområde, ujustert'
 outfile <- 'Hofte_operasjonsmetode_bo_ujustert.png'
+indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel)
+
+
+Andeler <- Hoftebrudd_andeler_2015_bo_justert
+rownames(Andeler)[rownames(Andeler)=='Norge'] <- 'Norge HF-omr'
+rownames(Andeler) <- substr(rownames(Andeler),1,nchar(rownames(Andeler))-7)
+
+tittel <- 'Operasjonsmetoder ved lårhalsbrudd 2015, boområde, justert'
+outfile <- 'Hofte_operasjonsmetode_bo_justert.png'
 
 indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel)
+
 
 
 # load("C:/GIT/indikatoR/data/Hoftebrudd_Produksjon_sh.RData")
@@ -295,6 +305,28 @@ pktStr=1.5
 
 indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=width, height=height, til100=til100,
                        decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal, xtekst ='Rater pr. 1000 innbyggere')
+
+## Produksjon
+
+Antall <- Hofteprotese_Produksjon_sh[, c(2,1,6)]
+names(Antall) <- c('bohf', 'aar', 'antall')
+outfile <- 'Hofteprotese_produksjon_sh.png'
+tittel <- c('Antall hofteproteser meldt til Leddproteseregisteret', 'i 2013-15, per sykehus')
+pktStr <- 0.8
+skriftStr <- 0.8
+indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=800, height=700,
+                        decreasing=F, xtekst ='Antall', sideTxt='Sykehus',
+                        skriftStr=skriftStr, pktStr=pktStr)
+
+Antall <- Kneprotese_Produksjon_sh[, c(2,1,6)]
+names(Antall) <- c('bohf', 'aar', 'antall')
+outfile <- 'Kne_produksjon_sh.png'
+tittel <- c('Antall kneproteser meldt til Leddproteseregisteret', 'i 2013-15, per sykehus')
+indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=800, height=700,
+                        decreasing=F, xtekst ='Antall', sideTxt='Sykehus',
+                        skriftStr=skriftStr, pktStr=pktStr)
+
+
 
 ############ Hjerteinfarkt ############################################################
 ###################################################################################
@@ -632,5 +664,19 @@ indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=t
 #                                width=width, height=height, decreasing=decreasing, terskel=terskel,
 #                                minstekrav = 85, maal = 98, tertiler=tertiler, justeringLand=justeringLand)
 #
-
-
+##### Type behandling protese
+#
+# Andeler <- Hofteprotese_Produksjon_sh[, -(3:5)]
+# Andeler <- Andeler[Andeler$aar==2015, ]
+# rownames(Andeler) <- Andeler$behsh
+# Andeler <- Andeler[, -(1:2)]
+# Andeler <- Andeler[, c(2:4, 1)]
+# names(Andeler) <- c('Usementert', 'Sementert', 'Hybrid', 'N')
+# Andeler[is.na(Andeler)] <- 0
+#
+# tittel <- 'Festemetoder (??) for hofteproteser 2015, pr. sykehus'
+# outfile <- 'Hofte_feste_sh.png'
+#
+# indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, skriftStr=0.8, sideTxt = 'Sykehus')
+#
+#
