@@ -6,7 +6,8 @@
 \usage{
 indikatorFigAndelGrVar_1aar(Antall, outfile, tittel, width = 800,
   height = 700, decreasing = F, terskel = 30, minstekrav = NA,
-  maal = NA, til100 = FALSE, skriftStr = 1.3)
+  minstekravTxt = "Min=", maal = NA, maalTxt = "MÂl=", til100 = FALSE,
+  skriftStr = 1.3, sideTxt = "Sykehus")
 }
 \arguments{
 \item{outfile}{Angir filnavn og format p√• figuren som returneres,}

@@ -7,7 +7,8 @@
 indikatorFigAndelGrVar(AntTilfeller, N, outfile, tittel, width = 800,
   height = 700, sideTxt = "Boområde/opptaksområde", decreasing = F,
   terskel = 30, minstekrav = NA, maal = NA, skriftStr = 1.3,
-  pktStr = 1.5, legPlass = "top")
+  pktStr = 1.5, legPlass = "top", minstekravTxt = "Min=",
+  maalTxt = "Mål=")
 }
 \arguments{
 \item{N}{En vektor/matrise med N for ratene}

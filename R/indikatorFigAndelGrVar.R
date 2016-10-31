@@ -13,7 +13,8 @@
 #' @export
 #'
 indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, height=700, sideTxt='Boområde/opptaksområde',
-                                   decreasing=F, terskel=30, minstekrav = NA, maal = NA, skriftStr=1.3, pktStr=1.5, legPlass='top')
+                                   decreasing=F, terskel=30, minstekrav = NA, maal = NA, skriftStr=1.3, pktStr=1.5, legPlass='top',
+                                   minstekravTxt='Min=', maalTxt='Mål=')
 {
   andeler <- AntTilfeller/N * 100
 
@@ -71,7 +72,7 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
-    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min=',minstekrav,'%'), pos = 3, cex=0.7)
+    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0(minstekravTxt, minstekrav,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
   }
   if (!is.na(maal)) {
@@ -84,7 +85,7 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
-    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0('Mål=',maal,'%'), pos = 3, cex=0.7)
+    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0(maalTxt,maal,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
   }
   axis(1,cex.axis=0.9)
@@ -98,11 +99,18 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
     text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
     # mtext( 'Boområde/opptaksområde', side=2, line=9.5, las=0, col=1, cex=cexgr)
     mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
-    par(xpd=TRUE)
-    legend('top', inset=c(vmarg,-.025), cex=1.2, bty='n', #bg='white', box.col='white',
-           lwd=c(NA,NA), pch=c(19,15), pt.cex=c(1,2), col=c('black',farger[3]),
-           legend=c('2014', '2015'), ncol = 3)
-    par(xpd=FALSE)
+    if (legPlass=='nede'){
+      legend('bottomright', cex=1.2, bty='n', #bg='white', box.col='white',
+             lwd=c(NA,NA), pch=c(19,15), pt.cex=c(1,2), col=c('black',farger[3]),
+             legend=c('2014', '2015'), ncol = 1)
+    } else {
+      par(xpd=TRUE)
+      legend('top', inset=c(vmarg,-.025), cex=1.2, bty='n', #bg='white', box.col='white',
+             lwd=c(NA,NA), pch=c(19,15), pt.cex=c(1,2), col=c('black',farger[3]),
+             legend=c('2014', '2015'), ncol = 3)
+      par(xpd=FALSE)
+    }
+
 
   } else {
     mtext( c(N[,1], 2013), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)

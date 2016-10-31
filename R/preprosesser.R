@@ -249,6 +249,16 @@ indikatorLastdataOgPreprosesser <- function()
              sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   save(Angio_sh, file = "Angio_sh.RData")
 
+  Angio_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Angio_BEH_v2.csv',
+                         sep = ';', header = T, encoding = 'native', strip.white=TRUE)
+  Angio_sh_v2 <- Angio_sh_v2[, -3]
+  save(Angio_sh_v2, file = "Angio_sh_v2.RData")
+
+  Angio_hf <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Angio_BEHHF_v2.csv',
+                            sep = ';', header = T, encoding = 'native', strip.white=TRUE)
+  Angio_hf <- Angio_hf[, -2]
+  save(Angio_hf, file = "Angio_hf.RData")
+
   Angio_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Angio_BO.csv',
              sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   Angio_bo <- Angio_bo[, -c(2,8)]
@@ -260,6 +270,16 @@ indikatorLastdataOgPreprosesser <- function()
   Revaskularisering_sh <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Revaskularisering_BEH.csv',
              sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   save(Revaskularisering_sh, file = "Revaskularisering_sh.RData")
+
+  Revaskularisering_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Revaskularisering_BEH_v2.csv',
+                                     sep = ';', header = T, encoding = 'native', strip.white=TRUE)
+  Revaskularisering_sh_v2 <- Revaskularisering_sh_v2[ , -3]
+  save(Revaskularisering_sh_v2, file = "Revaskularisering_sh_v2.RData")
+
+  Revaskularisering_hf <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Revaskularisering_BEHHF_v2.csv',
+                                        sep = ';', header = T, encoding = 'native', strip.white=TRUE)
+  Revaskularisering_hf <- Revaskularisering_hf[ , -2]
+  save(Revaskularisering_hf, file = "Revaskularisering_hf.RData")
 
   Revaskularisering_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Revaskularisering_BO.csv',
              sep = ';', header = T, encoding = 'native', strip.white=TRUE)
@@ -286,6 +306,14 @@ indikatorLastdataOgPreprosesser <- function()
   Hjerneslag_behandlet_slagenhet_sh <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Beh_slagenhet_BEH.csv', sep = ';', header = T, encoding = 'native')
   save(Hjerneslag_behandlet_slagenhet_sh, file = "Hjerneslag_behandlet_slagenhet_sh.RData")
 
+  Hjerneslag_behandlet_slagenhet_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Beh_slagenhet_BEH_V2.csv', sep = ';', header = T, encoding = 'native')
+  Hjerneslag_behandlet_slagenhet_sh_v2 <- Hjerneslag_behandlet_slagenhet_sh_v2[, -3]
+  save(Hjerneslag_behandlet_slagenhet_sh_v2, file = "Hjerneslag_behandlet_slagenhet_sh_v2.RData")
+
+  Hjerneslag_behandlet_slagenhet_hf <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Beh_slagenhet_BEH_V2_HF.csv', sep = ';', header = T, encoding = 'native')
+  Hjerneslag_behandlet_slagenhet_hf <- Hjerneslag_behandlet_slagenhet_hf[, -2]
+  save(Hjerneslag_behandlet_slagenhet_hf, file = "Hjerneslag_behandlet_slagenhet_hf.RData")
+
   Hjerneslag_tromsbolyse_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Trombolyse_BO.csv', sep = ';', header = T, encoding = 'native')
 
   Hjerneslag_tromsbolyse_bo <- Hjerneslag_tromsbolyse_bo[, -2]
@@ -297,6 +325,15 @@ indikatorLastdataOgPreprosesser <- function()
 
   Hjerneslag_tromsbolyse_sh <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Trombolyse_BEH.csv', sep = ';', header = T, encoding = 'native')
   save(Hjerneslag_tromsbolyse_sh, file = "Hjerneslag_tromsbolyse_sh.RData")
+
+  Hjerneslag_tromsbolyse_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Trombolyse_BEH_v2.csv', sep = ';', header = T, encoding = 'native')
+  Hjerneslag_tromsbolyse_sh_v2 <-Hjerneslag_tromsbolyse_sh_v2[, -3]
+  save(Hjerneslag_tromsbolyse_sh_v2, file = "Hjerneslag_tromsbolyse_sh_v2.RData")
+
+  Hjerneslag_tromsbolyse_hf <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Trombolyse_BEH_v2_HF.csv', sep = ';', header = T, encoding = 'native')
+  Hjerneslag_tromsbolyse_hf <-Hjerneslag_tromsbolyse_hf[, -2]
+  save(Hjerneslag_tromsbolyse_hf, file = "Hjerneslag_tromsbolyse_hf.RData")
+
 
   setwd(currentDir)
 }

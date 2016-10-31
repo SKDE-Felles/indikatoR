@@ -437,10 +437,10 @@ indikatorFigAndelGrVar_aldKjJust(Antall=Antall, outfile=outfile, tittel=tittel, 
 
 # load("C:/GIT/indikatoR/data/Angio_sh.RData")
 
-AntTilfeller <- tidyr::spread(Angio_sh[,1:3], 'Aar', 'under72t')
+AntTilfeller <- tidyr::spread(Angio_sh_v2[,1:3], 'Aar', 'under72t')
 rownames(AntTilfeller) <- AntTilfeller$Sykehus
 AntTilfeller <- AntTilfeller[, -1]
-N <- tidyr::spread(Angio_sh[,c(1,2,6)], 'Aar', 'Nevner')
+N <- tidyr::spread(Angio_sh_v2[,c(1,2,6)], 'Aar', 'Nevner')
 rownames(N) <- N$Sykehus
 N <- N[, -1]
 N[is.na(N)] <- 0
@@ -450,7 +450,7 @@ outfile <- 'C:/GIT/indikatoR/doc/figurer/Angio_U72_sh.pdf'
 indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Sykehus',
                        width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1)
 
-AntTilfeller <- Angio_sh
+AntTilfeller <- Angio_sh_v2
 AntTilfeller$AntTot <- rowSums(AntTilfeller[, c('under72t', 'over72t')])
 AntTilfeller <- tidyr::spread(AntTilfeller[, c('Aar', 'Sykehus', 'AntTot')], 'Aar', 'AntTot')
 rownames(AntTilfeller) <- AntTilfeller$Sykehus
@@ -460,6 +460,32 @@ outfile <- 'C:/GIT/indikatoR/doc/figurer/Angio_totalt_sh.pdf'
 
 indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Sykehus',
                        width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1)
+
+
+AntTilfeller <- tidyr::spread(Angio_hf[,1:3], 'Aar', 'under72t')
+rownames(AntTilfeller) <- AntTilfeller$sykehus
+AntTilfeller <- AntTilfeller[, -1]
+N <- tidyr::spread(Angio_hf[,c(1,2,6)], 'Aar', 'Nevner')
+rownames(N) <- N$sykehus
+N <- N[, -1]
+N[is.na(N)] <- 0
+tittel <- 'Andel med angio innen 72 timer, pr. helseforetak'
+outfile <- 'C:/GIT/indikatoR/doc/figurer/Angio_U72_hf.pdf'
+
+indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Helseforetak',
+                       width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1)
+
+AntTilfeller <- Angio_hf
+AntTilfeller$AntTot <- rowSums(AntTilfeller[, c('under72t', 'over72t')])
+AntTilfeller <- tidyr::spread(AntTilfeller[, c('Aar', 'sykehus', 'AntTot')], 'Aar', 'AntTot')
+rownames(AntTilfeller) <- AntTilfeller$sykehus
+AntTilfeller <- AntTilfeller[, -1]
+tittel <- 'Andel med angio, pr. helseforetak'
+outfile <- 'C:/GIT/indikatoR/doc/figurer/Angio_totalt_hf.pdf'
+
+indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Sykehus',
+                       width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1)
+
 
 ## Revaskularisering
 
@@ -475,26 +501,34 @@ indikatorFigAndelGrVar_aldKjJust_1aar(Antall=Antall, outfile=outfile, tittel=tit
                                  decreasing=F, terskel=30, minstekrav = NA,
                                  maal = NA, til100=F)
 
-aux <- aggregate(Antall[, c('Antall', 'N')], by=list(aar=Antall$aar, bohf=Antall$bohf), sum)
-AntTilfeller <- tidyr::spread(aux[,-4], 'aar', 'Antall')
-N <- tidyr::spread(aux[,-3], 'aar', 'N')
-rownames(AntTilfeller) <- AntTilfeller$bohf
-rownames(N) <- N$bohf
-AntTilfeller <- AntTilfeller[,-1]
-N <- N[,-1]
+# aux <- aggregate(Antall[, c('Antall', 'N')], by=list(aar=Antall$aar, bohf=Antall$bohf), sum)
+# AntTilfeller <- tidyr::spread(aux[,-4], 'aar', 'Antall')
+# N <- tidyr::spread(aux[,-3], 'aar', 'N')
+# rownames(AntTilfeller) <- AntTilfeller$bohf
+# rownames(N) <- N$bohf
+# AntTilfeller <- AntTilfeller[,-1]
+# N <- N[,-1]
 
 
 # load("C:/GIT/indikatoR/data/Revaskularisering_sh.RData")
 
-Antall <- Revaskularisering_sh[, -4]
+Antall <- Revaskularisering_sh_v2[, -4]
 names(Antall) <- c('aar', 'bohf', 'Antall', 'N')
 tittel <- 'Revaskularisering under 30 min., pr. sykehus'
 outfile <- 'C:/GIT/indikatoR/doc/figurer/Revaskularisering_sh.pdf'
 
 indikatorFigAndelGrVar_1aar(Antall, outfile, tittel, width=600, height=700,
-                            decreasing=F, terskel=30, minstekrav = NA,
-                            maal = NA, til100=FALSE, skriftStr=0.8)
+                            decreasing=F, terskel=30, minstekrav = NA, minstekravTxt = 'Moderat=',
+                            maal = NA, maalTxt='Høy=', til100=FALSE, skriftStr=0.8)
 
+Antall <- Revaskularisering_hf[, -4]
+names(Antall) <- c('aar', 'bohf', 'Antall', 'N')
+tittel <- 'Revaskularisering under 30 min., pr. helseforetak'
+outfile <- 'C:/GIT/indikatoR/doc/figurer/Revaskularisering_hf.pdf'
+
+indikatorFigAndelGrVar_1aar(Antall, outfile, tittel, width=600, height=700, sideTxt = 'Helseforetak',
+                            decreasing=F, terskel=30, minstekrav = NA, minstekravTxt = 'Moderat=',
+                            maal = NA, maalTxt='Høy=', til100=FALSE, skriftStr=0.8)
 
 ############ Hjerneslag ############################################################
 ###################################################################################
@@ -509,25 +543,39 @@ tittel <- 'Andel behandlet i slagenhet, pr. boområde, justert'
 outfile <- 'C:/GIT/indikatoR/doc/figurer/BehSlagenhet_bo_justert.pdf'
 
 indikatorFigAndelGrVar_aldKjJust(Antall=Antall, outfile=outfile, tittel=tittel, width=800, height=700,
-                                 decreasing=F, terskel=30, minstekrav = NA,
-                                 maal = NA, til100=FALSE)
+                                 decreasing=F, terskel=30, minstekrav = 80, minstekravTxt = 'Moderat=',
+                                 maal = 90, maalTxt='Høy=', til100=FALSE)
 
 
 # load("C:/GIT/indikatoR/data/Hjerneslag_behandlet_slagenhet_sh.RData")
 
-AntTilfeller <- tidyr::spread(Hjerneslag_behandlet_slagenhet_sh[,1:3], 'Aar', 'TellerC')
+AntTilfeller <- tidyr::spread(Hjerneslag_behandlet_slagenhet_sh_v2[,1:3], 'Aar', 'TellerC')
 rownames(AntTilfeller) <- AntTilfeller$Helseenhet
 AntTilfeller <- AntTilfeller[, -1]
-N <- tidyr::spread(Hjerneslag_behandlet_slagenhet_sh[,c(1,2,4)], 'Aar', 'NevnerC')
+N <- tidyr::spread(Hjerneslag_behandlet_slagenhet_sh_v2[,c(1,2,4)], 'Aar', 'NevnerC')
 rownames(N) <- N$Helseenhet
 N <- N[, -1]
 N[is.na(N)] <- 0
 tittel <- 'Andel behandlet i slagenhet, pr. sykehus'
 outfile <- 'C:/GIT/indikatoR/doc/figurer/BehSlagenhet_sh.pdf'
 
-indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Sykehus',
-                       width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1)
+indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Sykehus', minstekrav = 80, maal = 90,
+                       width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1,
+                       minstekravTxt = 'Moderat=', maalTxt='Høy=')
 
+AntTilfeller <- tidyr::spread(Hjerneslag_behandlet_slagenhet_hf[,1:3], 'Aar', 'TellerC')
+rownames(AntTilfeller) <- AntTilfeller$helseenhet
+AntTilfeller <- AntTilfeller[, -1]
+N <- tidyr::spread(Hjerneslag_behandlet_slagenhet_hf[,c(1,2,4)], 'Aar', 'NevnerC')
+rownames(N) <- N$helseenhet
+N <- N[, -1]
+N[is.na(N)] <- 0
+tittel <- 'Andel behandlet i slagenhet, pr. helseforetak'
+outfile <- 'C:/GIT/indikatoR/doc/figurer/BehSlagenhet_hf.pdf'
+
+indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Helseforetak', minstekrav = 80, maal = 90,
+                       width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1,
+                       minstekravTxt = 'Moderat=', maalTxt='Høy=')
 
 
 
@@ -535,25 +583,43 @@ Antall <- Hjerneslag_tromsbolyse_bo
 Antall$TellerE[is.na(Antall$TellerE)] <- 0
 
 names(Antall)[3] <- 'Antall'
-tittel <- 'Andel med trombolyse .... , pr. boområde, justert'
+tittel <- 'Andel med trombolyse innen 40 min., pr. boområde, justert'
 outfile <- 'C:/GIT/indikatoR/doc/figurer/Trombolyse_bo_justert.pdf'
 
 indikatorFigAndelGrVar_aldKjJust(Antall=Antall, outfile=outfile, tittel=tittel, width=800, height=700,
-                                 decreasing=F, terskel=30, minstekrav = NA,
-                                 maal = NA, til100=FALSE)
+                                 decreasing=F, terskel=30, minstekrav = 30, minstekravTxt = 'Moderat=',
+                                 maal = 50, maalTxt='Høy=', til100=FALSE, legPlass='nede') #
 
-AntTilfeller <- tidyr::spread(Hjerneslag_tromsbolyse_sh[,1:3], 'Aar', 'TellerE')
+AntTilfeller <- tidyr::spread(Hjerneslag_tromsbolyse_sh_v2[,1:3], 'Aar', 'TellerE')
 rownames(AntTilfeller) <- AntTilfeller$Helseenhet
 AntTilfeller <- AntTilfeller[, -1]
-N <- tidyr::spread(Hjerneslag_tromsbolyse_sh[,c(1,2,4)], 'Aar', 'NevnerE')
+N <- tidyr::spread(Hjerneslag_tromsbolyse_sh_v2[,c(1,2,4)], 'Aar', 'NevnerE')
 rownames(N) <- N$Helseenhet
 N <- N[, -1]
 N[is.na(N)] <- 0
-tittel <- 'Andel med trombolyse .... , pr. sykehus'
+tittel <- 'Andel med trombolyse innen 40 min., pr. sykehus'
 outfile <- 'C:/GIT/indikatoR/doc/figurer/Trombolyse_sh.pdf'
 
 indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Sykehus',
-                       width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1)
+                       width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1,
+                       minstekrav = 30, minstekravTxt = 'Moderat=', maal = 50, maalTxt='Høy=', legPlass='nede')
+
+AntTilfeller <- tidyr::spread(Hjerneslag_tromsbolyse_hf[,1:3], 'Aar', 'TellerE')
+rownames(AntTilfeller) <- AntTilfeller$helseenhet
+AntTilfeller <- AntTilfeller[, -1]
+N <- tidyr::spread(Hjerneslag_tromsbolyse_hf[,c(1,2,4)], 'Aar', 'NevnerE')
+rownames(N) <- N$helseenhet
+N <- N[, -1]
+N[is.na(N)] <- 0
+tittel <- 'Andel med trombolyse innen 40 min., pr. helseforetak'
+outfile <- 'C:/GIT/indikatoR/doc/figurer/Trombolyse_hf.pdf'
+
+indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Helseforetak',
+                       width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1,
+                       minstekrav = 30, minstekravTxt = 'Moderat=', maal = 50, maalTxt='Høy=', legPlass='nede')
+
+
+
 
 
 ################# Prolapsrater ############################################
