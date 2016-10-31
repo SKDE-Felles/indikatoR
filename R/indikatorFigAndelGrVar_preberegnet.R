@@ -13,7 +13,7 @@
 #' @export
 #'
 indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=800, height=700, sideTxt='Boområde/opptaksområde',
-                                   decreasing=F, terskel=30, minstekrav = NA, maal = NA, xtekst ='Andel %',
+                                   decreasing=F, terskel=30, minstekrav = NA, maal = NA, xtekst ='Andel (%)',
                                    til100 = T, skriftStr=1.3, pktStr=1.5)
   {
 
@@ -47,6 +47,7 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
 
   oldpar_mar <- par()$mar
   oldpar_fig <- par()$fig
+  oldpar_oma <- par()$oma
 
   cexgr <- skriftStr
 
@@ -58,6 +59,7 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
   vmarg <- max(0, strwidth(rownames(andeler), units='figure', cex=cexgr)*0.8)
   par('fig'=c(vmarg, 1, 0, 1))
   par('mar'=c(5.1, 4.1, 4.1, 9.1))
+  par('oma'=c(0,2,0,0))
 
   ypos <- barplot( t(andeler[,3]), beside=T, las=1,
                    main = tittel, font.main=1, cex.main=1.3,
@@ -75,7 +77,7 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
              xlim=c(0,xmax),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
-             col=soyleFarger, border=NA, xlab = 'Andel %', add=TRUE)
+             col=soyleFarger, border=NA, xlab = xtekst, add=TRUE)
     par(xpd=TRUE)
     text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min=',minstekrav,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
@@ -88,7 +90,7 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
              xlim=c(0,xmax),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
-             col=soyleFarger, border=NA, xlab = 'Andel %', add=TRUE)
+             col=soyleFarger, border=NA, xlab = xtekst, add=TRUE)
     par(xpd=TRUE)
     text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0('Mål=',maal,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
@@ -102,7 +104,8 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
   points(y=ypos, x=andeler[,1],cex=pktStr) #'#4D4D4D'
   points(y=ypos, x=andeler[,2],cex=pktStr,pch= 19)
   text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
-  mtext(text = sideTxt, side=2, line=13.5, las=0, col=1, cex=cexgr)
+  # mtext(text = sideTxt, side=2, line=13.5, las=0, col=1, cex=cexgr)
+  mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
 #   par(xpd=TRUE)
 #   legend('top', inset=c(vmarg,-.03), cex=1.2, bty='o', bg='white', box.col='white',
 #          lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
@@ -120,6 +123,7 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
 
   par('mar'= oldpar_mar)
   par('fig'= oldpar_fig)
+  par('oma'= oldpar_oma)
 
   if (outfile != '') {savePlot(outfile, type=substr(outfile, nchar(outfile)-2, nchar(outfile)))}
 

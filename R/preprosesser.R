@@ -114,10 +114,31 @@ indikatorLastdataOgPreprosesser <- function()
   Hoftebrudd_Preoperativ_liggetid_sh <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Preoperativ_liggetid_behandler.csv', sep = ';', header = T, encoding = 'native')
   save(Hoftebrudd_Preoperativ_liggetid_sh, file = "Hoftebrudd_Preoperativ_liggetid_sh.RData")
 
+  Hoftebrudd_Preoperativ_liggetid_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Preoperativ_liggetid_Behsh_justert.csv', sep = ';', header = T, encoding = 'native')
+  Hoftebrudd_Preoperativ_liggetid_sh_v2$behsh <- Hoftebrudd_Preoperativ_liggetid_sh_v2$behsh_txt
+  Hoftebrudd_Preoperativ_liggetid_sh_v2 <- Hoftebrudd_Preoperativ_liggetid_sh_v2[ , -which(names(Hoftebrudd_Preoperativ_liggetid_sh_v2)=="behsh_txt")]
+  save(Hoftebrudd_Preoperativ_liggetid_sh_v2, file = "Hoftebrudd_Preoperativ_liggetid_sh_v2.RData")
+
+  Hoftebrudd_Preoperativ_liggetid_hf <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Preoperativ_liggetid_BehHF_justert.csv', sep = ';', header = T, encoding = 'native')
+  Hoftebrudd_Preoperativ_liggetid_hf$behhf <- Hoftebrudd_Preoperativ_liggetid_hf$behhf_txt
+  Hoftebrudd_Preoperativ_liggetid_hf <- Hoftebrudd_Preoperativ_liggetid_hf[ , -which(names(Hoftebrudd_Preoperativ_liggetid_hf)=="behhf_txt")]
+  save(Hoftebrudd_Preoperativ_liggetid_hf, file = "Hoftebrudd_Preoperativ_liggetid_hf.RData")
 
   Hoftebrudd_Produksjon_sh <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebruddteknikk_behsh.csv',
                                          sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   save(Hoftebrudd_Produksjon_sh, file = "Hoftebrudd_Produksjon_sh.RData")
+
+  Hoftebrudd_Produksjon_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebruddteknikk_behsh_v2.csv',
+                                         sep = ';', header = T, encoding = 'native', strip.white=TRUE)
+  Hoftebrudd_Produksjon_sh_v2 <- Hoftebrudd_Produksjon_sh_v2[, -1]
+  names(Hoftebrudd_Produksjon_sh_v2)[names(Hoftebrudd_Produksjon_sh_v2)=='BehSh_txt'] <- 'Behandlende.sykehus'
+  save(Hoftebrudd_Produksjon_sh_v2, file = "Hoftebrudd_Produksjon_sh_v2.RData")
+
+  Hoftebrudd_Produksjon_hf <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebruddteknikk_behHF_v2.csv',
+                                            sep = ';', header = T, encoding = 'native', strip.white=TRUE)
+  Hoftebrudd_Produksjon_hf <- Hoftebrudd_Produksjon_hf[, -1]
+  names(Hoftebrudd_Produksjon_hf)[names(Hoftebrudd_Produksjon_hf)=='BehHF_txt'] <- 'Behandlende.sykehus'
+  save(Hoftebrudd_Produksjon_hf, file = "Hoftebrudd_Produksjon_hf.RData")
 
 
   Hoftebrudd_Produksjon_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebruddteknikk.csv',

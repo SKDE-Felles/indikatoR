@@ -48,7 +48,7 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
   # hmarg <- max(0, 3*strwidth(max(N), units='figure', cex=cexgr)*0.7)
   par('fig'=c(vmarg, 1, 0, 1))
   par('mar'=c(5.1, 4.1, 4.1, 9.1))
-  par(oma=c(0,2,0,0))
+  par('oma'=c(0,2,0,0))
 
   ypos <- barplot( t(andeler[,dim(andeler)[2]]), beside=T, las=1,
                    main = tittel, font.main=1, cex.main=1.3,
@@ -56,7 +56,7 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
                    xlim=c(0,100),
                    names.arg=rep('',dim(andeler)[1]),
                    horiz=T, axes=F, space=c(0,0.3),
-                   col=soyleFarger, border=NA, xlab = 'Andel %') # '#96BBE7'
+                   col=soyleFarger, border=NA, xlab = 'Andel (%)') # '#96BBE7'
   #   ypos <- barplot(t(as.matrix(andeler)), horiz=T, beside=FALSE, border=NA, main=tittel,
   #                   names.arg=rep('',dim(andeler)[1]), font.main=1, cex.main=1.3, xlab='Andel %',
   #                   las=1, col=farger[c(1,3,4)])
@@ -69,7 +69,7 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
              xlim=c(0,100),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
-             col=soyleFarger, border=NA, xlab = 'Andel %', add=TRUE)
+             col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
     text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min=',minstekrav,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
@@ -82,7 +82,7 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
              xlim=c(0,100),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
-             col=soyleFarger, border=NA, xlab = 'Andel %', add=TRUE)
+             col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
     text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0('Mål=',maal,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)

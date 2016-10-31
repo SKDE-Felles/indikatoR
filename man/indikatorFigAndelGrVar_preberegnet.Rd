@@ -6,7 +6,7 @@
 \usage{
 indikatorFigAndelGrVar_preberegnet(Andeler, outfile, tittel, width = 800,
   height = 700, sideTxt = "Boområde/opptaksområde", decreasing = F,
-  terskel = 30, minstekrav = NA, maal = NA, xtekst = "Andel \%",
+  terskel = 30, minstekrav = NA, maal = NA, xtekst = "Andel (\%)",
   til100 = T, skriftStr = 1.3, pktStr = 1.5)
 }
 \arguments{

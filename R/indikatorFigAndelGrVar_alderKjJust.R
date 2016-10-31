@@ -13,7 +13,7 @@
 #' @export
 #'
 indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800, height=700,
-                                           decreasing=F, terskel=30, minstekrav = NA,
+                                           decreasing=F, terskel=30, minstekrav = NA, sideTxt ='Boområde/opptaksområde',
                                            maal = NA, til100=FALSE)
   {
 
@@ -61,17 +61,20 @@ indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800,
 
   oldpar_mar <- par()$mar
   oldpar_fig <- par()$fig
+  oldpar_oma <- par()$oma
 
   cexgr <- 1.3
 
   if (til100) {xmax <- 100
   } else {
-    xmax <- max(andeler, na.rm = T)*1.1
+    # xmax <- max(andeler, na.rm = T)*1.1
+    xmax <- ceiling(max(andeler, na.rm = TRUE)/10)*10
   }
 
   vmarg <- max(0, strwidth(rownames(andeler), units='figure', cex=cexgr)*0.8)
   par('fig'=c(vmarg, 1, 0, 1))
   par('mar'=c(5.1, 4.1, 4.1, 9.1))
+  par('oma'=c(0,2,0,0))
 
   ypos <- barplot( t(andeler[,dim(andeler)[2]]), beside=T, las=1,
                    main = tittel, font.main=1, cex.main=1.3,
@@ -79,7 +82,7 @@ indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800,
                    xlim=c(0,xmax),
                    names.arg=rep('',dim(andeler)[1]),
                    horiz=T, axes=F, space=c(0,0.3),
-                   col=soyleFarger, border=NA, xlab = 'Andel %') # '#96BBE7'
+                   col=soyleFarger, border=NA, xlab = 'Andel (%)') # '#96BBE7'
   ypos <- as.vector(ypos)
   if (!is.na(minstekrav)) {
     lines(x=rep(minstekrav, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
@@ -89,7 +92,7 @@ indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800,
              xlim=c(0,xmax),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
-             col=soyleFarger, border=NA, xlab = 'Andel %', add=TRUE)
+             col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
     text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min=',minstekrav,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
@@ -102,12 +105,13 @@ indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800,
              xlim=c(0,xmax),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
-             col=soyleFarger, border=NA, xlab = 'Andel %', add=TRUE)
+             col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
     text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0('Mål=',maal,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
   }
-  axis(1,cex.axis=0.9)
+  # axis(1,cex.axis=0.9)
+  axis(1, at= , cex.axis=0.9)
   mtext( rownames(andeler), side=2, line=0.2, las=1, at=ypos, col=1, cex=cexgr)
   if (dim(andeler)[2]==2) {
     mtext( c(N[,1], 2014), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
@@ -117,7 +121,8 @@ indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800,
     # points(y=ypos, x=andeler[,1],cex=1.5)
     points(y=ypos, x=andeler[,1],cex=1.5,pch= 19)
     text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
-    mtext( 'Boområde/opptaksområde', side=2, line=9.5, las=0, col=1, cex=cexgr)
+    # mtext( 'Boområde/opptaksområde', side=2, line=9.5, las=0, col=1, cex=cexgr)
+    mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
     #   legend(x=82, y=ypos[2]+1,xjust=0, cex=1.2, bty='o', bg='white', box.col='white',
     #          lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
     #          legend=c('2013','2014', '2015') )
@@ -135,7 +140,8 @@ indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800,
     points(y=ypos, x=andeler[,1],cex=1.5)
     points(y=ypos, x=andeler[,2],cex=1.5,pch= 19)
     text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
-    mtext( 'Boområde/opptaksområde', side=2, line=9.5, las=0, col=1, cex=cexgr)
+    # mtext( 'Boområde/opptaksområde', side=2, line=9.5, las=0, col=1, cex=cexgr)
+    mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
     #   legend(x=82, y=ypos[2]+1,xjust=0, cex=1.2, bty='o', bg='white', box.col='white',
     #          lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
     #          legend=c('2013','2014', '2015') )
@@ -148,6 +154,7 @@ indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800,
 
   par('mar'= oldpar_mar)
   par('fig'= oldpar_fig)
+  par('oma'= oldpar_oma)
 
   if (outfile != '') {savePlot(outfile, type=substr(outfile, nchar(outfile)-2, nchar(outfile)))}
 

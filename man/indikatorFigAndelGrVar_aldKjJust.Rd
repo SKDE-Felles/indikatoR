@@ -6,7 +6,7 @@
 \usage{
 indikatorFigAndelGrVar_aldKjJust(Antall, outfile, tittel, width = 800,
   height = 700, decreasing = F, terskel = 30, minstekrav = NA,
-  maal = NA, til100 = FALSE)
+  sideTxt = "Boområde/opptaksområde", maal = NA, til100 = FALSE)
 }
 \arguments{
 \item{outfile}{Angir filnavn og format pÃ¥ figuren som returneres,}

@@ -31,6 +31,7 @@ indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3
   windows(width = width, height = height)
   oldpar_mar <- par()$mar
   oldpar_fig <- par()$fig
+  oldpar_oma <- par()$oma
 
   cexgr <- skriftStr
 
@@ -38,19 +39,21 @@ indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3
   # hmarg <- max(0, 3*strwidth(max(N), units='figure', cex=cexgr)*0.7)
   par('fig'=c(vmarg, 1, 0, 1))
   par('mar'=c(5.1, 4.1, 4.1, 3.1))
+  par('oma'=c(0,2,0,0))
 
   ypos <- barplot(t(as.matrix(andeler)), horiz=T, beside=FALSE, border=NA, main=tittel,
-                  names.arg=rep('',dim(andeler)[1]), font.main=1, cex.main=1.3, xlab='Andel %',
+                  names.arg=rep('',dim(andeler)[1]), font.main=1, cex.main=1.3, xlab='Andel (%)',
                   las=1, col=farger[c(1,3,4)])
 
   ypos <- as.vector(ypos)
   mtext( radnavn, side=2, line=0.2, las=1, at=ypos, col=1, cex=cexgr)
   mtext( c(N, 'N'), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
-  if (sideTxt=='Sykehus'){
-    mtext(text = sideTxt, side=2, line=15.5, las=0, col=1, cex=cexgr)
-  } else {
-    mtext(text = sideTxt, side=2, line=13.5, las=0, col=1, cex=cexgr)
-  }
+  mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
+#   if (sideTxt=='Sykehus'){
+#     mtext(text = sideTxt, side=2, line=15.5, las=0, col=1, cex=cexgr)
+#   } else {
+#     mtext(text = sideTxt, side=2, line=13.5, las=0, col=1, cex=cexgr)
+#   }
 #   mtext( c(paste0(round(rowSums(Antall[rekkefolg, 11:13])/N_tot*100, 0), '%'), 'Ukjent'), side=4, line=6.0, las=1,
 #          at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
 #   text(x=andeler[,1], y=ypos, labels = paste0(round(andeler[,1]), '%'), cex=0.85, pos=2, col='white')
@@ -58,14 +61,16 @@ indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3
   text(x=rep(100, length(andeler[3])), y=ypos, labels = paste0(round(andeler[,3]), '%'), cex=0.85, pos=2)
 
   text(x=0, y=ypos, labels = paste0(round(andeler[,1]), '%'), cex=0.85, pos=4, col='white')
-  text(x=(andeler[,1]+andeler[,2]/2), y=ypos, labels = paste0(round(andeler[,2]), '%'), cex=0.85, pos=2)
+  text(x=50, y=ypos, labels = paste0(round(andeler[,2]), '%'), cex=0.85, pos=2)
+  # text(x=(andeler[,1]+andeler[,2]/2), y=ypos, labels = paste0(round(andeler[,2]), '%'), cex=0.85, pos=2)
 
   par(xpd=TRUE)
   legend('top', inset=c(vmarg,-.03), names(andeler), fill = farger[c(1,3,4)], ncol = 3, border = farger[c(1,3,4)], bty = 'n', cex = 0.8)
+  par(xpd=FALSE)
 
   par('mar'= oldpar_mar)
   par('fig'= oldpar_fig)
-  par(xpd=FALSE)
+  par('oma'= oldpar_oma)
 
   # if (outfile != '') {dev.off()}
 
