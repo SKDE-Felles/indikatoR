@@ -2,7 +2,13 @@ setwd('C:/GIT/indikatoR/doc/')
 rm(list = ls())
 library(indikatoR)
 
-skrivSKDEdisk <- T
+skrivSKDEdisk <- F
+
+terskel_sh <- 10
+terskel_hf <- 10
+terskel_bo1 <- 15
+terskel_bo2 <- 30
+
 
 ############  Brystkreft - brystbevarende  ###################################################
 
@@ -14,7 +20,7 @@ height=700
 AntTilfeller=Brystbevarende_sh$AntTilfeller
 N=Brystbevarende_sh$AntTotalt
 decreasing=F
-terskel=30
+terskel=terskel_sh
 
 indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Sykehus',
                        width=width, height=height, decreasing=decreasing, terskel=terskel, minstekrav = 70, maal = 80, legPlass='nede')
@@ -22,7 +28,7 @@ indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=t
 ### Aldersjustering
 AntTilfeller=Brystbevarende_bo_aldersgr$AntTilfeller
 N=Brystbevarende_bo_aldersgr$AntTotalt
-terskel=30
+terskel=terskel_bo1
 outfile='C:/GIT/indikatoR/doc/figurer/Brystbevarende_bo_justert.pdf'
 if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/Brystbevarende_bo_justert.pdf'}
 tittel=c('Andel med brystbevarende kirurgi for tumorstørrelse 0-30 mm', 'pr. boområde, aldersjustert')
@@ -44,8 +50,9 @@ width=800
 height=700
 outfile='C:/GIT/indikatoR/doc/figurer/TestresultaterKi67_sh.pdf'
 if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/TestresultaterKi67_sh.pdf'}
+terskel <- terskel_sh
 indikatorFigAndelStabelGrVar_mUkjent(Antall=Antall, outfile, tittel=tittel, sideTxt='Sykehus',
-                                     inkl_ukjent=inkl_ukjent, width=width, height=height, terskel=30)
+                                     inkl_ukjent=inkl_ukjent, width=width, height=height, terskel=terskel)
 
 tittel='Ki67 proliferasjonsrate, pr. boområde, justert'
 width=800
@@ -53,8 +60,9 @@ height=700
 outfile <- 'TestresultaterKi67_bo_justert.png'
 if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/TestresultaterKi67_bo_justert.png'}
 Antall <- BrystKi67Bo2015_aldersgr
+terskel <- terskel_bo1
 indikatorFigAndelStabelGrVar_justert(Antall=Antall, outfile=outfile, tittel=tittel,
-                                     width=800, height=700, terskel=30)
+                                     width=800, height=700, terskel=terskel)
 
 ###############################################################################
 ##########  Brystkreft histologi  #######################################################
@@ -63,16 +71,17 @@ Antall <- BrystkreftHistologi_sh
 tittel='Histologisk Grad (Nottingham), pr. sykehus'
 outfile='C:/GIT/indikatoR/doc/figurer/HistologiskGrad(Nottingham)_sh.pdf'
 if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/HistologiskGrad(Nottingham)_sh.pdf'}
-indikatorFigAndelStabelGrVar_mUkjent(Antall=Antall, outfile, tittel=tittel, sideTxt='Sykehus', inkl_ukjent=F)
+terskel <- terskel_sh
+indikatorFigAndelStabelGrVar_mUkjent(Antall=Antall, outfile, tittel=tittel, sideTxt='Sykehus', inkl_ukjent=F, terskel=terskel)
 
 
 tittel='Histologisk Grad (Nottingham), pr. boområde, justert'
 outfile <- 'C:/GIT/indikatoR/doc/figurer/HistologiskGrad(Nottingham)_bo_justert.pdf'
 if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/HistologiskGrad(Nottingham)_bo_justert.pdf'}
 Antall <- BrystkreftHistologi_bo2015_aldersgr
-
+terskel <- terskel_bo1
 indikatorFigAndelStabelGrVar_justert(Antall=Antall, outfile=outfile, tittel=tittel,
-                                     width=800, height=700)
+                                     width=800, height=700, terskel=terskel)
 
 
 
@@ -80,21 +89,19 @@ indikatorFigAndelStabelGrVar_justert(Antall=Antall, outfile=outfile, tittel=titt
 ################################################################################
 ################### The hips don't lie ###################################
 
-# load("C:/GIT/indikatoR/data/Hoftebrudd_Preoperativ_liggetid_bo_justert.RData")
-
+width=800
+height=700
+decreasing=F
+minstekrav = NA
+maal = NA
 Andeler <- Hoftebrudd_Preoperativ_liggetid_bo_justert[, -c(3,5,7,8)]
 names(Andeler)[names(Andeler)=='andel24'] <- 'andel'
 names(Andeler)[names(Andeler)=='bohf_txt'] <- 'bohf'
 outfile <- 'C:/GIT/indikatoR/doc/figurer/HofteOp24_bo.pdf'
 if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/HofteOp24_bo.pdf'}
 tittel <- 'Andel operert innen 24 timer, pr. boområde, justert'
-width=800
-height=700
-decreasing=F
-terskel=30
-minstekrav = NA
-maal = NA
 
+terskel=terskel_bo2
 indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=tittel, width=width, height=height, til100=F,
                                                decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal)
 
