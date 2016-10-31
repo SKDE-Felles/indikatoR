@@ -6,8 +6,7 @@
 \usage{
 indikatorFigAndelGrVar_justert(AntTilfeller, N, outfile, tittel, width = 800,
   height = 700, decreasing = F, terskel = 30, minstekrav = NA,
-  sideTxt = "Boområde/opptaksområde", maal = NA, tertiler = c(-1, 51,
-  66, 140), justeringLand = T)
+  sideTxt = "Boområde/opptaksområde", maal = NA)
 }
 \arguments{
 \item{N}{En vektor/matrise med N for ratene}

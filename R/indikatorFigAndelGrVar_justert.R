@@ -14,23 +14,13 @@
 #'
 indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, width=800, height=700,
                                            decreasing=F, terskel=30, minstekrav = NA, sideTxt='Boområde/opptaksområde',
-                                           maal = NA, tertiler = c(-1,51,66,140), justeringLand=T)
+                                           maal = NA)
   {
   AntTilfeller[is.na(AntTilfeller)] <- 0
   # N[is.na(N)] <- 0
 
-  if (justeringLand) {
-    # Innb2015aldkj <- read.table('C:/GIT/indikatoR/doc/Innbyggere2015aldkj.csv', sep = ';', header = T, encoding = 'UTF-8')
-    Innb2015aldkj <- Innb2015aldkj[Innb2015aldkj$ErMann==0, ]
-    Innb2015aldkj$aldergr <- cut(Innb2015aldkj$Alder, breaks=tertiler, labels = FALSE)
-    vekt <- tapply(Innb2015aldkj$AntInnb, Innb2015aldkj$aldergr, sum)
-    vekt <- vekt/sum(vekt)
-  } else {
-    ### Registerbefolkning #######
     vekt <- as.vector( N['Norge', c(3,6,9)]/ rowSums(N['Norge', c(3,6,9)]))
     vekt <- as.numeric(as.character(vekt))
-
-  }
 
   andeler_ujust <- AntTilfeller/N
   andeler_ujust[is.na(andeler_ujust)] <- 0
@@ -45,7 +35,6 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
 
   andeler <- data.frame('2013' = r1, '2014' = r2, '2015' = r3) *100
 
-  # terskel <- 10
   andeler[N < terskel] <- NA
 
   if (decreasing){
@@ -56,18 +45,13 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
   andeler <- andeler[rekkefolge, ]
   N <- N[rekkefolge, ]
   andeler[N[,3]<terskel, 1:2] <- NA
-  # pst_txt <- paste0(round(andeler[,3]), '%')
   pst_txt <- paste0(sprintf('%.1f', andeler[, 3]), '%')
   pst_txt[is.na(andeler[,3])] <- paste0('N<', terskel, ' siste år')
-
-  # N[N<terskel] <- paste0('<', terskel)
-
 
   FigTypUt <- rapbase::figtype(outfile='', width=width, height=height, pointsizePDF=11, fargepalett='BlaaOff')
   farger <- FigTypUt$farger
   soyleFarger <- rep(farger[3], length(andeler[,3]))
   soyleFarger[which(rownames(andeler)=='Norge')] <- farger[4]
-  # if (outfile == '') {windows(width = width, height = height)}
   windows(width = width, height = height)
 
   oldpar_mar <- par()$mar
@@ -76,7 +60,6 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
   cexgr <- 1.3
 
   vmarg <- max(0, strwidth(rownames(andeler), units='figure', cex=cexgr)*0.8)
-  # hmarg <- max(0, 3*strwidth(max(N), units='figure', cex=cexgr)*0.7)
   par('fig'=c(vmarg, 1, 0, 1))
   par('mar'=c(5.1, 4.1, 4.1, 9.1))
 
@@ -87,9 +70,6 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
                    names.arg=rep('',dim(andeler)[1]),
                    horiz=T, axes=F, space=c(0,0.3),
                    col=soyleFarger, border=NA, xlab = 'Andel %') # '#96BBE7'
-  #   ypos <- barplot(t(as.matrix(andeler)), horiz=T, beside=FALSE, border=NA, main=tittel,
-  #                   names.arg=rep('',dim(andeler)[1]), font.main=1, cex.main=1.3, xlab='Andel %',
-  #                   las=1, col=farger[c(1,3,4)])
   ypos <- as.vector(ypos)
   if (!is.na(minstekrav)) {
     lines(x=rep(minstekrav, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
@@ -126,24 +106,13 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
   mtext(text = sideTxt, side=2, line=10.5, las=0, col=1, cex=cexgr)
   points(y=ypos, x=andeler[,1],cex=1.5) #'#4D4D4D'
   points(y=ypos, x=andeler[,2],cex=1.5,pch= 19)
-  # text(x=0, y=ypos,andeler[,3], cex=0.75,pos=4)
   text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
-  # legend('bottomright',c('2013','2014'), pch=c(1,19),bty='n',cex=1.5)
-
-  #   legend('bottomright', xjust=1, cex=1.2, bty='o', bg='white', box.col='white',
-  #          lwd=c(NA,NA,NA,2), pch=c(1,19,15,NA), pt.cex=c(1,1,2,1), col=c('black','black',farger[3],farger[1]),
-  #          legend=c('2013','2014', '2015', 'Mål') )
-  #   legend('bottomright', xjust=1, cex=1.2, bty='o', bg='white', box.col='white',
-  #          lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
-  #          legend=c('2013','2014', '2015') )
   legend(x=82, y=ypos[2]+1,xjust=0, cex=1.2, bty='o', bg='white', box.col='white',
          lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
          legend=c('2013','2014', '2015') )
 
   par('mar'= oldpar_mar)
   par('fig'= oldpar_fig)
-
-  # if (outfile != '') {dev.off()}
 
   if (outfile != '') {savePlot(outfile, type=substr(outfile, nchar(outfile)-2, nchar(outfile)))}
 

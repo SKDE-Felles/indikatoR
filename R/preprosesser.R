@@ -115,6 +115,7 @@ indikatorLastdataOgPreprosesser <- function()
   save(Hoftebrudd_Preoperativ_liggetid_sh, file = "Hoftebrudd_Preoperativ_liggetid_sh.RData")
 
   Hoftebrudd_Preoperativ_liggetid_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Preoperativ_liggetid_Behsh_justert.csv', sep = ';', header = T, encoding = 'native')
+  Hoftebrudd_Preoperativ_liggetid_sh_v2 <- Hoftebrudd_Preoperativ_liggetid_sh_v2[, c(2:8,1)]
   Hoftebrudd_Preoperativ_liggetid_sh_v2$behsh <- Hoftebrudd_Preoperativ_liggetid_sh_v2$behsh_txt
   Hoftebrudd_Preoperativ_liggetid_sh_v2 <- Hoftebrudd_Preoperativ_liggetid_sh_v2[ , -which(names(Hoftebrudd_Preoperativ_liggetid_sh_v2)=="behsh_txt")]
   save(Hoftebrudd_Preoperativ_liggetid_sh_v2, file = "Hoftebrudd_Preoperativ_liggetid_sh_v2.RData")
@@ -152,27 +153,27 @@ indikatorLastdataOgPreprosesser <- function()
 
   Hoftebrudd_Produksjon_bo_aldkjgr <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebrudd_BO_teknikk_raadata_alt.csv',
                                                  sep = ';', header = T, encoding = 'native', strip.white=TRUE)
-  Hoftebrudd_Produksjon_bo_aldkjgr <- Hoftebrudd_Produksjon_bo_aldkjgr[,-1]
-  Hoftebrudd_Produksjon_bo_aldkjgr$Bo <- as.character(Hoftebrudd_Produksjon_bo_aldkjgr$Bo)
-  Hoftebrudd_Produksjon_bo_aldkjgr$Bo[Hoftebrudd_Produksjon_bo_aldkjgr$Bo=='Landet'] <- 'Norge'
+  Hoftebrudd_Produksjon_bo_aldkjgr <- Hoftebrudd_Produksjon_bo_aldkjgr[,-7]
+  Hoftebrudd_Produksjon_bo_aldkjgr$bohf <- as.character(Hoftebrudd_Produksjon_bo_aldkjgr$bohf_txt)
+  Hoftebrudd_Produksjon_bo_aldkjgr$bohf[Hoftebrudd_Produksjon_bo_aldkjgr$bohf=='Landet'] <- 'Norge'
   Hoftebrudd_Produksjon_bo_aldkjgr$AldKjGr <- Hoftebrudd_Produksjon_bo_aldkjgr$alder +
     Hoftebrudd_Produksjon_bo_aldkjgr$ermann*max(Hoftebrudd_Produksjon_bo_aldkjgr$alder)
-  Hoftebrudd_Produksjon_bo_aldkjgr <- Hoftebrudd_Produksjon_bo_aldkjgr[,-(3:4)]
+  Hoftebrudd_Produksjon_bo_aldkjgr <- Hoftebrudd_Produksjon_bo_aldkjgr[,-c(1, 3:4)]
   Hoftebrudd_Produksjon_bo_aldkjgr2015 <- Hoftebrudd_Produksjon_bo_aldkjgr[Hoftebrudd_Produksjon_bo_aldkjgr$aar==2015, ]
-  Hoftebrudd_Produksjon_bo_aldkjgr2015 <- Hoftebrudd_Produksjon_bo_aldkjgr2015[, -2]
+  Hoftebrudd_Produksjon_bo_aldkjgr2015 <- Hoftebrudd_Produksjon_bo_aldkjgr2015[, -1]
   Hoftebrudd_Produksjon_bo_aldkjgr2015 <- tidyr::spread(Hoftebrudd_Produksjon_bo_aldkjgr2015, 'teknikk', 'Antall')
 
   tmp <- Hoftebrudd_Produksjon_bo_aldkjgr2015
   tmp[is.na(tmp)] <- 0
 
-  vekt <- tmp[tmp$Bo=='Norge', 6]/sum(tmp[tmp$Bo=='Norge', 6])
+  vekt <- tmp[tmp$bohf=='Norge', 6]/sum(tmp[tmp$bohf=='Norge', 6])
   vektFrame <- data.frame('AldKjGr'=sort(unique(tmp$AldKjGr)), 'vekt'=vekt)
 
   tmp[, 3:5] <- tmp[, 3:5]/tmp$Totalt
   tmp[which(is.nan(tmp[, 3])),3:5] <- 0
   tmp <- merge(tmp, vektFrame, by='AldKjGr', all.x=T)
   tmp[, c(3:5)] <- tmp[, c(3:5)] * tmp$vekt
-  Hoftebrudd_andeler_2015_bo_justert <- aggregate(tmp[, c(3:6)], by=list(bohf=tmp$Bo), sum)
+  Hoftebrudd_andeler_2015_bo_justert <- aggregate(tmp[, c(3:6)], by=list(bohf=tmp$bohf), sum)
   Hoftebrudd_andeler_2015_bo_justert[,2:4] <- Hoftebrudd_andeler_2015_bo_justert[,2:4]/rowSums(Hoftebrudd_andeler_2015_bo_justert[,2:4])
   rownames(Hoftebrudd_andeler_2015_bo_justert) <- Hoftebrudd_andeler_2015_bo_justert$bohf
   Hoftebrudd_andeler_2015_bo_justert <- Hoftebrudd_andeler_2015_bo_justert[, -1]
