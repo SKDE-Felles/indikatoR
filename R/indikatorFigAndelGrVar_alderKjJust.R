@@ -116,7 +116,9 @@ indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800,
     mtext( c(N[,1], 2014), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
     mtext( c(N[,2], 2015), side=4, line=5.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
     mtext( 'N', side=4, line=4.0, las=1, at=max(ypos)+2*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
+    par(xpd=TRUE)
     points(y=ypos, x=andeler[,1],cex=1.5,pch= 19)
+    par(xpd=FALSE)
     text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
     mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
     if (legPlass=='nede') {
@@ -137,19 +139,29 @@ indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800,
     mtext( c(N[,2], 2014), side=4, line=5.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
     mtext( c(N[,3], 2015), side=4, line=8.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
     mtext( 'N', side=4, line=5.5, las=1, at=max(ypos)+2*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
+    par(xpd=TRUE)
     points(y=ypos, x=andeler[,1],cex=1.5)
     points(y=ypos, x=andeler[,2],cex=1.5,pch= 19)
+    par(xpd=FALSE)
     text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
-    # mtext( 'Boområde/opptaksområde', side=2, line=9.5, las=0, col=1, cex=cexgr)
     mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
     #   legend(x=82, y=ypos[2]+1,xjust=0, cex=1.2, bty='o', bg='white', box.col='white',
     #          lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
     #          legend=c('2013','2014', '2015') )
-    par(xpd=TRUE)
-    legend('top', inset=c(vmarg,-.025), cex=1.2, bty='n', #bg='white', box.col='white',
-           lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
-           legend=c('2013','2014', '2015'), ncol = 3)
-    par(xpd=FALSE)
+    if (legPlass=='nede') {
+      legend('bottomright', cex=1.2, bty='n',
+             lwd=c(NA,NA), pch=c(19,15), pt.cex=c(1,2), col=c('black',farger[3]),
+             legend=c('2014', '2015'), ncol = 1)
+      legend('bottomright', cex=1.2, bty='n',
+             lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
+             legend=c('2013','2014', '2015'), ncol = 1)
+    } else {
+      par(xpd=TRUE)
+      legend('top', inset=c(vmarg,-.025), cex=1.2, bty='n', #bg='white', box.col='white',
+             lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
+             legend=c('2013','2014', '2015'), ncol = 3)
+      par(xpd=FALSE)
+    }
   }
 
   par('mar'= oldpar_mar)

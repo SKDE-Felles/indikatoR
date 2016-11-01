@@ -49,21 +49,19 @@ indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3
   mtext( radnavn, side=2, line=0.2, las=1, at=ypos, col=1, cex=cexgr)
   mtext( c(N, 'N'), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
   mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
-#   if (sideTxt=='Sykehus'){
-#     mtext(text = sideTxt, side=2, line=15.5, las=0, col=1, cex=cexgr)
-#   } else {
-#     mtext(text = sideTxt, side=2, line=13.5, las=0, col=1, cex=cexgr)
-#   }
-#   mtext( c(paste0(round(rowSums(Antall[rekkefolg, 11:13])/N_tot*100, 0), '%'), 'Ukjent'), side=4, line=6.0, las=1,
-#          at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
-#   text(x=andeler[,1], y=ypos, labels = paste0(round(andeler[,1]), '%'), cex=0.85, pos=2, col='white')
-#   text(x=(andeler[,1]+andeler[,2]), y=ypos, labels = paste0(round(andeler[,2]), '%'), cex=0.85, pos=2)
-  text(x=rep(100, length(andeler[3])), y=ypos, labels = paste0(round(andeler[,3]), '%'), cex=0.85, pos=2)
-
-  text(x=0, y=ypos, labels = paste0(round(andeler[,1]), '%'), cex=0.85, pos=4, col='white')
-  text(x=50, y=ypos, labels = paste0(round(andeler[,2]), '%'), cex=0.85, pos=2)
+  pst_txt1 <- paste0(round(andeler[,1]), '%')
+  pst_txt1[is.na(andeler[,1])] <- ''
+  pst_txt2 <- paste0(round(andeler[,2]), '%')
+  pst_txt2[is.na(andeler[,1])] <- ''
+  pst_txt3 <- paste0(round(andeler[,3]), '%')
+  pst_txt3[is.na(andeler[,1])] <- ''
+  text(x=rep(100, length(andeler[3])), y=ypos, labels = pst_txt3, cex=0.85, pos=2)
+  text(x=0, y=ypos, labels = pst_txt1, cex=0.85, pos=4, col='white')
+  text(x=50, y=ypos, labels = pst_txt2, cex=0.85, pos=2)
   # text(x=(andeler[,1]+andeler[,2]/2), y=ypos, labels = paste0(round(andeler[,2]), '%'), cex=0.85, pos=2)
-
+  if (length(which(is.na(andeler[,1]))) > 0){
+    text(x=0, y=ypos[1:length(which(is.na(andeler[,1])))], labels = paste0('N < ', terskel), cex=0.85, pos=4)
+  }
   par(xpd=TRUE)
   legend('top', inset=c(vmarg,-.03), names(andeler), fill = farger[c(1,3,4)], ncol = 3, border = farger[c(1,3,4)], bty = 'n', cex = 0.8)
   par(xpd=FALSE)

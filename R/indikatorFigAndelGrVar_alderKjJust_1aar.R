@@ -12,7 +12,7 @@
 #'
 #' @export
 #'
-indikatorFigAndelGrVar_aldKjJust_1aar <- function(Antall, outfile, tittel, width=800, height=700,
+indikatorFigAndelGrVar_aldKjJust_1aar <- function(Antall, outfile, tittel, width=800, height=700, minstekravTxt='Moderat=', maalTxt='Høy=',
                                            decreasing=F, terskel=30, minstekrav = NA, sideTxt ='Boområde/opptaksområde',
                                            maal = NA, til100=FALSE)
   {
@@ -82,26 +82,28 @@ indikatorFigAndelGrVar_aldKjJust_1aar <- function(Antall, outfile, tittel, width
   ypos <- as.vector(ypos)
   if (!is.na(minstekrav)) {
     lines(x=rep(minstekrav, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
-    barplot( t(andeler[,3]), beside=T, las=1,
+    barplot( t(andeler[,dim(andeler)[2]]), beside=T, las=1,
              main = tittel, font.main=1, cex.main=1.3,
              xlim=c(0,xmax),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
-    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min=',minstekrav,'%'), pos = 3, cex=0.7)
+    # text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min=',minstekrav,'%'), pos = 3, cex=0.7)
+    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0(minstekravTxt, minstekrav,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
   }
   if (!is.na(maal)) {
     lines(x=rep(maal, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
-    barplot( t(andeler[,3]), beside=T, las=1,
+    barplot( t(andeler[,dim(andeler)[2]]), beside=T, las=1,
              main = tittel, font.main=1, cex.main=1.3,
              xlim=c(0,xmax),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
-    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0('Mål=',maal,'%'), pos = 3, cex=0.7)
+    # text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0('Mål=',maal,'%'), pos = 3, cex=0.7)
+    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0(maalTxt,maal,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
   }
   axis(1,cex.axis=0.9)
