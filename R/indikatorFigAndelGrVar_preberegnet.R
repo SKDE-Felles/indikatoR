@@ -36,7 +36,7 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
   andeler <- andeler[rekkefolge, ]
   N <- N[rekkefolge, ]
   andeler[N[,3]<terskel, 1:2] <- NA
-  pst_txt <- paste0(round(andeler[,3], 1), '%')
+  pst_txt <- paste0(round(andeler[,3], 0), '%')
   pst_txt[is.na(andeler[,3])] <- paste0('N<', terskel, ' siste år')
 
   FigTypUt <- rapbase::figtype(outfile='', width=width, height=height, pointsizePDF=11, fargepalett='BlaaOff')

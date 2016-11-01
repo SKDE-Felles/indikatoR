@@ -10,7 +10,7 @@
 #' @export
 #'
 indikatorFigAndelStabelGrVar_mUkjent <- function(Antall, outfile, tittel, inkl_ukjent=F, sideTxt='Boområde/opptaksområde',
-                                                 width=800, height=700, terskel=30) {
+                                                 width=800, height=700, terskel=30, skriftStr=1.3) {
 
 
   Antall[is.na(Antall)] <- 0
@@ -51,7 +51,6 @@ indikatorFigAndelStabelGrVar_mUkjent <- function(Antall, outfile, tittel, inkl_u
 
   } else {
   andeler <- Antall[, 2:4]/rowSums(Antall[, 2:4])*100
-  # rownames(andeler) <- Antall$`Behandlende sykehus`
   rownames(andeler) <- Antall[,1]
   N <- rowSums(Antall[, 2:4])
   N_tot <- rowSums(Antall[, 2:5])
@@ -60,25 +59,24 @@ indikatorFigAndelStabelGrVar_mUkjent <- function(Antall, outfile, tittel, inkl_u
   andeler <- andeler[rekkefolg, ]
   N <- N[rekkefolg]
   N_tot <- N_tot[rekkefolg]
-  # radnavn <- paste0(rownames(andeler), ' (N=', N, ')')
   radnavn <- rownames(andeler)
 
   FigTypUt <- rapbase::figtype(outfile='', width=width, height=height, pointsizePDF=11, fargepalett='BlaaOff')
   farger <- FigTypUt$farger
-  # if (outfile == '') {windows(width = width, height = height)}
   windows(width = width, height = height)
   oldpar_mar <- par()$mar
   oldpar_fig <- par()$fig
+  oldpar_oma <- par()$oma
 
-  cexgr <- 1.3
+  cexgr <- skriftStr
 
   vmarg <- max(0, strwidth(radnavn, units='figure', cex=cexgr)*0.8)
-  # hmarg <- max(0, 3*strwidth(max(N), units='figure', cex=cexgr)*0.7)
   par('fig'=c(vmarg, 1, 0, 1))
   par('mar'=c(5.1, 4.1, 4.1, 6.1))
+  par('oma'=c(0,2,0,0))
 
   ypos <- barplot(t(as.matrix(andeler)), horiz=T, beside=FALSE, border=NA, main=tittel,
-                  names.arg=rep('',dim(andeler)[1]), font.main=1, cex.main=1.3, xlab='Andel %',
+                  names.arg=rep('',dim(andeler)[1]), font.main=1, cex.main=1.3, xlab='Andel (%)',
                   las=1, col=farger[c(1,3,4)])
 
   ypos <- as.vector(ypos)
@@ -86,7 +84,8 @@ indikatorFigAndelStabelGrVar_mUkjent <- function(Antall, outfile, tittel, inkl_u
   mtext( c(N, 'N'), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
   mtext( c(paste0(round(Antall[rekkefolg, 5]/N_tot*100, 0), '%'), 'Ukjent'), side=4, line=6.0, las=1,
          at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
-  mtext(text = sideTxt, side=2, line=10.5, las=0, col=1, cex=cexgr)
+  # mtext(text = sideTxt, side=2, line=10.5, las=0, col=1, cex=cexgr)
+  mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
   text(x=andeler[,1], y=ypos, labels = paste0(round(andeler[,1]), '%'), cex=0.85, pos=2, col='white')
   text(x=(andeler[,1]+andeler[,2]), y=ypos, labels = paste0(round(andeler[,2]), '%'), cex=0.85, pos=2)
   text(x=rep(100, length(andeler[3])), y=ypos, labels = paste0(round(andeler[,3]), '%'), cex=0.85, pos=2)
@@ -99,13 +98,9 @@ indikatorFigAndelStabelGrVar_mUkjent <- function(Antall, outfile, tittel, inkl_u
 
   par('mar'= oldpar_mar)
   par('fig'= oldpar_fig)
-
+  par('oma'= oldpar_oma)
 
   }
-
-
-
-  # if (outfile != '') {dev.off()}
 
   if (outfile != '') {savePlot(outfile, type=substr(outfile, nchar(outfile)-2, nchar(outfile)))}
 

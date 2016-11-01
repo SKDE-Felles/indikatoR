@@ -22,9 +22,19 @@ indikatorLastdataOgPreprosesser <- function()
   rownames(AntTilfeller) <- as.character(raatall$Behandlende.sykehus)
   colnames(AntTotalt) <- c('2013','2014','2015')
   rownames(AntTotalt) <- as.character(raatall$Behandlende.sykehus)
-
   Brystbevarende_sh <- list(AntTilfeller=AntTilfeller, AntTotalt=AntTotalt)
   save(Brystbevarende_sh, file = "Brystbevarende_sh.RData")
+
+  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Brystbevarende_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+
+  AntTilfeller <- raatall[, 2:4]
+  AntTotalt <- raatall[, 5:7]
+  colnames(AntTilfeller) <- c('2013','2014','2015')
+  rownames(AntTilfeller) <- as.character(raatall$Behandlende.sykehus)
+  colnames(AntTotalt) <- c('2013','2014','2015')
+  rownames(AntTotalt) <- as.character(raatall$Behandlende.sykehus)
+  Brystbevarende_sh_v2 <- list(AntTilfeller=AntTilfeller, AntTotalt=AntTotalt)
+  save(Brystbevarende_sh_v2, file = "Brystbevarende_sh_v2.RData")
 
 
   raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Brystbevarende_bo.csv', header=TRUE, sep=";", encoding = 'UFT-8')
@@ -59,6 +69,12 @@ indikatorLastdataOgPreprosesser <- function()
   names(BrystKi67sh2015) <- c('Behandlende sykehus', 'Lav <15%', 'Intermediær 15-30%', 'Høy >30%', 'Ukjent')
   save(BrystKi67sh2015, file = "BrystKi672015_sh.RData")
 
+  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Ki67_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  BrystKi67sh2015_v2 <- raatall[ , c(1, 4,7,10,13)]
+  names(BrystKi67sh2015_v2) <- c('Behandlende sykehus', 'Lav <15%', 'Intermediær 15-30%', 'Høy >30%', 'Ukjent')
+  save(BrystKi67sh2015_v2, file = "BrystKi672015_sh_v2.RData")
+
+
   raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/ki67_bo.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   BrystKi67Bo2015 <- raatall[ , c(1, 4,7,10,13)]
   names(BrystKi67Bo2015) <- c('Boområde', 'Lav <15%', 'Intermediær 15-30%', 'Høy >30%', 'Ukjent')
@@ -75,13 +91,17 @@ indikatorLastdataOgPreprosesser <- function()
   save(BrystKi67Bo2015_aldersgr, file = "BrystKi67Bo2015_aldersgr.RData")
 
 
-
   #############################################################################################
   ## Brystkreft - Histologi andeler i stabel  #################################################
   raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/BrystkreftHistologi_sh.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   BrystkreftHistologi_sh <- raatall[ , c(1, 4,7,10,13)]
   names(BrystkreftHistologi_sh) <- c('Behandlende sykehus', 'Grad 1', 'Grad 2', 'Grad 3', 'Ukjent')
   save(BrystkreftHistologi_sh, file = "BrystkreftHistologi_sh.RData")
+
+  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/BrystkreftHistologi_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  BrystkreftHistologi_sh_v2 <- raatall[ , c(1, 4,7,10,13)]
+  names(BrystkreftHistologi_sh_v2) <- c('Behandlende sykehus', 'Grad 1', 'Grad 2', 'Grad 3', 'Ukjent')
+  save(BrystkreftHistologi_sh_v2, file = "BrystkreftHistologi_sh_v2.RData")
 
   raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/BrystkreftHistologi_bo.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   BrystkreftHistologi_bo <- raatall[ , c(1, 4,7,10,13)]
@@ -188,8 +208,56 @@ indikatorLastdataOgPreprosesser <- function()
 #   tmp[, c(3:5,7)] <- tmp[, c(3:5,7)] * tmp$vekt
 #   andeler <- aggregate(tmp[, c(3:5,7)], by=list(bohf=tmp$Bo), sum)
 #   andeler$sum <- rowSums(andeler[,-1])
-
   save(Hoftebrudd_andeler_2015_bo_justert, file = "Hoftebrudd_andeler_2015_bo_justert.RData")
+
+  ############ Korrigerte tall!!!!!!!!!!!!!!!
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebrudd_BOHF_teknikk.csv',
+                                                 sep = ';', header = T, encoding = 'native', strip.white=TRUE)
+  names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)[names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)=='Bohf'] <- 'bohf'
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr$bohf <- Hoftebrudd_Produksjon_bo_aldkjgr_korr$bohf_txt
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr$Teknikk <- Hoftebrudd_Produksjon_bo_aldkjgr_korr$teknikk_txt
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr <- Hoftebrudd_Produksjon_bo_aldkjgr_korr[, -which(names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)
+                                                                                          %in% c('bohf_txt', 'teknikk_txt'))]
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr$AldKjGr <- Hoftebrudd_Produksjon_bo_aldkjgr_korr$aldergr +
+    Hoftebrudd_Produksjon_bo_aldkjgr_korr$Ermann*max(Hoftebrudd_Produksjon_bo_aldkjgr_korr$aldergr)
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr <- Hoftebrudd_Produksjon_bo_aldkjgr_korr[ , -which(names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)
+                                                                                  %in% c('Ermann', 'aldergr'))]
+  Norge <- aggregate(Hoftebrudd_Produksjon_bo_aldkjgr_korr$Antall,
+                     by=list(Teknikk=Hoftebrudd_Produksjon_bo_aldkjgr_korr$Teknikk,
+                             aar=Hoftebrudd_Produksjon_bo_aldkjgr_korr$aar, AldKjGr=Hoftebrudd_Produksjon_bo_aldkjgr_korr$AldKjGr), sum, na.rm=T)
+  Norge$bohf <- 'Norge'
+  names(Norge)[which(names(Norge)=='x')] <- 'Antall'
+
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr <- Hoftebrudd_Produksjon_bo_aldkjgr_korr[, c("aar", "Teknikk", "Antall", "bohf", "AldKjGr")]
+  Norge <- Norge[, c("aar", "Teknikk", "Antall", "bohf", "AldKjGr")]
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr <- rbind(Hoftebrudd_Produksjon_bo_aldkjgr_korr, Norge)
+
+  Hoftebrudd_Produksjon_bo_aldkjgr2015_v2 <- Hoftebrudd_Produksjon_bo_aldkjgr_korr[Hoftebrudd_Produksjon_bo_aldkjgr_korr$aar==2015, ]
+  Hoftebrudd_Produksjon_bo_aldkjgr2015_v2 <- Hoftebrudd_Produksjon_bo_aldkjgr2015_v2[, -1]
+  Hoftebrudd_Produksjon_bo_aldkjgr2015_v2 <- tidyr::spread(Hoftebrudd_Produksjon_bo_aldkjgr2015_v2, 'Teknikk', 'Antall')
+  Hoftebrudd_Produksjon_bo_aldkjgr2015_v2[is.na(Hoftebrudd_Produksjon_bo_aldkjgr2015_v2)] <- 0
+  Hoftebrudd_Produksjon_bo_aldkjgr2015_v2$Totalt <- rowSums(Hoftebrudd_Produksjon_bo_aldkjgr2015_v2[, 3:5])
+
+  tmp <- Hoftebrudd_Produksjon_bo_aldkjgr2015_v2
+
+  vekt <- tmp[tmp$bohf=='Norge', 6]/sum(tmp[tmp$bohf=='Norge', 6])
+  vektFrame <- data.frame('AldKjGr'=sort(unique(tmp$AldKjGr)), 'vekt'=vekt)
+
+  tmp[, 3:5] <- tmp[, 3:5]/tmp$Totalt
+  tmp[which(is.nan(tmp[, 3])),3:5] <- 0
+  tmp <- merge(tmp, vektFrame, by='AldKjGr', all.x=T)
+  tmp[, c(3:5)] <- tmp[, c(3:5)] * tmp$vekt
+  Hoftebrudd_andeler_2015_bo_justert_v2 <- aggregate(tmp[, c(3:6)], by=list(bohf=tmp$bohf), sum)
+  Hoftebrudd_andeler_2015_bo_justert_v2[,2:4] <- Hoftebrudd_andeler_2015_bo_justert_v2[,2:4]/rowSums(Hoftebrudd_andeler_2015_bo_justert_v2[,2:4])
+  rownames(Hoftebrudd_andeler_2015_bo_justert_v2) <- Hoftebrudd_andeler_2015_bo_justert_v2$bohf
+  Hoftebrudd_andeler_2015_bo_justert_v2 <- Hoftebrudd_andeler_2015_bo_justert_v2[, -1]
+  names(Hoftebrudd_andeler_2015_bo_justert_v2)[names(Hoftebrudd_andeler_2015_bo_justert_v2)=='Totalt'] <- 'N'
+  names(Hoftebrudd_andeler_2015_bo_justert_v2)[names(Hoftebrudd_andeler_2015_bo_justert_v2)=='Pinning'] <- 'To skruer eller pinner'
+  names(Hoftebrudd_andeler_2015_bo_justert_v2)[names(Hoftebrudd_andeler_2015_bo_justert_v2)=='Hemipro'] <- 'Hemiprotese'
+  names(Hoftebrudd_andeler_2015_bo_justert_v2)[names(Hoftebrudd_andeler_2015_bo_justert_v2)=='Totalpr'] <- 'Totalprotese'
+  Hoftebrudd_andeler_2015_bo_justert_v2 <- Hoftebrudd_andeler_2015_bo_justert_v2[, c(2,1,3,4)]
+
+  save(Hoftebrudd_andeler_2015_bo_justert_v2, file = "Hoftebrudd_andeler_2015_bo_justert_v2.RData")
 
   ##########      UNDER ARBEID      #####################################################################
   ##########      UNDER ARBEID      #####################################################################
@@ -234,11 +302,11 @@ indikatorLastdataOgPreprosesser <- function()
 
   ## produksjon
 
-  Hofteprotese_Produksjon_sh <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Proteser/Resultater/Hofte_Proteser_behandler.csv',
+  Hofteprotese_Produksjon_sh <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Proteser/Resultater/Gammelt/Hofte_Proteser_behandler.csv',
                                          sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   save(Hofteprotese_Produksjon_sh, file = "Hofteprotese_Produksjon_sh.RData")
 
-  Kneprotese_Produksjon_sh <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Proteser/Resultater/Kne_Proteser_behandler.csv',
+  Kneprotese_Produksjon_sh <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Proteser/Resultater/Gammelt/Kne_Proteser_behandler.csv',
                                            sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   save(Kneprotese_Produksjon_sh, file = "Kneprotese_Produksjon_sh.RData")
 

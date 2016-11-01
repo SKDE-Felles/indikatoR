@@ -14,7 +14,7 @@
 #'
 indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, height=700, sideTxt='Boområde/opptaksområde',
                                    decreasing=F, terskel=30, minstekrav = NA, maal = NA, skriftStr=1.3, pktStr=1.5, legPlass='top',
-                                   minstekravTxt='Min=', maalTxt='Mål=')
+                                   minstekravTxt='Min.=', maalTxt='Mål=')
 {
   andeler <- AntTilfeller/N * 100
 
@@ -29,7 +29,7 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
   andeler <- andeler[rekkefolge, ]
   N <- N[rekkefolge, ]
   andeler[N[, dim(andeler)[2]]<terskel, 1:2] <- NA
-  pst_txt <- paste0(sprintf('%.1f', andeler[, dim(andeler)[2]]), '%')
+  pst_txt <- paste0(sprintf('%.0f', andeler[, dim(andeler)[2]]), '%')
   pst_txt[is.na(andeler[, dim(andeler)[2]])] <- paste0('N<', terskel, ' siste år')
 
   FigTypUt <- rapbase::figtype(outfile='', width=width, height=height, pointsizePDF=11, fargepalett='BlaaOff')

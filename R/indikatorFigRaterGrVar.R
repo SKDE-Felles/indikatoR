@@ -104,7 +104,7 @@ indikatorFigRaterGrVar <- function(Andeler, outfile, tittel, width=800, height=7
   points(y=ypos, x=andeler[,2],cex=pktStr,pch= 19)
   text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
   par(xpd=TRUE)
-  legend('top', inset=c(vmarg,-.03), cex=1.2, bty='o', bg='white', box.col='white',
+  legend('top', inset=c(vmarg,-.03), cex=1.2, bty='n', # bg='white', box.col='white',
          lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
          legend=c('2013','2014', '2015'), ncol = 3)
   par(xpd=FALSE)

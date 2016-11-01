@@ -54,7 +54,7 @@ indikatorFigAndelStabelGrVar_justert <- function(Antall, outfile='', tittel='Tit
   par('mar'=c(5.1, 4.1, 4.1, 6.1))
 
   ypos <- barplot(t(as.matrix(andeler)), horiz=T, beside=FALSE, border=NA, main=tittel,
-                  names.arg=rep('',dim(andeler)[1]), font.main=1, cex.main=1.3, xlab='Andel %',
+                  names.arg=rep('',dim(andeler)[1]), font.main=1, cex.main=1.3, xlab='Andel (%)',
                   las=1, col=farger[c(1,3,4)])
 
   ypos <- as.vector(ypos)

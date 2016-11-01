@@ -12,7 +12,7 @@
 #'
 #' @export
 #'
-indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, width=800, height=700,
+indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, width=800, height=700, skriftStr=1.3,
                                            decreasing=F, terskel=30, minstekrav = NA, sideTxt='Boområde/opptaksområde',
                                            maal = NA)
   {
@@ -45,7 +45,7 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
   andeler <- andeler[rekkefolge, ]
   N <- N[rekkefolge, ]
   andeler[N[,3]<terskel, 1:2] <- NA
-  pst_txt <- paste0(sprintf('%.1f', andeler[, 3]), '%')
+  pst_txt <- paste0(sprintf('%.0f', andeler[, 3]), '%')
   pst_txt[is.na(andeler[,3])] <- paste0('N<', terskel, ' siste år')
 
   FigTypUt <- rapbase::figtype(outfile='', width=width, height=height, pointsizePDF=11, fargepalett='BlaaOff')
@@ -56,12 +56,14 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
 
   oldpar_mar <- par()$mar
   oldpar_fig <- par()$fig
+  oldpar_oma <- par()$oma
 
-  cexgr <- 1.3
+  cexgr <- skriftStr
 
   vmarg <- max(0, strwidth(rownames(andeler), units='figure', cex=cexgr)*0.8)
   par('fig'=c(vmarg, 1, 0, 1))
   par('mar'=c(5.1, 4.1, 4.1, 9.1))
+  par('oma'=c(0,2,0,0))
 
   ypos <- barplot( t(andeler[,3]), beside=T, las=1,
                    main = tittel, font.main=1, cex.main=1.3,
@@ -69,7 +71,7 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
                    xlim=c(0,100),
                    names.arg=rep('',dim(andeler)[1]),
                    horiz=T, axes=F, space=c(0,0.3),
-                   col=soyleFarger, border=NA, xlab = 'Andel %') # '#96BBE7'
+                   col=soyleFarger, border=NA, xlab = 'Andel (%)') # '#96BBE7'
   ypos <- as.vector(ypos)
   if (!is.na(minstekrav)) {
     lines(x=rep(minstekrav, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
@@ -79,9 +81,9 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
              xlim=c(0,100),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
-             col=soyleFarger, border=NA, xlab = 'Andel %', add=TRUE)
+             col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
-    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min=',minstekrav,'%'), pos = 3, cex=0.7)
+    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min.=',minstekrav,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
   }
   if (!is.na(maal)) {
@@ -92,7 +94,7 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
              xlim=c(0,100),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
-             col=soyleFarger, border=NA, xlab = 'Andel %', add=TRUE)
+             col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
     text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0('Mål=',maal,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
@@ -103,16 +105,18 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
   mtext( c(N[,2], 2014), side=4, line=5.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
   mtext( c(N[,3], 2015), side=4, line=8.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
   mtext( 'N', side=4, line=5.5, las=1, at=max(ypos)+2*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
-  mtext(text = sideTxt, side=2, line=10.5, las=0, col=1, cex=cexgr)
+  # mtext(text = sideTxt, side=2, line=10.5, las=0, col=1, cex=cexgr)
+  mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
   points(y=ypos, x=andeler[,1],cex=1.5) #'#4D4D4D'
   points(y=ypos, x=andeler[,2],cex=1.5,pch= 19)
   text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
-  legend(x=82, y=ypos[2]+1,xjust=0, cex=1.2, bty='o', bg='white', box.col='white',
+  legend(x=82, y=ypos[2]+1,xjust=0, cex=cexgr, bty='o', bg='white', box.col='white',
          lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
          legend=c('2013','2014', '2015') )
 
   par('mar'= oldpar_mar)
   par('fig'= oldpar_fig)
+  par('oma'= oldpar_oma)
 
   if (outfile != '') {savePlot(outfile, type=substr(outfile, nchar(outfile)-2, nchar(outfile)))}
 

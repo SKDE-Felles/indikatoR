@@ -49,7 +49,7 @@ indikatorFigAndelGrVar_aldKjJust <- function(Antall, outfile, tittel, width=800,
   andeler <- andeler[rekkefolge, ]
   N <- N[rekkefolge, ]
   andeler[N[, dim(andeler)[2]]<terskel, -dim(andeler)[2]] <- NA
-  pst_txt <- paste0(sprintf('%.1f', andeler[, dim(andeler)[2]]), '%')
+  pst_txt <- paste0(sprintf('%.0f', andeler[, dim(andeler)[2]]), '%')
   pst_txt[is.na(andeler[, dim(andeler)[2]])] <- paste0('N<', terskel, ' siste år')
 
   FigTypUt <- rapbase::figtype(outfile='', width=width, height=height, pointsizePDF=11, fargepalett='BlaaOff')
