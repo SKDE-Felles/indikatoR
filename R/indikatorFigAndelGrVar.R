@@ -127,7 +127,7 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
     par(xpd=FALSE)
     text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
     if (legPlass=='nede'){
-      legend(x=82, y=ypos[2]+1,xjust=0, cex=cexgr, bty='o', bg='white', box.col='white',
+      legend(x=82, y=ypos[2]+1,xjust=0, cex=cexgr, bty='n', #bg='white', box.col='white',
              lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
              legend=c('2013','2014', '2015') )
     } else {
