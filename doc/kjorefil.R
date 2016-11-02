@@ -1,9 +1,11 @@
 setwd('C:/GIT/indikatoR/doc/')
+filkatalog <- ...
+figurkatalog <- ...
 rm(list = ls())
 library(indikatoR)
 
-skrivSKDEdisk <- F
-skrivSKDEdiskPNG <- T
+skrivSKDEdisk <- F # Skriv til skde-disk pdf-folder
+skrivSKDEdiskPNG <- T # Skriv til skde-disk png-folder
 
 terskel_sh <- 10
 terskel_hf <- 10
@@ -11,9 +13,10 @@ terskel_bo1 <- 15
 terskel_bo2 <- 40
 terskel_bo3 <- 30
 
-
+paste0(katalog, '/ksj/fil.pff')
 ############  Brystkreft - brystbevarende  ###################################################
 
+figurnavn <- 
 outfile='C:/GIT/indikatoR/doc/figurer/Brystbevarende_sh.pdf'
 if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/Brystbevarende_sh.pdf'}
 if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/Brystbevarende_sh.png'}
@@ -44,8 +47,6 @@ indikatorFigAndelGrVar_justert(AntTilfeller=AntTilfeller, N=N, outfile=outfile, 
 
 ###############################################################################
 ##########  Brystkreft Ki 67  #######################################################
-
-# load("C:/GIT/indikatoR/data/BrystKi672015_sh.RData")
 
 Antall <- BrystKi67sh2015_v2
 tittel=c('Fordeling av Ki67 proliferasjonsrate 2015,', 'pr. behandlende sykehus')
@@ -127,8 +128,6 @@ indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=titt
                                    decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal)
 
 
-# load("C:/GIT/indikatoR/data/Hoftebrudd_Preoperativ_liggetid_sh.RData")
-
 Andeler <- Hoftebrudd_Preoperativ_liggetid_sh_v2[ , -c(3,4,7)]
 Andeler <- Andeler[, c(1,2,4,3)]
 names(Andeler)[names(Andeler)=='andel24'] <- 'andel'
@@ -137,7 +136,7 @@ names(Andeler)[names(Andeler)=='behsh'] <- 'bohf'
 outfile <- 'C:/GIT/indikatoR/doc/figurer/HofteOp24_sh.pdf'
 if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/HofteOp24_sh.pdf'}
 if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/HofteOp24_sh.png'}
-tittel <- 'Andel operert innen 24 timer, pr. behandlende sykehus'
+tittel <- 'Andel hoftebrudd operert innen 24 timer, pr. behandlende sykehus'
 skriftStr <- 0.8
 pktStr <- 1.0
 terskel <- terskel_sh
@@ -153,7 +152,7 @@ names(Andeler)[names(Andeler)=='behsh'] <- 'bohf'
 outfile <- 'C:/GIT/indikatoR/doc/figurer/HofteOp48_sh.pdf'
 if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/HofteOp48_sh.pdf'}
 if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/HofteOp48_sh.png'}
-tittel <- 'Andel operert innen 48 timer, pr. behandlende sykehus'
+tittel <- 'Andel hoftebrudd operert innen 48 timer, pr. behandlende sykehus'
 # skriftStr <- 1.0
 # pktStr <- 1.0
 
@@ -161,38 +160,6 @@ indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=titt
                                    decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal,
                                    skriftStr=skriftStr, pktStr=pktStr, sideTxt='Behandlende sykehus')
 
-
-# Andeler <- Hoftebrudd_Preoperativ_liggetid_hf[ , -c(3,4,7)]
-# Andeler <- Andeler[, c(1,2,4,3)]
-# names(Andeler)[names(Andeler)=='andel24'] <- 'andel'
-# names(Andeler)[names(Andeler)=='Antall'] <- 'antall'
-# names(Andeler)[names(Andeler)=='behhf'] <- 'bohf'
-# outfile <- 'C:/GIT/indikatoR/doc/figurer/HofteOp24_hf.pdf'
-# if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/HofteOp24_hf.pdf'}
-# if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/HofteOp24_hf.png'}
-# tittel <- 'Andel operert innen 24 timer, pr. helseforetak'
-# skriftStr <- 1.0
-# pktStr <- 1.0
-#
-# indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=tittel, width=width, height=height,
-#                                    decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal,
-#                                    skriftStr=skriftStr, pktStr=pktStr, sideTxt='Helseforetak')
-#
-# Andeler <- Hoftebrudd_Preoperativ_liggetid_hf[ , -c(3,4,6)]
-# Andeler <- Andeler[, c(1,2,4,3)]
-# names(Andeler)[names(Andeler)=='andel48'] <- 'andel'
-# names(Andeler)[names(Andeler)=='Antall'] <- 'antall'
-# names(Andeler)[names(Andeler)=='behhf'] <- 'bohf'
-# outfile <- 'C:/GIT/indikatoR/doc/figurer/HofteOp48_hf.pdf'
-# if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/HofteOp48_hf.pdf'}
-# if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/HofteOp48_hf.png'}
-# tittel <- 'Andel operert innen 48 timer, pr. helseforetak'
-# skriftStr <- 1.0
-# pktStr <- 1.0
-#
-# indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=tittel, width=width, height=height,
-#                                    decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal,
-#                                    skriftStr=skriftStr, pktStr=pktStr, sideTxt='Helseforetak')
 
 ###### Produksjon
 
@@ -203,27 +170,13 @@ names(Antall)[names(Antall)=='Behandlende.sykehus'] <- 'bohf'
 outfile <- 'C:/GIT/indikatoR/doc/figurer/Hoftebrudd_produksjon_sh.pdf'
 if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/Hoftebrudd_produksjon_sh.pdf'}
 if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/Hoftebrudd_produksjon_sh.png'}
-tittel <- c('Antall hoftebrudd meldt til Nasjonalt Hoftebruddregister,', 'pr. behandlende sykehus')
+tittel <- c('Antall lårhalsbrudd meldt til Nasjonalt Hoftebruddregister,', 'pr. behandlende sykehus')
 pktStr <- 1
 skriftStr <- 0.8
 
 indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=800, height=700,
                                     decreasing=F, xtekst ='Antall', sideTxt='Behandlende sykehus',
                                     skriftStr=skriftStr, pktStr=pktStr)
-
-# Antall <- Hoftebrudd_Produksjon_bo[ , -c(1,4,5,6)]
-# names(Antall)[names(Antall)=='n'] <- 'antall'
-# names(Antall)[names(Antall)=='Boomraade'] <- 'bohf'
-# outfile <- 'C:/GIT/indikatoR/doc/figurer/Hoftebrudd_produksjon_bo.pdf'
-# if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/Hoftebrudd_produksjon_bo.pdf'}
-# if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/Hoftebrudd_produksjon_bo.png'}
-# tittel <- c('Antall hoftebrudd meldt til Nasjonalt Hoftebruddregister', 'i 2013-15, per boområde')
-# pktStr <- 1.3
-# skriftStr <- 1.3
-#
-# indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=800, height=700,
-#                         decreasing=F, xtekst ='Antall',
-#                         skriftStr=skriftStr, pktStr=pktStr)
 
 ##### Type behandling
 
@@ -253,23 +206,6 @@ if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Anal
 terskel <- terskel_sh
 indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, terskel=terskel, tittel=tittel, skriftStr=skriftStr, sideTxt = 'Behandlende sykehus')
 
-
-# Andeler <- Hoftebrudd_Produksjon_hf
-# Andeler <- Andeler[Andeler$aar==2015, ]
-# Andeler <- Andeler[, -2]
-# rownames(Andeler) <- Andeler$Behandlende.sykehus
-# Andeler <- Andeler[, -1]
-# names(Andeler)[names(Andeler)=='Totalt.antall'] <- 'N'
-# names(Andeler)[names(Andeler)=='Pinning'] <- 'To skruer eller pinner'
-# Andeler[,1:3] <- Andeler[,1:3]/rowSums(Andeler[,1:3])
-# Andeler <- Andeler[Andeler$N > 0, ]
-# skriftStr <- 1
-# tittel <- 'Operasjonsmetoder ved lårhalsbrudd 2015, HF'
-# outfile <- 'C:/GIT/indikatoR/doc/figurer/Hofte_operasjonsmetode_hf.pdf'
-# if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/Hofte_operasjonsmetode_hf.pdf'}
-# if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/Hofte_operasjonsmetode_hf.png'}
-#
-# indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, skriftStr=skriftStr, sideTxt = 'Helseforetak')
 
 
 Andeler <- Hoftebrudd_rater
@@ -443,23 +379,6 @@ terskel <- terskel_sh
 indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Sykehus', minstekrav = 80, maal = 90,
                        width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1,
                        minstekravTxt = 'Moderat=', maalTxt='Høy=')
-#
-# AntTilfeller <- tidyr::spread(Hjerneslag_behandlet_slagenhet_hf[,1:3], 'Aar', 'TellerC')
-# rownames(AntTilfeller) <- AntTilfeller$helseenhet
-# AntTilfeller <- AntTilfeller[, -1]
-# N <- tidyr::spread(Hjerneslag_behandlet_slagenhet_hf[,c(1,2,4)], 'Aar', 'NevnerC')
-# rownames(N) <- N$helseenhet
-# N <- N[, -1]
-# N[is.na(N)] <- 0
-# tittel <- 'Andel behandlet i slagenhet, pr. helseforetak'
-# outfile <- 'C:/GIT/indikatoR/doc/figurer/BehSlagenhet_hf.pdf'
-# if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/BehSlagenhet_hf.pdf'}
-# if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/BehSlagenhet_hf.png'}
-#
-# indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Helseforetak', minstekrav = 80, maal = 90,
-#                        width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1,
-#                        minstekravTxt = 'Moderat=', maalTxt='Høy=')
-
 
 
 Antall <- Hjerneslag_tromsbolyse_bo
@@ -491,6 +410,55 @@ indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=t
                        width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1,
                        minstekrav = 30, minstekravTxt = 'Moderat=', maal = 50, maalTxt='Høy=', legPlass='nede')
 
+################# Prolapsrater ############################################
+#############################################################
+
+Andeler <- Prolapskirurgi_rater
+outfile <- 'C:/GIT/indikatoR/doc/figurer/Prolapskirurgi_rater.pdf'
+if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/Prolapskirurgi_rater.pdf'}
+if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/Brystbevarende_bo_justert.png'}
+tittel <- 'Rater prolapskirurgi etter boområde'
+terskel <- terskel_bo3
+indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=width, height=height, til100=til100,
+                       decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal, xtekst ='Rater pr. 1000 innbyggere')
+
+
+
+
+
+
+# Andeler <- Hoftebrudd_Preoperativ_liggetid_hf[ , -c(3,4,7)]
+# Andeler <- Andeler[, c(1,2,4,3)]
+# names(Andeler)[names(Andeler)=='andel24'] <- 'andel'
+# names(Andeler)[names(Andeler)=='Antall'] <- 'antall'
+# names(Andeler)[names(Andeler)=='behhf'] <- 'bohf'
+# outfile <- 'C:/GIT/indikatoR/doc/figurer/HofteOp24_hf.pdf'
+# if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/HofteOp24_hf.pdf'}
+# if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/HofteOp24_hf.png'}
+# tittel <- 'Andel operert innen 24 timer, pr. helseforetak'
+# skriftStr <- 1.0
+# pktStr <- 1.0
+#
+# indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=tittel, width=width, height=height,
+#                                    decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal,
+#                                    skriftStr=skriftStr, pktStr=pktStr, sideTxt='Helseforetak')
+#
+# Andeler <- Hoftebrudd_Preoperativ_liggetid_hf[ , -c(3,4,6)]
+# Andeler <- Andeler[, c(1,2,4,3)]
+# names(Andeler)[names(Andeler)=='andel48'] <- 'andel'
+# names(Andeler)[names(Andeler)=='Antall'] <- 'antall'
+# names(Andeler)[names(Andeler)=='behhf'] <- 'bohf'
+# outfile <- 'C:/GIT/indikatoR/doc/figurer/HofteOp48_hf.pdf'
+# if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/HofteOp48_hf.pdf'}
+# if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/HofteOp48_hf.png'}
+# tittel <- 'Andel operert innen 48 timer, pr. helseforetak'
+# skriftStr <- 1.0
+# pktStr <- 1.0
+#
+# indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=tittel, width=width, height=height,
+#                                    decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal,
+#                                    skriftStr=skriftStr, pktStr=pktStr, sideTxt='Helseforetak')
+
 # AntTilfeller <- tidyr::spread(Hjerneslag_tromsbolyse_hf[,1:3], 'Aar', 'TellerE')
 # rownames(AntTilfeller) <- AntTilfeller$helseenhet
 # AntTilfeller <- AntTilfeller[, -1]
@@ -506,16 +474,52 @@ indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=t
 # indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Helseforetak',
 #                        width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1,
 #                        minstekrav = 30, minstekravTxt = 'Moderat=', maal = 50, maalTxt='Høy=', legPlass='nede')
+#
+# AntTilfeller <- tidyr::spread(Hjerneslag_behandlet_slagenhet_hf[,1:3], 'Aar', 'TellerC')
+# rownames(AntTilfeller) <- AntTilfeller$helseenhet
+# AntTilfeller <- AntTilfeller[, -1]
+# N <- tidyr::spread(Hjerneslag_behandlet_slagenhet_hf[,c(1,2,4)], 'Aar', 'NevnerC')
+# rownames(N) <- N$helseenhet
+# N <- N[, -1]
+# N[is.na(N)] <- 0
+# tittel <- 'Andel behandlet i slagenhet, pr. helseforetak'
+# outfile <- 'C:/GIT/indikatoR/doc/figurer/BehSlagenhet_hf.pdf'
+# if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/BehSlagenhet_hf.pdf'}
+# if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/BehSlagenhet_hf.png'}
+#
+# indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Helseforetak', minstekrav = 80, maal = 90,
+#                        width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1,
+#                        minstekravTxt = 'Moderat=', maalTxt='Høy=')
+
+# Andeler <- Hoftebrudd_Produksjon_hf
+# Andeler <- Andeler[Andeler$aar==2015, ]
+# Andeler <- Andeler[, -2]
+# rownames(Andeler) <- Andeler$Behandlende.sykehus
+# Andeler <- Andeler[, -1]
+# names(Andeler)[names(Andeler)=='Totalt.antall'] <- 'N'
+# names(Andeler)[names(Andeler)=='Pinning'] <- 'To skruer eller pinner'
+# Andeler[,1:3] <- Andeler[,1:3]/rowSums(Andeler[,1:3])
+# Andeler <- Andeler[Andeler$N > 0, ]
+# skriftStr <- 1
+# tittel <- 'Operasjonsmetoder ved lårhalsbrudd 2015, HF'
+# outfile <- 'C:/GIT/indikatoR/doc/figurer/Hofte_operasjonsmetode_hf.pdf'
+# if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/Hofte_operasjonsmetode_hf.pdf'}
+# if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/Hofte_operasjonsmetode_hf.png'}
+#
+# indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, skriftStr=skriftStr, sideTxt = 'Helseforetak')
+
+# Antall <- Hoftebrudd_Produksjon_bo[ , -c(1,4,5,6)]
+# names(Antall)[names(Antall)=='n'] <- 'antall'
+# names(Antall)[names(Antall)=='Boomraade'] <- 'bohf'
+# outfile <- 'C:/GIT/indikatoR/doc/figurer/Hoftebrudd_produksjon_bo.pdf'
+# if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/Hoftebrudd_produksjon_bo.pdf'}
+# if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/Hoftebrudd_produksjon_bo.png'}
+# tittel <- c('Antall hoftebrudd meldt til Nasjonalt Hoftebruddregister', 'i 2013-15, per boområde')
+# pktStr <- 1.3
+# skriftStr <- 1.3
+#
+# indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=800, height=700,
+#                         decreasing=F, xtekst ='Antall',
+#                         skriftStr=skriftStr, pktStr=pktStr)
 
 
-################# Prolapsrater ############################################
-#############################################################
-
-Andeler <- Prolapskirurgi_rater
-outfile <- 'C:/GIT/indikatoR/doc/figurer/Prolapskirurgi_rater.pdf'
-if (skrivSKDEdisk) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PDF/Prolapskirurgi_rater.pdf'}
-if (skrivSKDEdiskPNG) {outfile <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/PNG/Brystbevarende_bo_justert.png'}
-tittel <- 'Rater prolapskirurgi etter boområde'
-terskel <- terskel_bo3
-indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=width, height=height, til100=til100,
-                       decreasing=decreasing, terskel=terskel, minstekrav=minstekrav, maal=maal, xtekst ='Rater pr. 1000 innbyggere')
