@@ -1,10 +1,10 @@
+rm(list = ls())
+library(indikatoR)
 setwd('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/doc/')
 
 hjemkatalog <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/doc/'
 figurkatalog <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/'
 
-rm(list = ls())
-library(indikatoR)
 
 skrivSKDEdisk <- F
 skrivSKDEdiskPNG <- F
@@ -43,7 +43,7 @@ if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
 if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
 tittel=c('Andel med brystbevarende kirurgi for tumorstørrelse 0-30 mm (aldersjustert),', 'pr. boområde/opptaksområde')
 
-indikatorFigAndelGrVar_justert(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, skriftStr=1.1,
+indikatorFigAndelGrVar_justert(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, #skriftStr=1.1,
                                width=width, height=height, decreasing=decreasing, terskel=terskel,
                                minstekrav = 70, maal = 80)
 
