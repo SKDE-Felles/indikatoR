@@ -7,7 +7,7 @@ figurkatalog <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/'
 
 
 skrivSKDEdisk <- F
-skrivSKDEdiskPNG <- F
+skrivSKDEdiskPNG <- T
 
 terskel_sh <- 10
 terskel_hf <- 10
