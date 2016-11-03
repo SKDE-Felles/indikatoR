@@ -9,7 +9,7 @@
 indikatorLastdataOgPreprosesser <- function()
 {
   currentDir <- getwd()
-  setwd('C:/GIT/indikatoR/data/')
+  setwd('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/data/')
 
   #############################################################################################
   ## Brystkreft - brystbevarende  #####################################################
