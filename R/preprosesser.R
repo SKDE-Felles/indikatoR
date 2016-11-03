@@ -16,22 +16,19 @@ indikatorLastdataOgPreprosesser <- function()
   sykehusnavn <- sykehusnavn[,c(1,3)]
   names(sykehusnavn) <- c("BehSh_nr","BehSh_navn")
 
+  sykehusnavn_lang <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/sykehusnavn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+#  sykehusnavn_lang <- sykehusnavn_lang[,c(1,2)]
+  names(sykehusnavn_lang) <- c("BehSh_nr","BehSh_lang", "BehSh_kort")
+
 
   #############################################################################################
   ## Brystkreft - brystbevarende  #####################################################
 
-  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Brystbevarende_sh.csv', header=TRUE, sep=";", encoding = 'UFT-8')
-
-  AntTilfeller <- raatall[, 2:4]
-  AntTotalt <- raatall[, 5:7]
-  colnames(AntTilfeller) <- c('2013','2014','2015')
-  rownames(AntTilfeller) <- as.character(raatall$Behandlende.sykehus)
-  colnames(AntTotalt) <- c('2013','2014','2015')
-  rownames(AntTotalt) <- as.character(raatall$Behandlende.sykehus)
-  Brystbevarende_sh <- list(AntTilfeller=AntTilfeller, AntTotalt=AntTotalt)
-  save(Brystbevarende_sh, file = "Brystbevarende_sh.RData")
-
   raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Brystbevarende_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- merge(raatall, sykehusnavn_lang[,c('BehSh_lang', 'BehSh_kort')],
+                                   by.x = c("Behandlende.sykehus"), by.y = c("BehSh_lang"), all.x = TRUE, all.y = FALSE)
+  raatall$Behandlende.sykehus <- raatall$BehSh_kort
+  raatall <- raatall[ , -which(names(raatall)=="BehSh_kort")]
 
   AntTilfeller <- raatall[, 2:4]
   AntTotalt <- raatall[, 5:7]
@@ -71,6 +68,10 @@ indikatorLastdataOgPreprosesser <- function()
   ## Brystkreft - Ki 67 andeler i stabel ujustert #############################################
 
   raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Ki67_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- merge(raatall, sykehusnavn_lang[,c('BehSh_lang', 'BehSh_kort')],
+                   by.x = c("Behandlende.sykehus"), by.y = c("BehSh_lang"), all.x = TRUE, all.y = FALSE)
+  raatall$Behandlende.sykehus <- raatall$BehSh_kort
+  raatall <- raatall[ , -which(names(raatall)=="BehSh_kort")]
   BrystKi67sh2015_v2 <- raatall[ , c(1, 4,7,10,13)]
   names(BrystKi67sh2015_v2) <- c('Behandlende sykehus', 'Lav <15%', 'Intermediær 15-30%', 'Høy >30%', 'Ukjent')
   save(BrystKi67sh2015_v2, file = "BrystKi672015_sh_v2.RData")
@@ -95,6 +96,10 @@ indikatorLastdataOgPreprosesser <- function()
   #############################################################################################
   ## Brystkreft - Histologi andeler i stabel  #################################################
   raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/BrystkreftHistologi_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- merge(raatall, sykehusnavn_lang[,c('BehSh_lang', 'BehSh_kort')],
+                   by.x = c("Behandlende.sykehus"), by.y = c("BehSh_lang"), all.x = TRUE, all.y = FALSE)
+  raatall$Behandlende.sykehus <- raatall$BehSh_kort
+  raatall <- raatall[ , -which(names(raatall)=="BehSh_kort")]
   BrystkreftHistologi_sh_v2 <- raatall[ , c(1, 4,7,10,13)]
   names(BrystkreftHistologi_sh_v2) <- c('Behandlende sykehus', 'Grad 1', 'Grad 2', 'Grad 3', 'Ukjent')
   save(BrystkreftHistologi_sh_v2, file = "BrystkreftHistologi_sh_v2.RData")
@@ -317,11 +322,6 @@ indikatorLastdataOgPreprosesser <- function()
   Revaskularisering_sh_v2 <- Revaskularisering_sh_v2[ , -which(names(Revaskularisering_sh_v2)=="BehSh_navn")]
   Revaskularisering_sh_v2 <- Revaskularisering_sh_v2[, -which(names(Revaskularisering_sh_v2)=="BehSh")]
   save(Revaskularisering_sh_v2, file = "Revaskularisering_sh_v2.RData")
-
-  Revaskularisering_hf <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Revaskularisering_BEHHF_v2.csv',
-                                        sep = ';', header = T, encoding = 'native', strip.white=TRUE)
-  Revaskularisering_hf <- Revaskularisering_hf[ , -2]
-  save(Revaskularisering_hf, file = "Revaskularisering_hf.RData")
 
   Revaskularisering_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Revaskularisering_BO.csv',
              sep = ';', header = T, encoding = 'native', strip.white=TRUE)

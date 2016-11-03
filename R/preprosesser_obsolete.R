@@ -1,3 +1,18 @@
+
+##### gammel Sh ######
+
+raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Brystbevarende_sh.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+
+AntTilfeller <- raatall[, 2:4]
+AntTotalt <- raatall[, 5:7]
+colnames(AntTilfeller) <- c('2013','2014','2015')
+rownames(AntTilfeller) <- as.character(raatall$Behandlende.sykehus)
+colnames(AntTotalt) <- c('2013','2014','2015')
+rownames(AntTotalt) <- as.character(raatall$Behandlende.sykehus)
+Brystbevarende_sh <- list(AntTilfeller=AntTilfeller, AntTotalt=AntTotalt)
+save(Brystbevarende_sh, file = "Brystbevarende_sh.RData")
+
+
 raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Ki67_sh.csv', header=TRUE, sep=";", encoding = 'UFT-8')
 BrystKi67sh2015 <- raatall[ , c(1, 4,7,10,13)]
 names(BrystKi67sh2015) <- c('Behandlende sykehus', 'Lav <15%', 'Intermediær 15-30%', 'Høy >30%', 'Ukjent')
@@ -62,6 +77,10 @@ Hjerneslag_behandlet_slagenhet_hf <- read.table('E:/FELLES/Prosjekter/Indikatorp
 Hjerneslag_behandlet_slagenhet_hf <- Hjerneslag_behandlet_slagenhet_hf[, -2]
 save(Hjerneslag_behandlet_slagenhet_hf, file = "Hjerneslag_behandlet_slagenhet_hf.RData")
 
+Revaskularisering_hf <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Revaskularisering_BEHHF_v2.csv',
+                                   sep = ';', header = T, encoding = 'native', strip.white=TRUE)
+Revaskularisering_hf <- Revaskularisering_hf[ , -2]
+save(Revaskularisering_hf, file = "Revaskularisering_hf.RData")
 
 
 
