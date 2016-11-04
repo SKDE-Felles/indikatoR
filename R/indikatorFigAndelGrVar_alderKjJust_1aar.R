@@ -12,7 +12,8 @@
 #'
 #' @export
 #'
-indikatorFigAndelGrVar_aldKjJust_1aar <- function(Antall, outfile, tittel, width=800, height=700, minstekravTxt='Moderat=', maalTxt='Høy=',
+indikatorFigAndelGrVar_aldKjJust_1aar <-
+        function(Antall, outfile, tittel, width=800, height=700, minstekravTxt='Moderat', maalTxt='Høy',
                                            decreasing=F, terskel=30, minstekrav = NA, sideTxt ='Boområde/opptaksområde',
                                            maal = NA, til100=FALSE)
   {
@@ -46,7 +47,7 @@ indikatorFigAndelGrVar_aldKjJust_1aar <- function(Antall, outfile, tittel, width
   andeler <- andeler[rekkefolge, ]
   N <- N[rekkefolge, ]
   andeler[N[, dim(andeler)[2]]<terskel, -dim(andeler)[2]] <- NA
-  pst_txt <- paste0(sprintf('%.1f', andeler[, dim(andeler)[2]]), '%')
+  pst_txt <- paste0(sprintf('%.0f', andeler[, dim(andeler)[2]]), ' %')
   pst_txt[is.na(andeler[, dim(andeler)[2]])] <- paste0('N<', terskel, ' siste år')
 
   FigTypUt <- rapbase::figtype(outfile='', width=width, height=height, pointsizePDF=11, fargepalett='BlaaOff')
@@ -60,12 +61,12 @@ indikatorFigAndelGrVar_aldKjJust_1aar <- function(Antall, outfile, tittel, width
   oldpar_fig <- par()$fig
   oldpar_oma <- par()$oma
 
-  cexgr <- 1.3
+  cexgr <- 1
 
   if (til100) {xmax <- 100
   } else {
     # xmax <- max(andeler[,-1], na.rm = T)*1.1
-    xmax <- ceiling(max(andeler[,-1], na.rm = TRUE)/10)*10
+    xmax <- ceiling(max(c(1.05*maal, andeler[,-1]), na.rm = TRUE)/10)*10
   }
 
   vmarg <- max(0, strwidth(andeler[,1], units='figure', cex=cexgr)*0.8)
@@ -83,33 +84,35 @@ indikatorFigAndelGrVar_aldKjJust_1aar <- function(Antall, outfile, tittel, width
   if (!is.na(minstekrav)) {
     lines(x=rep(minstekrav, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
     barplot( t(andeler[,dim(andeler)[2]]), beside=T, las=1,
-             main = tittel, font.main=1, cex.main=1.3,
-             xlim=c(0,xmax),
+          #   main = tittel, font.main=1, cex.main=1.3,
+          #   xlim=c(0,xmax),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
     # text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min=',minstekrav,'%'), pos = 3, cex=0.7)
-    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0(minstekravTxt, minstekrav,'%'), pos = 3, cex=0.7)
+    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = minstekravTxt, #paste0(minstekravTxt, minstekrav,'%'),
+         pos = 3, cex=0.9)
     par(xpd=FALSE)
   }
   if (!is.na(maal)) {
     lines(x=rep(maal, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
     barplot( t(andeler[,dim(andeler)[2]]), beside=T, las=1,
-             main = tittel, font.main=1, cex.main=1.3,
-             xlim=c(0,xmax),
+           #  main = tittel, font.main=1, cex.main=1.3,
+            # xlim=c(0,xmax),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
     # text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0('Mål=',maal,'%'), pos = 3, cex=0.7)
-    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0(maalTxt,maal,'%'), pos = 3, cex=0.7)
+    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = maalTxt, #paste0(maalTxt,maal,'%'),
+         pos = 3, cex=0.9)
     par(xpd=FALSE)
   }
   axis(1,cex.axis=0.9)
   mtext( andeler[,1], side=2, line=0.2, las=1, at=ypos, col=1, cex=cexgr)
   mtext( c(N[,2], 'N'), side=4, line=3.0, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
-  text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
+  text(x=0, y=ypos, labels = pst_txt, cex=0.8, pos=4)
   # mtext( 'Boområde', side=2, line=9.5, las=0, col=1, cex=cexgr)
   mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
 

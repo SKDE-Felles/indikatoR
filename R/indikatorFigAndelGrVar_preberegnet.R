@@ -36,7 +36,7 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
   andeler <- andeler[rekkefolge, ]
   N <- N[rekkefolge, ]
   andeler[N[,3]<terskel, 1:2] <- NA
-  pst_txt <- paste0(round(andeler[,3], 0), '%')
+  pst_txt <- paste0(round(andeler[,3], 0), ' %')
   pst_txt[is.na(andeler[,3])] <- paste0('N<', terskel, ' siste år')
 
   FigTypUt <- rapbase::figtype(outfile='', width=width, height=height, pointsizePDF=11, fargepalett='BlaaOff')
@@ -79,7 +79,7 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = xtekst, add=TRUE)
     par(xpd=TRUE)
-    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min=',minstekrav,'%'), pos = 3, cex=0.7)
+    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = 'Min' , pos = 3, cex=0.8) #paste0('Min=',minstekrav,'%')
     par(xpd=FALSE)
   }
   if (!is.na(maal)) {
@@ -92,7 +92,7 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = xtekst, add=TRUE)
     par(xpd=TRUE)
-    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0('Mål=',maal,'%'), pos = 3, cex=0.7)
+    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = 'Mål' , pos = 3, cex=0.8) #paste0('Mål=',maal,'%')
     par(xpd=FALSE)
   }
   axis(1,cex.axis=0.9)
@@ -112,8 +112,8 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
 #          legend=c('2013','2014', '2015'), ncol = 3)
 #   par(xpd=FALSE)
   par(xpd=TRUE)
-  legend('top', inset=c(vmarg,-.025), cex=1.2, bty='n', #bg='white', box.col='white',
-         lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
+  legend('top', inset=c(vmarg,-.025), cex=0.9, bty='n', #bg='white', box.col='white',
+         lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1.2,1.2,1.8), col=c('black','black',farger[3]),
          legend=c('2013','2014', '2015'), ncol = 3)
   par(xpd=FALSE)
 
