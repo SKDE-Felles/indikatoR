@@ -120,7 +120,7 @@ indikatorLastdataOgPreprosesser <- function()
   ##############################################################################################
   ################  Alder og kjønnsdata #########################################################
 
-  Innb2015aldkj <- read.table('C:/GIT/indikatoR/doc/Innbyggere2015aldkj.csv', sep = ';', header = T, encoding = 'UTF-8')
+  Innb2015aldkj <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/doc/Innbyggere2015aldkj.csv', sep = ';', header = T, encoding = 'UTF-8')
   save(Innb2015aldkj, file = "Innb2015aldkj.RData")
 
 

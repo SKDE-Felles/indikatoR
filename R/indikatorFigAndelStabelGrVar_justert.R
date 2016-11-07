@@ -10,7 +10,7 @@
 #' @export
 #'
 indikatorFigAndelStabelGrVar_justert <- function(Antall, outfile='', tittel='Tittel', sideTxt='Boområde/opptaksområde', terskel=30,
-                                                 width=800, height=700, tertiler = c(-1,51,66,140))
+                                                 width=600, height=600, tertiler = c(-1,51,66,140))
   {
 
   Antall[is.na(Antall)] <- 0
@@ -67,7 +67,7 @@ indikatorFigAndelStabelGrVar_justert <- function(Antall, outfile='', tittel='Tit
   text(x=(andeler[,1]+andeler[,2]), y=ypos, labels = paste0(round(andeler[,2]), ' %'), cex=0.9, pos=2)
   text(x=rep(100, length(andeler[3])), y=ypos, labels = paste0(round(andeler[,3]), ' %'), cex=0.9, pos=2)
   if (length(which(is.na(andeler[,1]))) > 0){
-    text(x=0, y=ypos[1:length(which(is.na(andeler[,1])))], labels = paste0('N < ', terskel), cex=0.9, pos=4)
+    text(x=0, y=ypos[1:length(which(is.na(andeler[,1])))], labels = paste0('N < ', terskel), cex=0.9, pos=2)
   }
 
   par(xpd=TRUE)

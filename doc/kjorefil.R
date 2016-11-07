@@ -190,7 +190,9 @@ outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
 if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
 if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
 terskel <- terskel_bo2
-indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, sideTxt = 'Boområde/opptaksområde', terskel = terskel)
+decreasing <- TRUE
+indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, sideTxt = 'Boområde/opptaksområde',
+                             terskel = terskel, decreasing=decreasing)
 
 
 Andeler <- Hoftebrudd_Produksjon_sh_v2
@@ -209,7 +211,9 @@ outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
 if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
 if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
 terskel <- terskel_sh
-indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, terskel=terskel, tittel=tittel, skriftStr=skriftStr, sideTxt = 'Behandlende sykehus')
+decreasing <- TRUE
+indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, terskel=terskel, tittel=tittel,
+                             decreasing=decreasing, skriftStr=skriftStr, sideTxt = 'Behandlende sykehus')
 
 
 

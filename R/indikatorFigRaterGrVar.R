@@ -12,7 +12,7 @@
 #'
 #' @export
 #'
-indikatorFigRaterGrVar <- function(Andeler, outfile, tittel, width=800, height=700,
+indikatorFigRaterGrVar <- function(Andeler, outfile, tittel, width=600, height=600,
                                    decreasing=F, terskel=30, minstekrav = NA, maal = NA, xtekst ='Andel %',
                                    til100 = F, skriftStr=1.3, pktStr=1.5)
   {
@@ -98,7 +98,7 @@ indikatorFigRaterGrVar <- function(Andeler, outfile, tittel, width=800, height=7
   mtext( c(N[,2], 2014), side=4, line=5.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
   mtext( c(N[,3], 2015), side=4, line=8.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
   mtext( 'Boområde/opptaksområde', side=2, line=9.5, las=0, col=1, cex=cexgr)#, outer=TRUE)#, adj = 1)
-  # mtext( 'N', side=4, line=2.5, las=1, at=max(ypos)+2*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
+   mtext( 'N', side=4, line=5.5, las=1, at=max(ypos)+1.8*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
   points(y=ypos, x=andeler[,1],cex=pktStr) #'#4D4D4D'
   points(y=ypos, x=andeler[,2],cex=pktStr,pch= 19)
   text(x=0, y=ypos, labels = pst_txt, cex=0.8,pos=4)

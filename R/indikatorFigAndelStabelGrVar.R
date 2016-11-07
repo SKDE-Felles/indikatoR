@@ -11,13 +11,13 @@
 #'
 #' @export
 #'
-indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3, width=800, height=700,
-                                         sideTxt='Boområde/opptaksområde', terskel=30)
+indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3, width=600, height=600,
+                                         sideTxt='Boområde/opptaksområde', terskel=30, decreasing=T)
   {
 
   Andeler[Andeler$N < terskel, 1:3] <- NA
 
-  rekkefolge <- order(Andeler[,1], decreasing = F, na.last = F)
+  rekkefolge <- order(Andeler[,1], decreasing = TRUE, na.last = F)
   Andeler <- Andeler[rekkefolge, ]
 
   andeler <- Andeler[,-4]*100
@@ -60,7 +60,7 @@ indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3
   text(x=50, y=ypos, labels = pst_txt2, cex=0.9, pos=2)
   # text(x=(andeler[,1]+andeler[,2]/2), y=ypos, labels = paste0(round(andeler[,2]), '%'), cex=0.9, pos=2)
   if (length(which(is.na(andeler[,1]))) > 0){
-    text(x=0, y=ypos[1:length(which(is.na(andeler[,1])))], labels = paste0('N < ', terskel), cex=0.9,adj=1 )#
+    text(x=0, y=ypos[1:length(which(is.na(andeler[,1])))], labels = paste0('N < ', terskel), cex=0.9,adj=0 )#
   }
   par(xpd=TRUE)
   legend('top', names(andeler), fill = farger[c(1,3,4)], ncol = 3, border = farger[c(1,3,4)],
