@@ -5,7 +5,7 @@
 \title{Plot alder og kjÃ¸nnsjusterte andeler/andeler i angitt format}
 \usage{
 indikatorFigAndelGrVar_aldKjJust_1aar(Antall, outfile, tittel, width = 800,
-  height = 700, minstekravTxt = "Moderat=", maalTxt = "Høy=",
+  height = 700, minstekravTxt = "Moderat", maalTxt = "Høy",
   decreasing = F, terskel = 30, minstekrav = NA,
   sideTxt = "Boområde/opptaksområde", maal = NA, til100 = FALSE)
 }

@@ -45,7 +45,7 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
   andeler <- andeler[rekkefolge, ]
   N <- N[rekkefolge, ]
   andeler[N[,3]<terskel, 1:2] <- NA
-  pst_txt <- paste0(sprintf('%.0f', andeler[, 3]), '%')
+  pst_txt <- paste0(sprintf('%.0f', andeler[, 3]), ' %')
   pst_txt[is.na(andeler[,3])] <- paste0('N<', terskel, ' siste år')
 
   FigTypUt <- rapbase::figtype(outfile='', width=width, height=height, pointsizePDF=11, fargepalett='BlaaOff')
@@ -73,8 +73,9 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
                    horiz=T, axes=F, space=c(0,0.3),
                    col=soyleFarger, border=NA, xlab = 'Andel (%)') # '#96BBE7'
   ypos <- as.vector(ypos)
+  yposOver <- max(ypos)+0.5*diff(ypos)[1]
   if (!is.na(minstekrav)) {
-    lines(x=rep(minstekrav, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
+    lines(x=rep(minstekrav, 2), y=c(-1, yposOver), col=farger[2], lwd=2)
     barplot( t(andeler[,3]), beside=T, las=1,
              main = tittel, font.main=1, cex.main=1.3,
              # xlim=c(0,max(andeler, na.rm = T)*1.1),
@@ -83,11 +84,11 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
-    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min.=',minstekrav,'%'), pos = 3, cex=0.7)
+    text(x=minstekrav, y=yposOver, labels = 'Min', pos = 3, cex=0.9) #paste0('Min.=',minstekrav,'%')
     par(xpd=FALSE)
   }
   if (!is.na(maal)) {
-    lines(x=rep(maal, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
+    lines(x=rep(maal, 2), y=c(-1, yposOver), col=farger[2], lwd=2)
     barplot( t(andeler[,3]), beside=T, las=1,
              main = tittel, font.main=1, cex.main=1.3,
              # xlim=c(0,max(andeler, na.rm = T)*1.1),
@@ -96,7 +97,7 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
-    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0('Mål=',maal,'%'), pos = 3, cex=0.7)
+    text(x=maal, y=yposOver, labels = 'Mål', pos = 3, cex=0.9) #paste0('Mål=',maal,'%'),
     par(xpd=FALSE)
   }
   axis(1,cex.axis=0.9)
@@ -109,10 +110,11 @@ indikatorFigAndelGrVar_justert <- function(AntTilfeller, N, outfile, tittel, wid
   mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
   points(y=ypos, x=andeler[,1],cex=1.5) #'#4D4D4D'
   points(y=ypos, x=andeler[,2],cex=1.5,pch= 19)
-  text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
-  legend(x=82, y=ypos[2]+1,xjust=0, cex=cexgr, bty='o', bg='white', box.col='white',
-         lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
+  text(x=0, y=ypos, labels = pst_txt, cex=0.9,pos=4)
+  legend(0, yposOver, yjust=0, xpd=TRUE, cex=0.9, ncol=3, bty='o', bg='white', box.col='white',
+         lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1.2,1.2,1.8), col=c('black','black',farger[3]),
          legend=c('2013','2014', '2015') )
+
 
   par('mar'= oldpar_mar)
   par('fig'= oldpar_fig)

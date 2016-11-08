@@ -4,10 +4,10 @@
 \alias{indikatorFigAndelGrVar_1aar}
 \title{Plot alder og kj√∏nnsjusterte andeler/andeler i angitt format}
 \usage{
-indikatorFigAndelGrVar_1aar(Antall, outfile, tittel, width = 800,
-  height = 700, decreasing = F, terskel = 30, minstekrav = NA,
-  minstekravTxt = "Min=", maal = NA, maalTxt = "MÂl=", til100 = FALSE,
-  skriftStr = 1.3, sideTxt = "Sykehus")
+indikatorFigAndelGrVar_1aar(Antall, outfile, tittel, width = 600,
+  height = 800, decreasing = F, terskel = 30, minstekrav = NA,
+  minstekravTxt = "Min", maal = NA, maalTxt = "MÂl", til100 = FALSE,
+  skriftStr = 1.3, sideTxt = "Behandlende sykehus")
 }
 \arguments{
 \item{outfile}{Angir filnavn og format p√• figuren som returneres,}

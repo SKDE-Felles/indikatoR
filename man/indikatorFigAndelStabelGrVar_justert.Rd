@@ -6,7 +6,7 @@
 \usage{
 indikatorFigAndelStabelGrVar_justert(Antall, outfile = "",
   tittel = "Tittel", sideTxt = "Boområde/opptaksområde", terskel = 30,
-  width = 800, height = 700, tertiler = c(-1, 51, 66, 140))
+  width = 600, height = 600, tertiler = c(-1, 51, 66, 140))
 }
 \arguments{
 \item{outfile}{Angir filnavn og format pÃ¥ figuren som returneres,}

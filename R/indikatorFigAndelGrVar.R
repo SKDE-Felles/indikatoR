@@ -13,8 +13,8 @@
 #' @export
 #'
 indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, height=700, sideTxt='Boområde/opptaksområde',
-                                   decreasing=F, terskel=30, minstekrav = NA, maal = NA, skriftStr=1.3, pktStr=1.5, legPlass='top',
-                                   minstekravTxt='Min.=', maalTxt='Mål=')
+                                   decreasing=F, terskel=30, minstekrav = NA, maal = NA, skriftStr=1.3, pktStr=1.4, legPlass='top',
+                                   minstekravTxt='Min.', maalTxt='Mål')
 {
   andeler <- AntTilfeller/N * 100
 
@@ -29,7 +29,7 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
   andeler <- andeler[rekkefolge, ]
   N <- N[rekkefolge, ]
   andeler[N[, dim(andeler)[2]]<terskel, 1:2] <- NA
-  pst_txt <- paste0(sprintf('%.0f', andeler[, dim(andeler)[2]]), '%')
+  pst_txt <- paste0(sprintf('%.0f', andeler[, dim(andeler)[2]]), ' %')
   pst_txt[is.na(andeler[, dim(andeler)[2]])] <- paste0('N<', terskel, ' siste år')
 
   FigTypUt <- rapbase::figtype(outfile='', width=width, height=height, pointsizePDF=11, fargepalett='BlaaOff')
@@ -45,51 +45,48 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
 
   cexgr <- skriftStr
 
-  vmarg <- max(0, strwidth(rownames(andeler), units='figure', cex=cexgr)*0.8)
+  vmarg <- max(0, strwidth(rownames(andeler), units='figure', cex=cexgr)*0.7)
   # hmarg <- max(0, 3*strwidth(max(N), units='figure', cex=cexgr)*0.7)
   par('fig'=c(vmarg, 1, 0, 1))
-  par('mar'=c(5.1, 4.1, 4.1, 9.1))
-  par('oma'=c(0,2,0,0))
+  par('mar'=c(5.1, 4.1, 5.1, 9.1))
+  par('oma'=c(0,1,0,0))
 
+  xmax <- 100
   ypos <- barplot( t(andeler[,dim(andeler)[2]]), beside=T, las=1,
-                   main = tittel, font.main=1, cex.main=1.3,
+                   #font.main=1, cex.main=1.3,
                    # xlim=c(0,max(andeler, na.rm = T)*1.1),
-                   xlim=c(0,100),
+                   xlim=c(0,xmax),
                    names.arg=rep('',dim(andeler)[1]),
                    horiz=T, axes=F, space=c(0,0.3),
                    col=soyleFarger, border=NA, xlab = 'Andel (%)') # '#96BBE7'
-  #   ypos <- barplot(t(as.matrix(andeler)), horiz=T, beside=FALSE, border=NA, main=tittel,
-  #                   names.arg=rep('',dim(andeler)[1]), font.main=1, cex.main=1.3, xlab='Andel %',
-  #                   las=1, col=farger[c(1,3,4)])
-  ypos <- as.vector(ypos)
+  # title(main = tittel, outer=T)
+  title(main = tittel)
+  ypos <- as.numeric(ypos) #as.vector(ypos)
+  yposOver <- max(ypos) + 0.5*diff(ypos)[1]
   if (!is.na(minstekrav)) {
-    lines(x=rep(minstekrav, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
+    lines(x=rep(minstekrav, 2), y=c(-1, yposOver), col=farger[2], lwd=2)
     barplot( t(andeler[,dim(andeler)[2]]), beside=T, las=1,
-             main = tittel, font.main=1, cex.main=1.3,
-             # xlim=c(0,max(andeler, na.rm = T)*1.1),
-             xlim=c(0,100),
-             names.arg=rep('',dim(andeler)[1]),
+            names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
-    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0(minstekravTxt, minstekrav,'%'), pos = 3, cex=0.7)
+    text(x=minstekrav, y=yposOver, labels = minstekravTxt, #paste0(minstekravTxt, minstekrav,' %'),
+         pos = 3, cex=cexgr*0.65)
     par(xpd=FALSE)
   }
   if (!is.na(maal)) {
-    lines(x=rep(maal, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
+    lines(x=rep(maal, 2), y=c(-1, yposOver), col=farger[2], lwd=2)
     barplot( t(andeler[, dim(andeler)[2]]), beside=T, las=1,
-             main = tittel, font.main=1, cex.main=1.3,
-             # xlim=c(0,max(andeler, na.rm = T)*1.1),
-             xlim=c(0,100),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = 'Andel (%)', add=TRUE)
     par(xpd=TRUE)
-    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0(maalTxt,maal,'%'), pos = 3, cex=0.7)
+    text(x=maal, y=yposOver, labels = maalTxt, pos = 3, cex=cexgr*0.65) #paste0(maalTxt,maal,'%')
     par(xpd=FALSE)
   }
   axis(1,cex.axis=0.9)
   mtext( rownames(andeler), side=2, line=0.2, las=1, at=ypos, col=1, cex=cexgr)
+  antAar <- dim(andeler)[2]
 
   if (dim(andeler)[2]==2) {
     mtext( c(N[,1], 2014), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
@@ -98,46 +95,38 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
     par(xpd=TRUE)
     points(y=ypos, x=andeler[,1],cex=pktStr, pch= 19)
     par(xpd=FALSE)
-    text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
     # mtext( 'Boområde/opptaksområde', side=2, line=9.5, las=0, col=1, cex=cexgr)
-    mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
     if (legPlass=='nede'){
-      legend('bottomright', cex=cexgr, bty='n', #bg='white', box.col='white',
-             lwd=c(NA,NA), pch=c(19,15), pt.cex=c(1,2), col=c('black',farger[3]),
-             legend=c('2014', '2015'), ncol = 1)
-    } else {
-      par(xpd=TRUE)
-      legend('top', inset=c(vmarg,-.025), cex=cexgr, bty='n', #bg='white', box.col='white',
-             lwd=c(NA,NA), pch=c(19,15), pt.cex=c(1,2), col=c('black',farger[3]),
-             legend=c('2014', '2015'), ncol = 3)
-      par(xpd=FALSE)
-    }
-
+      legend('bottomright', cex=0.9*cexgr, bty='n', #bg='white', box.col='white',
+             lwd=c(NA,NA), pch=c(19,15), pt.cex=c(1.2,1.8), col=c('black',farger[3]),
+             legend=c('2014', '2015'), ncol = 1)}
+    if (legPlass=='top'){
+      legend(0, yposOver, yjust=0, xpd=TRUE, cex=0.9, bty='n', #bg='white', box.col='white',y=max(ypos),
+             lwd=c(NA,NA), pch=c(19,15), pt.cex=c(1.2,1.8), col=c('black',farger[3]),
+             legend=c('2014', '2015'), ncol = 1)} #
 
   } else {
     mtext( c(N[,1], 2013), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
-    mtext( c(N[,2], 2014), side=4, line=5.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
-    mtext( c(N[,3], 2015), side=4, line=8.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
+    mtext( c(N[,2], 2014), side=4, line=5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
+    mtext( c(N[,3], 2015), side=4, line=7.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
     mtext( 'N', side=4, line=5.5, las=1, at=max(ypos)+2*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
-    # mtext(text = sideTxt, side=2, line=9.5, las=0, col=1, cex=cexgr)
-    mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
     par(xpd=TRUE)
     points(y=ypos, x=andeler[,1],cex=pktStr) #'#4D4D4D'
     points(y=ypos, x=andeler[,2],cex=pktStr,pch= 19)
     par(xpd=FALSE)
-    text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
     if (legPlass=='nede'){
-      legend(x=82, y=ypos[2]+1,xjust=0, cex=cexgr, bty='n', #bg='white', box.col='white',
-             lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
-             legend=c('2013','2014', '2015') )
-    } else {
-      par(xpd=TRUE)
-      legend('top', inset=c(vmarg,-.025), cex=cexgr, bty='n', #bg='white', box.col='white',
-             lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
-             legend=c('2013','2014', '2015'), ncol = 3)
-      par(xpd=FALSE)
+      legend(x=82, y=ypos[2]+1 ,xjust=0, cex=cexgr, bty='n', #bg='white', box.col='white',
+             lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1.2,1.2,1.8), col=c('black','black',farger[3]),
+             legend=c('2013','2014', '2015') )}
+      if (legPlass=='top'){
+         legend(0, yposOver, yjust=0, xpd=TRUE, cex=0.9, bty='n', #bg='white', box.col='white',y=max(ypos),
+               lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1.2,1.2,1.8), col=c('black','black',farger[3]),
+               legend=c('2013','2014', '2015'), ncol = 1) #
+        }
     }
-  }
+  mtext(sideTxt, WEST<-2, line=-1, cex=cexgr, outer=TRUE)
+  #mtext(sideTxt, line=-1, cex=cexgr, outer=F)#WEST<-2,
+  text(x=0, y=ypos, labels = pst_txt, cex=0.75, pos=4)#
 
 
   par('mar'= oldpar_mar)

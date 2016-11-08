@@ -36,7 +36,7 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
   andeler <- andeler[rekkefolge, ]
   N <- N[rekkefolge, ]
   andeler[N[,3]<terskel, 1:2] <- NA
-  pst_txt <- paste0(round(andeler[,3], 0), '%')
+  pst_txt <- paste0(round(andeler[,3], 0), ' %')
   pst_txt[is.na(andeler[,3])] <- paste0('N<', terskel, ' siste år')
 
   FigTypUt <- rapbase::figtype(outfile='', width=width, height=height, pointsizePDF=11, fargepalett='BlaaOff')
@@ -79,7 +79,7 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = xtekst, add=TRUE)
     par(xpd=TRUE)
-    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min=',minstekrav,'%'), pos = 3, cex=0.7)
+    text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = 'Min' , pos = 3, cex=0.8) #paste0('Min=',minstekrav,'%')
     par(xpd=FALSE)
   }
   if (!is.na(maal)) {
@@ -92,34 +92,25 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
              horiz=T, axes=F, space=c(0,0.3),
              col=soyleFarger, border=NA, xlab = xtekst, add=TRUE)
     par(xpd=TRUE)
-    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = paste0('Mål=',maal,'%'), pos = 3, cex=0.7)
+    text(x=maal, y=max(ypos)+diff(ypos)[1], labels = 'Mål' , pos = 3, cex=0.8) #paste0('Mål=',maal,'%')
     par(xpd=FALSE)
   }
   axis(1,cex.axis=0.9)
   mtext( rownames(andeler), side=2, line=0.2, las=1, at=ypos, col=1, cex=cexgr)
-  mtext( c(N[,1], 2013), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
-  mtext( c(N[,2], 2014), side=4, line=5.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
-  mtext( c(N[,3], 2015), side=4, line=8.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
-  mtext( 'N', side=4, line=5.5, las=1, at=max(ypos)+2*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
-  points(y=ypos, x=andeler[,1],cex=pktStr) #'#4D4D4D'
+  # mtext( c(N[,1], 2013), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
+  mtext( c(N[,2], 2014), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
+  mtext( c(N[,3], 2015), side=4, line=5.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
+  mtext( 'N', side=4, line=3.5, las=1, at=max(ypos)+2*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
+  # points(y=ypos, x=andeler[,1],cex=pktStr)
   points(y=ypos, x=andeler[,2],cex=pktStr,pch= 19)
   text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
-  # mtext(text = sideTxt, side=2, line=13.5, las=0, col=1, cex=cexgr)
   mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
-#   par(xpd=TRUE)
-#   legend('top', inset=c(vmarg,-.03), cex=1.2, bty='o', bg='white', box.col='white',
-#          lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
-#          legend=c('2013','2014', '2015'), ncol = 3)
-#   par(xpd=FALSE)
-  par(xpd=TRUE)
-  legend('top', inset=c(vmarg,-.025), cex=1.2, bty='n', #bg='white', box.col='white',
-         lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
-         legend=c('2013','2014', '2015'), ncol = 3)
-  par(xpd=FALSE)
 
-#   legend(x=82, y=ypos[2]+1,xjust=0, cex=1.2, bty='o', bg='white', box.col='white',
-#          lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
-#          legend=c('2013','2014', '2015') )
+  par(xpd=TRUE)
+  legend('top', inset=c(vmarg,-.025), cex=0.9, bty='n', #bg='white', box.col='white',
+         lwd=c(NA,NA), pch=c(19,15), pt.cex=c(1.2,1.8), col=c('black',farger[3]),
+         legend=c('2014', '2015'), ncol = 3)
+  par(xpd=FALSE)
 
   par('mar'= oldpar_mar)
   par('fig'= oldpar_fig)

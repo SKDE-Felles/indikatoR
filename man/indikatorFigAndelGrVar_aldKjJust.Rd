@@ -6,8 +6,8 @@
 \usage{
 indikatorFigAndelGrVar_aldKjJust(Antall, outfile, tittel, width = 800,
   height = 700, decreasing = F, terskel = 30, minstekrav = NA,
-  minstekravTxt = "Min=", sideTxt = "Boområde/opptaksområde", maal = NA,
-  maalTxt = "Mål=", til100 = FALSE, legPlass = "top")
+  minstekravTxt = "Min", sideTxt = "Boområde/opptaksområde", maal = NA,
+  maalTxt = "Mål", til100 = FALSE, legPlass = "top")
 }
 \arguments{
 \item{outfile}{Angir filnavn og format pÃ¥ figuren som returneres,}

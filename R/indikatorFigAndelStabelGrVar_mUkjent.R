@@ -43,7 +43,8 @@ indikatorFigAndelStabelGrVar_mUkjent <- function(Antall, outfile, tittel, inkl_u
     ypos <- as.vector(ypos)
     mtext(radnavn , side=2, line=0.2, las=1, at=ypos, col=1, cex=cexgr)
     par(xpd=TRUE)
-    legend('top', inset=c(vmarg,-.03), names(andeler), fill = farger[1:4], ncol = 4, border = farger[1:4], bty = 'n', cex = 0.8)
+    legend('top', inset=c(vmarg,-.03), names(andeler), fill = farger[1:4], ncol = 4, border = farger[1:4],
+           bty = 'n', cex = 0.9)
 
     par('mar'= oldpar_mar)
     par('fig'= oldpar_fig)
@@ -82,18 +83,19 @@ indikatorFigAndelStabelGrVar_mUkjent <- function(Antall, outfile, tittel, inkl_u
   ypos <- as.vector(ypos)
   mtext( radnavn, side=2, line=0.2, las=1, at=ypos, col=1, cex=cexgr)
   mtext( c(N, 'N'), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
-  mtext( c(paste0(round(Antall[rekkefolg, 5]/N_tot*100, 0), '%'), 'Ukjent'), side=4, line=6.0, las=1,
+  mtext( c(paste0(round(Antall[rekkefolg, 5]/N_tot*100, 0), ' %'), 'Ukjent'), side=4, line=6.0, las=1,
          at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
   # mtext(text = sideTxt, side=2, line=10.5, las=0, col=1, cex=cexgr)
   mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
-  text(x=andeler[,1], y=ypos, labels = paste0(round(andeler[,1]), '%'), cex=0.85, pos=2, col='white')
-  text(x=(andeler[,1]+andeler[,2]), y=ypos, labels = paste0(round(andeler[,2]), '%'), cex=0.85, pos=2)
-  text(x=rep(100, length(andeler[3])), y=ypos, labels = paste0(round(andeler[,3]), '%'), cex=0.85, pos=2)
+  text(x=andeler[,1], y=ypos, labels = paste0(round(andeler[,1]), ' %'), cex=0.9, pos=2, col='white')
+  text(x=(andeler[,1]+andeler[,2]), y=ypos, labels = paste0(round(andeler[,2]), ' %'), cex=0.9, pos=2)
+  text(x=rep(100, length(andeler[3])), y=ypos, labels = paste0(round(andeler[,3]), ' %'), cex=0.9, pos=2)
   if (length(which(is.na(andeler[,1]))) > 0){
-    text(x=0, y=ypos[1:length(which(is.na(andeler[,1])))], labels = paste0('N < ', terskel), cex=0.85, pos=4)
+    text(x=0, y=ypos[1:length(which(is.na(andeler[,1])))], labels = paste0('N < ', terskel), cex=0.9, pos=4)
   }
   par(xpd=TRUE)
-  legend('top', inset=c(vmarg,-.03), names(andeler), fill = farger[c(1,3,4)], ncol = 3, border = farger[c(1,3,4)], bty = 'n', cex = 0.8)
+  legend('top', inset=c(vmarg,-.03), names(andeler), fill = farger[c(1,3,4)], ncol = 3, border = farger[c(1,3,4)],
+         bty = 'n', cex = 0.9)
   par(xpd=FALSE)
 
   par('mar'= oldpar_mar)

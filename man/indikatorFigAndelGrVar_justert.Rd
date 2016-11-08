@@ -5,8 +5,8 @@
 \title{Plot alder og kjÃ¸nnsjusterte andeler/andeler i angitt format}
 \usage{
 indikatorFigAndelGrVar_justert(AntTilfeller, N, outfile, tittel, width = 800,
-  height = 700, decreasing = F, terskel = 30, minstekrav = NA,
-  sideTxt = "Boområde/opptaksområde", maal = NA)
+  height = 700, skriftStr = 1.3, decreasing = F, terskel = 30,
+  minstekrav = NA, sideTxt = "Boområde/opptaksområde", maal = NA)
 }
 \arguments{
 \item{N}{En vektor/matrise med N for ratene}

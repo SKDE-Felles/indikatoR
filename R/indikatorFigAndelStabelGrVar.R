@@ -11,13 +11,13 @@
 #'
 #' @export
 #'
-indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3, width=800, height=700,
-                                         sideTxt='Boområde/opptaksområde', terskel=30)
+indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3, width=600, height=600,
+                                         sideTxt='Boområde/opptaksområde', terskel=30, decreasing=T)
   {
 
   Andeler[Andeler$N < terskel, 1:3] <- NA
 
-  rekkefolge <- order(Andeler[,1], decreasing = F, na.last = F)
+  rekkefolge <- order(Andeler[,1], decreasing = TRUE, na.last = F)
   Andeler <- Andeler[rekkefolge, ]
 
   andeler <- Andeler[,-4]*100
@@ -49,21 +49,23 @@ indikatorFigAndelStabelGrVar <- function(Andeler, outfile, tittel, skriftStr=1.3
   mtext( radnavn, side=2, line=0.2, las=1, at=ypos, col=1, cex=cexgr)
   mtext( c(N, 'N'), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
   mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
-  pst_txt1 <- paste0(round(andeler[,1]), '%')
+  pst_txt1 <- paste0(round(andeler[,1]), ' %')
   pst_txt1[is.na(andeler[,1])] <- ''
-  pst_txt2 <- paste0(round(andeler[,2]), '%')
+  pst_txt2 <- paste0(round(andeler[,2]), ' %')
   pst_txt2[is.na(andeler[,1])] <- ''
-  pst_txt3 <- paste0(round(andeler[,3]), '%')
+  pst_txt3 <- paste0(round(andeler[,3]), ' %')
   pst_txt3[is.na(andeler[,1])] <- ''
-  text(x=rep(100, length(andeler[3])), y=ypos, labels = pst_txt3, cex=0.85, pos=2)
-  text(x=0, y=ypos, labels = pst_txt1, cex=0.85, pos=4, col='white')
-  text(x=50, y=ypos, labels = pst_txt2, cex=0.85, pos=2)
-  # text(x=(andeler[,1]+andeler[,2]/2), y=ypos, labels = paste0(round(andeler[,2]), '%'), cex=0.85, pos=2)
+  text(x=rep(100, length(andeler[3])), y=ypos, labels = pst_txt3, cex=0.9, pos=2)
+  # text(x=4, y=ypos, labels = pst_txt1, cex=0.9, adj=1, col='white') #
+  text(x=0, y=ypos, labels = pst_txt1, cex=0.9, adj=1, col='white', pos=4)
+  text(x=50, y=ypos, labels = pst_txt2, cex=0.9, pos=2)
+  # text(x=(andeler[,1]+andeler[,2]/2), y=ypos, labels = paste0(round(andeler[,2]), '%'), cex=0.9, pos=2)
   if (length(which(is.na(andeler[,1]))) > 0){
-    text(x=0, y=ypos[1:length(which(is.na(andeler[,1])))], labels = paste0('N < ', terskel), cex=0.85, pos=4)
+    text(x=0, y=ypos[1:length(which(is.na(andeler[,1])))], labels = paste0('N < ', terskel), cex=0.9,adj=0 )#
   }
   par(xpd=TRUE)
-  legend('top', inset=c(vmarg,-.03), names(andeler), fill = farger[c(1,3,4)], ncol = 3, border = farger[c(1,3,4)], bty = 'n', cex = 0.8)
+  legend('top', names(andeler), fill = farger[c(1,3,4)], ncol = 3, border = farger[c(1,3,4)],
+         bty = 'n', cex = 0.9) #inset=c(vmarg,-.03),
   par(xpd=FALSE)
 
   par('mar'= oldpar_mar)

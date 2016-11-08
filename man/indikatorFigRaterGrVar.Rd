@@ -4,7 +4,7 @@
 \alias{indikatorFigRaterGrVar}
 \title{Plot andeler/andeler i angitt format}
 \usage{
-indikatorFigRaterGrVar(Andeler, outfile, tittel, width = 800, height = 700,
+indikatorFigRaterGrVar(Andeler, outfile, tittel, width = 600, height = 600,
   decreasing = F, terskel = 30, minstekrav = NA, maal = NA,
   xtekst = "Andel \%", til100 = F, skriftStr = 1.3, pktStr = 1.5)
 }

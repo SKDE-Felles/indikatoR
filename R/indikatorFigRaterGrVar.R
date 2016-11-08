@@ -12,8 +12,8 @@
 #'
 #' @export
 #'
-indikatorFigRaterGrVar <- function(Andeler, outfile, tittel, width=800, height=700,
-                                   decreasing=F, terskel=30, minstekrav = NA, maal = NA, xtekst ='Andel %',
+indikatorFigRaterGrVar <- function(Andeler, outfile, tittel, width=600, height=600,
+                                   decreasing=F, terskel=0, minstekrav = NA, maal = NA, xtekst ='Andel %',
                                    til100 = F, skriftStr=1.3, pktStr=1.5)
   {
 
@@ -71,11 +71,10 @@ indikatorFigRaterGrVar <- function(Andeler, outfile, tittel, width=800, height=7
     lines(x=rep(minstekrav, 2), y=c(-1, max(ypos)+diff(ypos)[1]), col=farger[2], lwd=2)
     barplot( t(andeler[,3]), beside=T, las=1,
              main = tittel, font.main=1, cex.main=1.3,
-             # xlim=c(0,max(andeler, na.rm = T)*1.1),
-             xlim=c(0,xmax),
+             #xlim=c(0,xmax),
              names.arg=rep('',dim(andeler)[1]),
              horiz=T, axes=F, space=c(0,0.3),
-             col=soyleFarger, border=NA, xlab = 'Andel %', add=TRUE)
+             col=soyleFarger, border=NA, add=TRUE)
     par(xpd=TRUE)
     text(x=minstekrav, y=max(ypos)+diff(ypos)[1], labels = paste0('Min=',minstekrav,'%'), pos = 3, cex=0.7)
     par(xpd=FALSE)
@@ -99,13 +98,13 @@ indikatorFigRaterGrVar <- function(Andeler, outfile, tittel, width=800, height=7
   mtext( c(N[,2], 2014), side=4, line=5.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
   mtext( c(N[,3], 2015), side=4, line=8.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
   mtext( 'Boområde/opptaksområde', side=2, line=9.5, las=0, col=1, cex=cexgr)#, outer=TRUE)#, adj = 1)
-  # mtext( 'N', side=4, line=2.5, las=1, at=max(ypos)+2*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
+   mtext( 'N', side=4, line=5.5, las=1, at=max(ypos)+1.8*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
   points(y=ypos, x=andeler[,1],cex=pktStr) #'#4D4D4D'
   points(y=ypos, x=andeler[,2],cex=pktStr,pch= 19)
-  text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
+  text(x=0, y=ypos, labels = pst_txt, cex=0.8,pos=4)
   par(xpd=TRUE)
-  legend('top', inset=c(vmarg,-.03), cex=1.2, bty='n', # bg='white', box.col='white',
-         lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1,1,2), col=c('black','black',farger[3]),
+  legend('top', inset=c(vmarg,-.03), cex=0.9, bty='n', # bg='white', box.col='white',
+         lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1.2,1.2,1.8), col=c('black','black',farger[3]),
          legend=c('2013','2014', '2015'), ncol = 3)
   par(xpd=FALSE)
 

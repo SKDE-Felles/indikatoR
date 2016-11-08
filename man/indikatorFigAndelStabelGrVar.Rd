@@ -5,8 +5,8 @@
 \title{Plot andeler/rater i stabelplot}
 \usage{
 indikatorFigAndelStabelGrVar(Andeler, outfile, tittel, skriftStr = 1.3,
-  width = 800, height = 700, sideTxt = "Boområde/opptaksområde",
-  terskel = 30)
+  width = 600, height = 600, sideTxt = "Boområde/opptaksområde",
+  terskel = 30, decreasing = T)
 }
 \arguments{
 \item{Andeler}{En dataramme med rater/andeler i spesifisert form}

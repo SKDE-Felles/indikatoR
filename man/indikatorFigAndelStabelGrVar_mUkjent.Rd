@@ -6,7 +6,7 @@
 \usage{
 indikatorFigAndelStabelGrVar_mUkjent(Antall, outfile, tittel, inkl_ukjent = F,
   sideTxt = "Boområde/opptaksområde", width = 800, height = 700,
-  terskel = 30)
+  terskel = 30, skriftStr = 1.3)
 }
 \arguments{
 \item{outfile}{Angir filnavn og format pÃ¥ figuren som returneres,}
