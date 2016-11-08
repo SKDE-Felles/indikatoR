@@ -210,7 +210,7 @@ indikatorLastdataOgPreprosesser <- function()
   Hoftebrudd_Produksjon_bo_aldkjgr_korr <- merge(Hoftebrudd_Produksjon_bo_aldkjgr_korr, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
                                                  by.x = c("bohf"), by.y = c("bohf_nr"), all.x = TRUE, all.y = FALSE)
   Hoftebrudd_Produksjon_bo_aldkjgr_korr$bohf <- Hoftebrudd_Produksjon_bo_aldkjgr_korr$bohf_gammel
-  Hoftebrudd_Produksjon_bo_aldkjgr_korr <- Hoftebrudd_Produksjon_bo_aldkjgr_korr[ , -which(names(Angio_sh_v2)=="bohf_gammel")]
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr <- Hoftebrudd_Produksjon_bo_aldkjgr_korr[ , -which(names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)=="bohf_gammel")]
   Hoftebrudd_Produksjon_bo_aldkjgr_korr$Teknikk <- Hoftebrudd_Produksjon_bo_aldkjgr_korr$teknikk_txt
   Hoftebrudd_Produksjon_bo_aldkjgr_korr <- Hoftebrudd_Produksjon_bo_aldkjgr_korr[, -which(names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)
                                                                                           %in% c('bohf_txt', 'teknikk_txt'))]
@@ -356,7 +356,7 @@ indikatorLastdataOgPreprosesser <- function()
   Hjerneslag_behandlet_slagenhet_bo <- Hjerneslag_behandlet_slagenhet_bo[ , -which(names(Hjerneslag_behandlet_slagenhet_bo)=="bohf_gammel")]
   Hjerneslag_behandlet_slagenhet_bo <- Hjerneslag_behandlet_slagenhet_bo[ , -which(names(Hjerneslag_behandlet_slagenhet_bo)=="BoHF")]
   Hjerneslag_behandlet_slagenhet_bo$AldKjGr <- Hjerneslag_behandlet_slagenhet_bo$ald_gr +
-  Hjerneslag_behandlet_slagenhet_bo$ErMann*max(Hjerneslag_behandlet_slagenhet_bo$ald_gr)
+    Hjerneslag_behandlet_slagenhet_bo$ErMann*max(Hjerneslag_behandlet_slagenhet_bo$ald_gr)
   Hjerneslag_behandlet_slagenhet_bo <- Hjerneslag_behandlet_slagenhet_bo[, -c(3,4)]
   names(Hjerneslag_behandlet_slagenhet_bo)[c(2,4)] <- c('bohf', 'N')
   save(Hjerneslag_behandlet_slagenhet_bo, file = "Hjerneslag_behandlet_slagenhet_bo.RData")
@@ -373,7 +373,7 @@ indikatorLastdataOgPreprosesser <- function()
 
   Hjerneslag_tromsbolyse_bo <- Hjerneslag_tromsbolyse_bo[, -2]
   Hjerneslag_tromsbolyse_bo$AldKjGr <- Hjerneslag_tromsbolyse_bo$ald_gr +
-  Hjerneslag_tromsbolyse_bo$ErMann*max(Hjerneslag_tromsbolyse_bo$ald_gr)
+    Hjerneslag_tromsbolyse_bo$ErMann*max(Hjerneslag_tromsbolyse_bo$ald_gr)
   Hjerneslag_tromsbolyse_bo <- Hjerneslag_tromsbolyse_bo[, -c(3,4)]
   names(Hjerneslag_tromsbolyse_bo)[c(2,4)] <- c('bohf', 'N')
   save(Hjerneslag_tromsbolyse_bo, file = "Hjerneslag_tromsbolyse_bo.RData")
