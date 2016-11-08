@@ -5,7 +5,6 @@ setwd('C:/GIT/indikatoR/doc/')
 hjemkatalog <- 'C:/GIT/indikatoR/doc/'
 figurkatalog <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/'
 
-
 skrivSKDEdisk <- F
 skrivSKDEdiskPNG <- T
 

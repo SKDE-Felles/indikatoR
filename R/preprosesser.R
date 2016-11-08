@@ -5,22 +5,19 @@
 #'
 #' @return En rekke datasett organisert som forventet av funksjonene i IndikatoR
 #' @export
-#'
 indikatorLastdataOgPreprosesser <- function()
 {
   currentDir <- getwd()
-  # setwd('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/data/')
-  setwd('C:/GIT/indikatoR/data/')
+  setwd('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/data/')
 
   # Standard sykehusnavn
-  sykehusnavn <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/sykehusnavn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
-  sykehusnavn <- sykehusnavn[,c(1,3)]
-  names(sykehusnavn) <- c("BehSh_nr","BehSh_navn")
+  sykehusnavn <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/doc/sykehusnavn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  names(sykehusnavn) <- c("BehSh_nr","BehSh_lang", "BehSh_kort")
 
-  sykehusnavn_lang <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/sykehusnavn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
-#  sykehusnavn_lang <- sykehusnavn_lang[,c(1,2)]
-  names(sykehusnavn_lang) <- c("BehSh_nr","BehSh_lang", "BehSh_kort")
-
+  # Standard BOHF-navn
+  # I bohf_gammel er OUS erstattet med Oslo (Lovisenberg og Diakonhjemmet mangler)
+  bohf_navn <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/doc/bohf_navn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  names(bohf_navn) <- c("bohf_nr","bohf_gammel", "bohf_navn")
 
   #############################################################################################
   ## Brystkreft - brystbevarende  #####################################################
@@ -135,10 +132,10 @@ indikatorLastdataOgPreprosesser <- function()
 
   Hoftebrudd_Preoperativ_liggetid_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Preoperativ_liggetid_Behsh_justert.csv', sep = ';', header = T, encoding = 'native')
   Hoftebrudd_Preoperativ_liggetid_sh_v2 <- Hoftebrudd_Preoperativ_liggetid_sh_v2[, c(2:8,1)]
-  Hoftebrudd_Preoperativ_liggetid_sh_v2 <- merge(Hoftebrudd_Preoperativ_liggetid_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_navn')],
+  Hoftebrudd_Preoperativ_liggetid_sh_v2 <- merge(Hoftebrudd_Preoperativ_liggetid_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
                     by.x = c("behsh"), by.y = c("BehSh_nr"), all.x = TRUE, all.y = FALSE)
-  Hoftebrudd_Preoperativ_liggetid_sh_v2$behsh_txt <- Hoftebrudd_Preoperativ_liggetid_sh_v2$BehSh_navn
-  Hoftebrudd_Preoperativ_liggetid_sh_v2 <- Hoftebrudd_Preoperativ_liggetid_sh_v2[ , -which(names(Hoftebrudd_Preoperativ_liggetid_sh_v2)=="BehSh_navn")]
+  Hoftebrudd_Preoperativ_liggetid_sh_v2$behsh_txt <- Hoftebrudd_Preoperativ_liggetid_sh_v2$BehSh_kort
+  Hoftebrudd_Preoperativ_liggetid_sh_v2 <- Hoftebrudd_Preoperativ_liggetid_sh_v2[ , -which(names(Hoftebrudd_Preoperativ_liggetid_sh_v2)=="BehSh_kort")]
 
   Hoftebrudd_Preoperativ_liggetid_sh_v2$behsh <- Hoftebrudd_Preoperativ_liggetid_sh_v2$behsh_txt
   Hoftebrudd_Preoperativ_liggetid_sh_v2 <- Hoftebrudd_Preoperativ_liggetid_sh_v2[ , -which(names(Hoftebrudd_Preoperativ_liggetid_sh_v2)=="behsh_txt")]
@@ -147,10 +144,10 @@ indikatorLastdataOgPreprosesser <- function()
   Hoftebrudd_Produksjon_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebruddteknikk_behsh_v2.csv',
                                          sep = ';', header = T, encoding = 'native', strip.white=TRUE)
 
-  Hoftebrudd_Produksjon_sh_v2 <- merge(Hoftebrudd_Produksjon_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_navn')],
+  Hoftebrudd_Produksjon_sh_v2 <- merge(Hoftebrudd_Produksjon_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
                                                  by.x = c("BehSh"), by.y = c("BehSh_nr"), all.x = TRUE, all.y = FALSE)
-  Hoftebrudd_Produksjon_sh_v2$BehSh_txt <- Hoftebrudd_Produksjon_sh_v2$BehSh_navn
-  Hoftebrudd_Produksjon_sh_v2 <- Hoftebrudd_Produksjon_sh_v2[ , -which(names(Hoftebrudd_Produksjon_sh_v2)=="BehSh_navn")]
+  Hoftebrudd_Produksjon_sh_v2$BehSh_txt <- Hoftebrudd_Produksjon_sh_v2$BehSh_kort
+  Hoftebrudd_Produksjon_sh_v2 <- Hoftebrudd_Produksjon_sh_v2[ , -which(names(Hoftebrudd_Produksjon_sh_v2)=="BehSh_kort")]
 
   Hoftebrudd_Produksjon_sh_v2 <- Hoftebrudd_Produksjon_sh_v2[, -1]
 
@@ -195,7 +192,6 @@ indikatorLastdataOgPreprosesser <- function()
   names(Hoftebrudd_andeler_2015_bo_justert)[names(Hoftebrudd_andeler_2015_bo_justert)=='Totalt'] <- 'N'
   names(Hoftebrudd_andeler_2015_bo_justert)[names(Hoftebrudd_andeler_2015_bo_justert)=='Pinning'] <- 'To skruer eller pinner'
   Hoftebrudd_andeler_2015_bo_justert <- Hoftebrudd_andeler_2015_bo_justert[, c(2,1,3,4)]
-  Hoftebrudd_andeler_2015_bo_justert <- gsub('OUS','Oslo',Hoftebrudd_andeler_2015_bo_justert)
 
   ## Kan ta med ekstra kategori "ingen" for tilfellet at aldersgruppe ikke har noen av metodene (f.eks. Finnmark og Førde)
 #   tmp$Ingen <- 0
@@ -210,12 +206,15 @@ indikatorLastdataOgPreprosesser <- function()
   Hoftebrudd_Produksjon_bo_aldkjgr_korr <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebrudd_BOHF_teknikk.csv',
                                                  sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)[names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)=='Bohf'] <- 'bohf'
-  Hoftebrudd_Produksjon_bo_aldkjgr_korr$bohf <- Hoftebrudd_Produksjon_bo_aldkjgr_korr$bohf_txt
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr <- merge(Hoftebrudd_Produksjon_bo_aldkjgr_korr, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
+                                                 by.x = c("bohf"), by.y = c("bohf_nr"), all.x = TRUE, all.y = FALSE)
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr$bohf <- Hoftebrudd_Produksjon_bo_aldkjgr_korr$bohf_gammel
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr <- Hoftebrudd_Produksjon_bo_aldkjgr_korr[ , -which(names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)=="bohf_gammel")]
   Hoftebrudd_Produksjon_bo_aldkjgr_korr$Teknikk <- Hoftebrudd_Produksjon_bo_aldkjgr_korr$teknikk_txt
   Hoftebrudd_Produksjon_bo_aldkjgr_korr <- Hoftebrudd_Produksjon_bo_aldkjgr_korr[, -which(names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)
                                                                                           %in% c('bohf_txt', 'teknikk_txt'))]
   Hoftebrudd_Produksjon_bo_aldkjgr_korr$AldKjGr <- Hoftebrudd_Produksjon_bo_aldkjgr_korr$aldergr +
-    Hoftebrudd_Produksjon_bo_aldkjgr_korr$Ermann*max(Hoftebrudd_Produksjon_bo_aldkjgr_korr$aldergr)
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr$Ermann*max(Hoftebrudd_Produksjon_bo_aldkjgr_korr$aldergr)
   Hoftebrudd_Produksjon_bo_aldkjgr_korr <- Hoftebrudd_Produksjon_bo_aldkjgr_korr[ , -which(names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)
                                                                                   %in% c('Ermann', 'aldergr'))]
   Norge <- aggregate(Hoftebrudd_Produksjon_bo_aldkjgr_korr$Antall,
@@ -252,7 +251,6 @@ indikatorLastdataOgPreprosesser <- function()
   names(Hoftebrudd_andeler_2015_bo_justert_v2)[names(Hoftebrudd_andeler_2015_bo_justert_v2)=='Hemipro'] <- 'Hemiprotese'
   names(Hoftebrudd_andeler_2015_bo_justert_v2)[names(Hoftebrudd_andeler_2015_bo_justert_v2)=='Totalpr'] <- 'Totalprotese'
   Hoftebrudd_andeler_2015_bo_justert_v2 <- Hoftebrudd_andeler_2015_bo_justert_v2[, c(2,1,3,4)]
-
   save(Hoftebrudd_andeler_2015_bo_justert_v2, file = "Hoftebrudd_andeler_2015_bo_justert_v2.RData")
 
   ##########      UNDER ARBEID      #####################################################################
@@ -267,20 +265,27 @@ indikatorLastdataOgPreprosesser <- function()
   Hoftebrudd_rater <- Hoftebrudd_rater[, c(2,1,3,4,5)]
   names(Hoftebrudd_rater) <- c('aar', 'bohf', 'andel', 'antall', 'N')
   save(Hoftebrudd_rater, file = "Hoftebrudd_rater.RData")
+
   ########## Proteser#####################################################################
 
   Hofteproteser_rater <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Proteser/Resultater/Rater_hofteproteser.csv',
                                          sep = ';', header = T, encoding = 'native', strip.white=TRUE)
-
-  Hofteproteser_rater <- Hofteproteser_rater[, -2]
+  Hofteproteser_rater <- merge(Hofteproteser_rater, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
+                                                 by.x = c("BoHF"), by.y = c("bohf_nr"), all.x = TRUE, all.y = FALSE)
+  Hofteproteser_rater$BoHF_txt <- Hofteproteser_rater$bohf_gammel
+  Hofteproteser_rater <- Hofteproteser_rater[ , -which(names(Hofteproteser_rater)=="bohf_gammel")]
+  Hofteproteser_rater <- Hofteproteser_rater[ , -which(names(Hofteproteser_rater)=="BoHF")]
   Hofteproteser_rater <- Hofteproteser_rater[, c(1:3,5,4)]
   names(Hofteproteser_rater) <- c('aar', 'bohf', 'andel', 'antall', 'N')
   save(Hofteproteser_rater, file = "Hofteproteser_rater.RData")
 
   Kneproteser_rater <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Proteser/Resultater/Rater_kneproteser.csv',
                                     sep = ';', header = T, encoding = 'native', strip.white=TRUE)
-
-  Kneproteser_rater <- Kneproteser_rater[, -2]
+  Kneproteser_rater <- merge(Kneproteser_rater, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
+                               by.x = c("BoHF"), by.y = c("bohf_nr"), all.x = TRUE, all.y = FALSE)
+  Kneproteser_rater$BoHF_txt <- Kneproteser_rater$bohf_gammel
+  Kneproteser_rater <- Kneproteser_rater[ , -which(names(Kneproteser_rater)=="bohf_gammel")]
+  Kneproteser_rater <- Kneproteser_rater[ , -which(names(Kneproteser_rater)=="BoHF")]
   Kneproteser_rater <- Kneproteser_rater[, c(1:3,5,4)]
   names(Kneproteser_rater) <- c('aar', 'bohf', 'andel', 'antall', 'N')
   save(Kneproteser_rater, file = "Kneproteser_rater.RData")
@@ -301,10 +306,10 @@ indikatorLastdataOgPreprosesser <- function()
 
   Angio_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Angio_BEH_v2.csv',
                          sep = ';', header = T, encoding = 'native', strip.white=TRUE)
-  Angio_sh_v2 <- merge(Angio_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_navn')],
+  Angio_sh_v2 <- merge(Angio_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
                                        by.x = c("BehSh"), by.y = c("BehSh_nr"), all.x = TRUE, all.y = FALSE)
-  Angio_sh_v2$Sykehus <- Angio_sh_v2$BehSh_navn
-  Angio_sh_v2 <- Angio_sh_v2[ , -which(names(Angio_sh_v2)=="BehSh_navn")]
+  Angio_sh_v2$Sykehus <- Angio_sh_v2$BehSh_kort
+  Angio_sh_v2 <- Angio_sh_v2[ , -which(names(Angio_sh_v2)=="BehSh_kort")]
   Angio_sh_v2 <- Angio_sh_v2[, -which(names(Angio_sh_v2)=="BehSh")]
   save(Angio_sh_v2, file = "Angio_sh_v2.RData")
 
@@ -318,18 +323,23 @@ indikatorLastdataOgPreprosesser <- function()
 
   Revaskularisering_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Revaskularisering_BEH_v2.csv',
                                      sep = ';', header = T, encoding = 'native', strip.white=TRUE)
-  Revaskularisering_sh_v2 <- merge(Revaskularisering_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_navn')],
+  Revaskularisering_sh_v2 <- merge(Revaskularisering_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
                        by.x = c("BehSh"), by.y = c("BehSh_nr"), all.x = TRUE, all.y = FALSE)
-  Revaskularisering_sh_v2$Sykehus <- Revaskularisering_sh_v2$BehSh_navn
-  Revaskularisering_sh_v2 <- Revaskularisering_sh_v2[ , -which(names(Revaskularisering_sh_v2)=="BehSh_navn")]
+  Revaskularisering_sh_v2$Sykehus <- Revaskularisering_sh_v2$BehSh_kort
+  Revaskularisering_sh_v2 <- Revaskularisering_sh_v2[ , -which(names(Revaskularisering_sh_v2)=="BehSh_kort")]
   Revaskularisering_sh_v2 <- Revaskularisering_sh_v2[, -which(names(Revaskularisering_sh_v2)=="BehSh")]
   save(Revaskularisering_sh_v2, file = "Revaskularisering_sh_v2.RData")
 
   Revaskularisering_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Revaskularisering_BO.csv',
              sep = ';', header = T, encoding = 'native', strip.white=TRUE)
-  Revaskularisering_bo <- Revaskularisering_bo[, -c(2)]
+  Revaskularisering_bo <- merge(Revaskularisering_bo, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
+                             by.x = c("BoHF"), by.y = c("bohf_nr"), all.x = TRUE, all.y = FALSE)
+  Revaskularisering_bo$BoHF_txt <- Revaskularisering_bo$bohf_gammel
+  Revaskularisering_bo <- Revaskularisering_bo[ , -which(names(Revaskularisering_bo)=="bohf_gammel")]
+  Revaskularisering_bo <- Revaskularisering_bo[ , -which(names(Revaskularisering_bo)=="BoHF")]
   Revaskularisering_bo$AldKjGr <- Revaskularisering_bo$ald_gr +Revaskularisering_bo$ErMann*max(Revaskularisering_bo$ald_gr)
-  Revaskularisering_bo <- Revaskularisering_bo[, -c(3,4)]
+  Revaskularisering_bo <- Revaskularisering_bo[ , -which(names(Revaskularisering_bo)=="ald_gr")]
+  Revaskularisering_bo <- Revaskularisering_bo[ , -which(names(Revaskularisering_bo)=="ErMann")]
   names(Revaskularisering_bo)[c(2,5)] <- c('bohf', 'N')
   save(Revaskularisering_bo, file = "Revaskularisering_bo.RData")
 
@@ -339,19 +349,22 @@ indikatorLastdataOgPreprosesser <- function()
 
   Hjerneslag_behandlet_slagenhet_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Beh_slagenhet_BO.csv',
                                                   sep = ';', header = T, encoding = 'native')
-
-  Hjerneslag_behandlet_slagenhet_bo <- Hjerneslag_behandlet_slagenhet_bo[, -2]
+  Hjerneslag_behandlet_slagenhet_bo <- merge(Hjerneslag_behandlet_slagenhet_bo, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
+                               by.x = c("BoHF"), by.y = c("bohf_nr"), all.x = TRUE, all.y = FALSE)
+  Hjerneslag_behandlet_slagenhet_bo$BoHF_txt <- Hjerneslag_behandlet_slagenhet_bo$bohf_gammel
+  Hjerneslag_behandlet_slagenhet_bo <- Hjerneslag_behandlet_slagenhet_bo[ , -which(names(Hjerneslag_behandlet_slagenhet_bo)=="bohf_gammel")]
+  Hjerneslag_behandlet_slagenhet_bo <- Hjerneslag_behandlet_slagenhet_bo[ , -which(names(Hjerneslag_behandlet_slagenhet_bo)=="BoHF")]
   Hjerneslag_behandlet_slagenhet_bo$AldKjGr <- Hjerneslag_behandlet_slagenhet_bo$ald_gr +
-  Hjerneslag_behandlet_slagenhet_bo$ErMann*max(Hjerneslag_behandlet_slagenhet_bo$ald_gr)
+    Hjerneslag_behandlet_slagenhet_bo$ErMann*max(Hjerneslag_behandlet_slagenhet_bo$ald_gr)
   Hjerneslag_behandlet_slagenhet_bo <- Hjerneslag_behandlet_slagenhet_bo[, -c(3,4)]
   names(Hjerneslag_behandlet_slagenhet_bo)[c(2,4)] <- c('bohf', 'N')
   save(Hjerneslag_behandlet_slagenhet_bo, file = "Hjerneslag_behandlet_slagenhet_bo.RData")
 
   Hjerneslag_behandlet_slagenhet_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Beh_slagenhet_BEH_V2.csv', sep = ';', header = T, encoding = 'native')
-  Hjerneslag_behandlet_slagenhet_sh_v2 <- merge(Hjerneslag_behandlet_slagenhet_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_navn')],
+  Hjerneslag_behandlet_slagenhet_sh_v2 <- merge(Hjerneslag_behandlet_slagenhet_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
                                    by.x = c("BehSh"), by.y = c("BehSh_nr"), all.x = TRUE, all.y = FALSE)
-  Hjerneslag_behandlet_slagenhet_sh_v2$Helseenhet <- Hjerneslag_behandlet_slagenhet_sh_v2$BehSh_navn
-  Hjerneslag_behandlet_slagenhet_sh_v2 <- Hjerneslag_behandlet_slagenhet_sh_v2[ , -which(names(Hjerneslag_behandlet_slagenhet_sh_v2)=="BehSh_navn")]
+  Hjerneslag_behandlet_slagenhet_sh_v2$Helseenhet <- Hjerneslag_behandlet_slagenhet_sh_v2$BehSh_kort
+  Hjerneslag_behandlet_slagenhet_sh_v2 <- Hjerneslag_behandlet_slagenhet_sh_v2[ , -which(names(Hjerneslag_behandlet_slagenhet_sh_v2)=="BehSh_kort")]
   Hjerneslag_behandlet_slagenhet_sh_v2 <- Hjerneslag_behandlet_slagenhet_sh_v2[, -which(names(Hjerneslag_behandlet_slagenhet_sh_v2)=="BehSh")]
   save(Hjerneslag_behandlet_slagenhet_sh_v2, file = "Hjerneslag_behandlet_slagenhet_sh_v2.RData")
 
@@ -359,21 +372,19 @@ indikatorLastdataOgPreprosesser <- function()
 
   Hjerneslag_tromsbolyse_bo <- Hjerneslag_tromsbolyse_bo[, -2]
   Hjerneslag_tromsbolyse_bo$AldKjGr <- Hjerneslag_tromsbolyse_bo$ald_gr +
-  Hjerneslag_tromsbolyse_bo$ErMann*max(Hjerneslag_tromsbolyse_bo$ald_gr)
+    Hjerneslag_tromsbolyse_bo$ErMann*max(Hjerneslag_tromsbolyse_bo$ald_gr)
   Hjerneslag_tromsbolyse_bo <- Hjerneslag_tromsbolyse_bo[, -c(3,4)]
   names(Hjerneslag_tromsbolyse_bo)[c(2,4)] <- c('bohf', 'N')
   save(Hjerneslag_tromsbolyse_bo, file = "Hjerneslag_tromsbolyse_bo.RData")
 
   Hjerneslag_tromsbolyse_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Trombolyse_BEH_v2.csv', sep = ';', header = T, encoding = 'native')
-  Hjerneslag_tromsbolyse_sh_v2 <- merge(Hjerneslag_tromsbolyse_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_navn')],
+  Hjerneslag_tromsbolyse_sh_v2 <- merge(Hjerneslag_tromsbolyse_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
                                                 by.x = c("BehSh"), by.y = c("BehSh_nr"), all.x = TRUE, all.y = FALSE)
-  Hjerneslag_tromsbolyse_sh_v2$Helseenhet <- Hjerneslag_tromsbolyse_sh_v2$BehSh_navn
-  Hjerneslag_tromsbolyse_sh_v2 <- Hjerneslag_tromsbolyse_sh_v2[ , -which(names(Hjerneslag_tromsbolyse_sh_v2)=="BehSh_navn")]
+  Hjerneslag_tromsbolyse_sh_v2$Helseenhet <- Hjerneslag_tromsbolyse_sh_v2$BehSh_kort
+  Hjerneslag_tromsbolyse_sh_v2 <- Hjerneslag_tromsbolyse_sh_v2[ , -which(names(Hjerneslag_tromsbolyse_sh_v2)=="BehSh_kort")]
   Hjerneslag_tromsbolyse_sh_v2 <- Hjerneslag_tromsbolyse_sh_v2[, -which(names(Hjerneslag_tromsbolyse_sh_v2)=="BehSh")]
   save(Hjerneslag_tromsbolyse_sh_v2, file = "Hjerneslag_tromsbolyse_sh_v2.RData")
 
 
   setwd(currentDir)
 }
-
-
