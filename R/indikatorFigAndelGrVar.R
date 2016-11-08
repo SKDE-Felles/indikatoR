@@ -109,7 +109,7 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
     mtext( c(N[,1], 2013), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
     mtext( c(N[,2], 2014), side=4, line=5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
     mtext( c(N[,3], 2015), side=4, line=7.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
-    mtext( 'N', side=4, line=5.5, las=1, at=max(ypos)+2*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
+    mtext( 'N', side=4, line=5.0, las=1, at=max(ypos)+2*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
     par(xpd=TRUE)
     points(y=ypos, x=andeler[,1],cex=pktStr) #'#4D4D4D'
     points(y=ypos, x=andeler[,2],cex=pktStr,pch= 19)

@@ -9,6 +9,7 @@ skrivSKDEdisk <- F
 skrivSKDEdiskPNG <- T
 
 terskel_sh <- 10
+terskel_sh2 <- 5
 terskel_hf <- 10
 terskel_bo1 <- 15
 terskel_bo2 <- 40
@@ -47,8 +48,6 @@ indikatorFigAndelGrVar_justert(AntTilfeller=AntTilfeller, N=N, outfile=outfile, 
 
 ###############################################################################
 ##########  Brystkreft Ki 67  #######################################################
-
-# load("C:/GIT/indikatoR/data/BrystKi672015_sh.RData")
 
 Antall <- BrystKi67sh2015_v2
 tittel=c('Fordeling av Ki67 proliferasjonsrate 2015,', 'pr. behandlende sykehus')
@@ -128,8 +127,6 @@ indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=titt
                                    decreasing=decreasing, terskel=terskel, minstekrav=NA, maal=NA)
 
 
-# load("C:/GIT/indikatoR/data/Hoftebrudd_Preoperativ_liggetid_sh.RData")
-
 Andeler <- Hoftebrudd_Preoperativ_liggetid_sh_v2[ , -c(3,4,7)]
 Andeler <- Andeler[, c(1,2,4,3)]
 names(Andeler)[names(Andeler)=='andel24'] <- 'andel'
@@ -143,7 +140,7 @@ tittel <- c('Andel operert innen 24 timer,', 'pr. behandlende sykehus')
 terskel <- terskel_sh
 indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=tittel, width=600, height=800,
                                    decreasing=decreasing, terskel=terskel, minstekrav=NA, maal=NA,
-                                   skriftStr=1, pktStr=1.4, sideTxt='Behandlende sykehus')
+                                   skriftStr=1, pktStr=1.0, sideTxt='Behandlende sykehus')
 
 Andeler <- Hoftebrudd_Preoperativ_liggetid_sh_v2[ , -c(3,4,6)]
 Andeler <- Andeler[, c(1,2,4,3)]
@@ -158,25 +155,7 @@ tittel <- c('Andel operert innen 48 timer,', 'pr. behandlende sykehus')
 
 indikatorFigAndelGrVar_preberegnet(Andeler=Andeler, outfile=outfile, tittel=tittel, width=600, height=800,
                                    decreasing=decreasing, terskel=terskel, minstekrav=NA, maal=NA,
-                                   skriftStr=1, pktStr=1.4, sideTxt='Behandlende sykehus')
-
-
-
-###### Produksjon
-
-#Antall <- Hoftebrudd_Produksjon_sh_v2[ , -c(3,4,5)]
-#names(Antall)[names(Antall)=='Totalt.antall'] <- 'antall'
-#names(Antall)[names(Antall)=='Behandlende.sykehus'] <- 'bohf'
-#figurnavn <- 'Hoftebrudd_produksjon_sh'
-#outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
-#if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
-#if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
-#tittel <- c('Antall hoftebrudd meldt til Nasjonalt Hoftebruddregister,', 'pr. behandlende sykehus')
-#pktStr <- 1
-#skriftStr <- 0.8
-#indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=800, height=700,
-#                                    decreasing=F, xtekst ='Antall', sideTxt='Behandlende sykehus',
-#                                    skriftStr=skriftStr, pktStr=pktStr)
+                                   skriftStr=1, pktStr=1.0, sideTxt='Behandlende sykehus')
 
 
 
@@ -217,24 +196,11 @@ indikatorFigAndelStabelGrVar(Andeler=Andeler, outfile=outfile, terskel=terskel, 
 
 
 
-#Andeler <- Hoftebrudd_rater
-#figurnavn <- 'Hoftebrudd_rater_bo'
-#outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
-#if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
-#if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
-#tittel <- c('Antall lårhalsbrudd pr. 1000 innbyggere (alders- og kjønnsjustert),', 'pr. boområde/opptaksområde')
-#decreasing=F
-#terskel=30
-#til100 = F
-#terskel <- terskel_bo2
-#indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=600, height=600, til100=til100,
-#                      decreasing=decreasing, terskel=terskel, minstekrav=NA, maal=NA, xtekst ='Antall pr. 1000 innbyggere')
-
-
 ############## Proteser ###########################################
 ######################################################################
 
 Andeler <- Hofteproteser_rater
+Andeler$andel <- Andeler$andel*100
 figurnavn <- 'Hofteproteser_rater_bo'
 outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
 if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
@@ -246,9 +212,10 @@ til100 = F
 terskel <- terskel_bo2
 indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=600, height=600, til100=til100,
                                    decreasing=decreasing, terskel=terskel, minstekrav=NA, maal=NA,
-                              xtekst ='Antall pr. 1000 innbyggere')
+                              xtekst ='Antall pr. 100 000 innbyggere')
 
 Andeler <- Kneproteser_rater
+Andeler$andel <- Andeler$andel*100
 figurnavn <- 'Kneproteser_rater_bo'
 outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
 if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
@@ -262,35 +229,7 @@ pktStr=1.5
 
 indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=600, height=600, til100=til100,
                        decreasing=decreasing, terskel=terskel, minstekrav=NA, maal=NA,
-                       xtekst ='Antall pr. 1000 innbyggere')
-
-## Produksjon
-
-#Antall <- Hofteprotese_Produksjon_sh[, c(2,1,6)]
-#names(Antall) <- c('bohf', 'aar', 'antall')
-#figurnavn <- 'Hofteprotese_produksjon_sh'
-#outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
-#if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
-#if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
-#tittel <- c('Antall hofteproteser meldt til Leddproteseregisteret', 'i 2013-15, per sykehus')
-#pktStr <- 0.8
-#skriftStr <- 0.8
-# terskel <- terskel_sh
-#indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=600, height=600,
-#                        decreasing=F, xtekst ='Antall', sideTxt='Sykehus',
-#                        skriftStr=skriftStr, pktStr=pktStr)
-
-Antall <- Kneprotese_Produksjon_sh[, c(2,1,6)]
-names(Antall) <- c('bohf', 'aar', 'antall')
-figurnavn <- 'Kne_produksjon_sh'
-outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
-if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
-if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
-tittel <- c('Antall kneproteser meldt til Leddproteseregisteret', 'i 2013-15, per sykehus')
-indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=800, height=700,
-                        decreasing=F, xtekst ='Antall', sideTxt='Sykehus', skriftStr = 0.8,
-                        pktStr=0.9)
-
+                       xtekst ='Antall pr. 100 000 innbyggere')
 
 
 ############ Hjerteinfarkt ############################################################
@@ -325,7 +264,7 @@ if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
 terskel <- terskel_sh
 indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel,
                        sideTxt='Behandlende sykehus', minstekrav = 50, maal=80,width=600, height=800, minstekravTxt = 'Moderat', maalTxt = 'Høy',
-                       decreasing=decreasing, terskel=terskel, skriftStr=0.9, pktStr=1.4, legPlass='top')
+                       decreasing=decreasing, terskel=terskel, skriftStr=0.9, pktStr=1.0, legPlass='top')
 
 ## Revaskularisering
 
@@ -382,7 +321,7 @@ figurnavn <- 'BehSlagenhet_sh'
 outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
 if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
 if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
-terskel <- terskel_sh
+terskel <- terskel_sh2
 indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Behandlende sykehus',
                        minstekrav = 80, maal = 90, skriftStr=1, pktStr=1,
                        width=600, height=800, decreasing=decreasing, terskel=terskel,
@@ -416,7 +355,7 @@ figurnavn <- 'Trombolyse_sh'
 outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
 if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
 if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
-terskel <- terskel_sh
+terskel <- terskel_sh2
 indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Behandlende sykehus',
                        width=600, height=800, decreasing=F, terskel=terskel,
                        skriftStr=1, pktStr=1, minstekrav = 30, minstekravTxt = 'Moderat',
@@ -435,7 +374,7 @@ tittel <- 'Rater prolapskirurgi etter boområde'
 terskel <- terskel_bo3
 indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=600, height=600, til100=til100,
                        decreasing=F, terskel=0, minstekrav=NA, maal=NA,
-                       xtekst ='Antall pr. 1000 innbyggere')
+                       xtekst ='Antall pr. 100 000 innbyggere')
 
 #
 #
@@ -528,4 +467,64 @@ indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=60
 # indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Helseforetak',
 #                        width=width, height=height, decreasing=decreasing, terskel=terskel, skriftStr=0.8, pktStr=1,
 #                        minstekrav = 30, minstekravTxt = 'Moderat', maal = 50, maalTxt='Høy', legPlass='nede')
+
+
+
+#Andeler <- Hoftebrudd_rater
+#figurnavn <- 'Hoftebrudd_rater_bo'
+#outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
+#if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
+#if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
+#tittel <- c('Antall lårhalsbrudd pr. 1000 innbyggere (alders- og kjønnsjustert),', 'pr. boområde/opptaksområde')
+#decreasing=F
+#terskel=30
+#til100 = F
+#terskel <- terskel_bo2
+#indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=600, height=600, til100=til100,
+#                      decreasing=decreasing, terskel=terskel, minstekrav=NA, maal=NA, xtekst ='Antall pr. 1000 innbyggere')
+## Produksjon
+
+#Antall <- Hofteprotese_Produksjon_sh[, c(2,1,6)]
+#names(Antall) <- c('bohf', 'aar', 'antall')
+#figurnavn <- 'Hofteprotese_produksjon_sh'
+#outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
+#if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
+#if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
+#tittel <- c('Antall hofteproteser meldt til Leddproteseregisteret', 'i 2013-15, per sykehus')
+#pktStr <- 0.8
+#skriftStr <- 0.8
+# terskel <- terskel_sh
+#indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=600, height=600,
+#                        decreasing=F, xtekst ='Antall', sideTxt='Sykehus',
+#                        skriftStr=skriftStr, pktStr=pktStr)
+
+# Antall <- Kneprotese_Produksjon_sh[, c(2,1,6)]
+# names(Antall) <- c('bohf', 'aar', 'antall')
+# figurnavn <- 'Kne_produksjon_sh'
+# outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
+# if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
+# if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
+# tittel <- c('Antall kneproteser meldt til Leddproteseregisteret', 'i 2013-15, per sykehus')
+# indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=800, height=700,
+#                         decreasing=F, xtekst ='Antall', sideTxt='Sykehus', skriftStr = 0.8,
+#                         pktStr=0.9)
+#
+
+
+###### Produksjon
+
+#Antall <- Hoftebrudd_Produksjon_sh_v2[ , -c(3,4,5)]
+#names(Antall)[names(Antall)=='Totalt.antall'] <- 'antall'
+#names(Antall)[names(Antall)=='Behandlende.sykehus'] <- 'bohf'
+#figurnavn <- 'Hoftebrudd_produksjon_sh'
+#outfile <- paste0(hjemkatalog,'figurer/',figurnavn,'.pdf')
+#if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
+#if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
+#tittel <- c('Antall hoftebrudd meldt til Nasjonalt Hoftebruddregister,', 'pr. behandlende sykehus')
+#pktStr <- 1
+#skriftStr <- 0.8
+#indikatorFigAntallGrVar(Antall=Antall, outfile=outfile, tittel=tittel, width=800, height=700,
+#                                    decreasing=F, xtekst ='Antall', sideTxt='Behandlende sykehus',
+#                                    skriftStr=skriftStr, pktStr=pktStr)
+
 

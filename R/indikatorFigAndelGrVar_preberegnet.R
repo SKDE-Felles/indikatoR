@@ -102,7 +102,9 @@ indikatorFigAndelGrVar_preberegnet <- function(Andeler, outfile, tittel, width=8
   mtext( c(N[,3], 2015), side=4, line=5.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
   mtext( 'N', side=4, line=3.5, las=1, at=max(ypos)+2*diff(ypos)[1], col=1, cex=cexgr, adj = 1)
   # points(y=ypos, x=andeler[,1],cex=pktStr)
+  par(xpd=TRUE)
   points(y=ypos, x=andeler[,2],cex=pktStr,pch= 19)
+  par(xpd=FALSE)
   text(x=0, y=ypos, labels = pst_txt, cex=0.75,pos=4)
   mtext(sideTxt, WEST<-2, line=0.4, cex=cexgr, col="black", outer=TRUE)
 
