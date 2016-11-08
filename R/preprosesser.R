@@ -5,7 +5,6 @@
 #'
 #' @return En rekke datasett organisert som forventet av funksjonene i IndikatoR
 #' @export
-#'
 indikatorLastdataOgPreprosesser <- function()
 {
   currentDir <- getwd()
