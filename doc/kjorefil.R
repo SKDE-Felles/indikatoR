@@ -1,8 +1,8 @@
 rm(list = ls())
 library(indikatoR)
-setwd('C:/GIT/indikatoR/doc/')
+setwd('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/doc/')
 
-hjemkatalog <- 'C:/GIT/indikatoR/doc/'
+hjemkatalog <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/doc/'
 figurkatalog <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/'
 
 skrivSKDEdisk <- F
