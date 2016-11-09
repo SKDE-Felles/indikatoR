@@ -23,7 +23,7 @@ indikatorLastdataOgPreprosesser <- function()
   ## Brystkreft - brystbevarende  #####################################################
 
   raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Brystbevarende_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
-  raatall <- merge(raatall, sykehusnavn_lang[,c('BehSh_lang', 'BehSh_kort')],
+  raatall <- merge(raatall, sykehusnavn[,c('BehSh_lang', 'BehSh_kort')],
                                    by.x = c("Behandlende.sykehus"), by.y = c("BehSh_lang"), all.x = TRUE, all.y = FALSE)
   raatall$Behandlende.sykehus <- raatall$BehSh_kort
   raatall <- raatall[ , -which(names(raatall)=="BehSh_kort")]
@@ -66,7 +66,7 @@ indikatorLastdataOgPreprosesser <- function()
   ## Brystkreft - Ki 67 andeler i stabel ujustert #############################################
 
   raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Ki67_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
-  raatall <- merge(raatall, sykehusnavn_lang[,c('BehSh_lang', 'BehSh_kort')],
+  raatall <- merge(raatall, sykehusnavn[,c('BehSh_lang', 'BehSh_kort')],
                    by.x = c("Behandlende.sykehus"), by.y = c("BehSh_lang"), all.x = TRUE, all.y = FALSE)
   raatall$Behandlende.sykehus <- raatall$BehSh_kort
   raatall <- raatall[ , -which(names(raatall)=="BehSh_kort")]
@@ -94,7 +94,7 @@ indikatorLastdataOgPreprosesser <- function()
   #############################################################################################
   ## Brystkreft - Histologi andeler i stabel  #################################################
   raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/BrystkreftHistologi_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
-  raatall <- merge(raatall, sykehusnavn_lang[,c('BehSh_lang', 'BehSh_kort')],
+  raatall <- merge(raatall, sykehusnavn[,c('BehSh_lang', 'BehSh_kort')],
                    by.x = c("Behandlende.sykehus"), by.y = c("BehSh_lang"), all.x = TRUE, all.y = FALSE)
   raatall$Behandlende.sykehus <- raatall$BehSh_kort
   raatall <- raatall[ , -which(names(raatall)=="BehSh_kort")]
