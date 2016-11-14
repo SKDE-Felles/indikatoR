@@ -101,9 +101,9 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
              lwd=c(NA,NA), pch=c(19,15), pt.cex=c(1.2,1.8), col=c('black',farger[3]),
              legend=c('2014', '2015'), ncol = 1)}
     if (legPlass=='top'){
-      legend(0, yposOver, yjust=0, xpd=TRUE, cex=0.9, bty='n', #bg='white', box.col='white',y=max(ypos),
+      legend(0, yposOver+ diff(ypos)[1], yjust=0, xpd=TRUE, cex=0.9, bty='n', #bg='white', box.col='white',y=max(ypos),
              lwd=c(NA,NA), pch=c(19,15), pt.cex=c(1.2,1.8), col=c('black',farger[3]),
-             legend=c('2014', '2015'), ncol = 1)} #
+             legend=c('2014', '2015'), ncol = dim(andeler)[2])} #
 
   } else {
     mtext( c(N[,1], 2013), side=4, line=2.5, las=1, at=c(ypos, max(ypos)+diff(ypos)[1]), col=1, cex=cexgr, adj = 1)
@@ -119,9 +119,9 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
              lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1.2,1.2,1.8), col=c('black','black',farger[3]),
              legend=c('2013','2014', '2015') )}
       if (legPlass=='top'){
-         legend(0, yposOver, yjust=0, xpd=TRUE, cex=0.9, bty='n', #bg='white', box.col='white',y=max(ypos),
+         legend(0, yposOver+ diff(ypos)[1], yjust=0, xpd=TRUE, cex=0.9, bty='n', #bg='white', box.col='white',y=max(ypos),
                lwd=c(NA,NA,NA), pch=c(1,19,15), pt.cex=c(1.2,1.2,1.8), col=c('black','black',farger[3]),
-               legend=c('2013','2014', '2015'), ncol = 1) #
+               legend=c('2013','2014', '2015'), ncol = dim(andeler)[2]) #
         }
     }
   mtext(sideTxt, WEST<-2, line=-1, cex=cexgr, outer=TRUE)
