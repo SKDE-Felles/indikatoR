@@ -8,7 +8,7 @@
 indikatorLastdataOgPreprosesser <- function()
 {
   currentDir <- getwd()
-  setwd('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/testing/data/')
+  setwd('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/data/')
 
   # Standard sykehusnavn
   sykehusnavn <- read.table('../doc/sykehusnavn.csv', header=TRUE, sep=";", encoding = 'UFT-8')

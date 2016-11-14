@@ -1,7 +1,6 @@
 Aar;Sykehus;BehSh;under72t;over72t;ikke_utf;Nevner
 2013;Ahus HF;160;64;29;45;138
 2013;Diakonhjemmet sykehus;230;9;3;3;15
-2013;Feiring;300;1;0;0;1
 2013;Finnmarksykehuset HF - Hammerfest;12;27;26;31;84
 2013;Finnmarksykehuset HF - Kirkenes;11;9;8;5;22
 2013;Haraldsplass Diakonale Sykehus;260;25;57;19;101
@@ -27,7 +26,6 @@ Aar;Sykehus;BehSh;under72t;over72t;ikke_utf;Nevner
 2013;Nordlandssykehuset HF - Bodø;33;41;26;33;100
 2013;Nordlandssykehuset HF - Lofoten;32;20;5;12;37
 2013;Nordlandssykehuset HF - Vesterålen;31;8;12;2;22
-2013;OUS HF - Rikshospitalet;181;26;0;1;27
 2013;OUS HF - Ullevål;184;158;14;21;193
 2013;St. Olavs Hospital HF - Orkdal;62;32;34;9;75
 2013;St. Olavs Hospital HF - Trondheim;61;133;35;24;192
@@ -53,7 +51,6 @@ Aar;Sykehus;BehSh;under72t;over72t;ikke_utf;Nevner
 2013;Vestre Viken HF - Ringerike;143;8;0;3;11
 2014;Ahus HF;160;12;1;6;19
 2014;Diakonhjemmet sykehus;230;27;9;10;46
-2014;Feiring;300;1;0;0;1
 2014;Finnmarksykehuset HF - Hammerfest;12;24;36;46;106
 2014;Finnmarksykehuset HF - Kirkenes;11;19;3;4;26
 2014;Haraldsplass Diakonale Sykehus;260;57;50;35;142
@@ -79,7 +76,6 @@ Aar;Sykehus;BehSh;under72t;over72t;ikke_utf;Nevner
 2014;Nordlandssykehuset HF - Bodø;33;62;15;30;107
 2014;Nordlandssykehuset HF - Lofoten;32;8;4;1;13
 2014;Nordlandssykehuset HF - Vesterålen;31;9;4;3;16
-2014;OUS HF - Rikshospitalet;181;24;0;0;24
 2014;OUS HF - Ullevål;184;175;10;30;215
 2014;St. Olavs Hospital HF - Orkdal;62;31;21;10;62
 2014;St. Olavs Hospital HF - Trondheim;61;167;27;45;239
@@ -131,7 +127,6 @@ Aar;Sykehus;BehSh;under72t;over72t;ikke_utf;Nevner
 2015;Nordlandssykehuset HF - Bodø;33;58;18;25;101
 2015;Nordlandssykehuset HF - Lofoten;32;13;8;14;35
 2015;Nordlandssykehuset HF - Vesterålen;31;12;9;11;32
-2015;OUS HF - Rikshospitalet;181;20;0;0;20
 2015;OUS HF - Ullevål;184;161;9;31;201
 2015;St. Olavs Hospital HF - Orkdal;62;34;20;13;67
 2015;St. Olavs Hospital HF - Trondheim;61;130;22;35;187
@@ -156,6 +151,6 @@ Aar;Sykehus;BehSh;under72t;over72t;ikke_utf;Nevner
 2015;Vestre Viken HF - Drammen;141;103;30;25;158
 2015;Vestre Viken HF - Kongsberg;144;30;7;22;59
 2015;Vestre Viken HF - Ringerike;143;64;23;32;119
-2013;Norge;0;2018;845;983;3846
-2014;Norge;0;2558;792;1069;4419
-2015;Norge;0;2713;831;1158;4702
+2013;Norge;0;1991;845;982;3818
+2014;Norge;0;2533;792;1069;4394
+2015;Norge;0;2693;831;1158;4682
