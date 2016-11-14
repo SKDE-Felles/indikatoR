@@ -195,4 +195,52 @@ save(Hjerneslag_tromsbolyse_hf, file = "Hjerneslag_tromsbolyse_hf.RData")
 #
 
 
+#  Hoftebrudd_Produksjon_bo <- read.table('../doc/csv/Hoftebruddteknikk.csv',
+#                                         sep = ';', header = T, encoding = 'native', strip.white=TRUE)
+#  save(Hoftebrudd_Produksjon_bo, file = "Hoftebrudd_Produksjon_bo.RData")
+
+##########      UNDER ARBEID      #####################################################################
+##########      UNDER ARBEID      #####################################################################
+##########      UNDER ARBEID      #####################################################################
+##########      UNDER ARBEID      #####################################################################
+
+#  Hoftebrudd_Produksjon_bo_aldkjgr <- read.table('../doc/csv/Hoftebrudd_BO_teknikk_raadata_alt.csv',
+#                                                 sep = ';', header = T, encoding = 'native', strip.white=TRUE)
+#  Hoftebrudd_Produksjon_bo_aldkjgr <- Hoftebrudd_Produksjon_bo_aldkjgr[,-7]
+#  Hoftebrudd_Produksjon_bo_aldkjgr$bohf <- as.character(Hoftebrudd_Produksjon_bo_aldkjgr$bohf_txt)
+#  Hoftebrudd_Produksjon_bo_aldkjgr$bohf[Hoftebrudd_Produksjon_bo_aldkjgr$bohf=='Landet'] <- 'Norge'
+#  Hoftebrudd_Produksjon_bo_aldkjgr$AldKjGr <- Hoftebrudd_Produksjon_bo_aldkjgr$alder +
+#    Hoftebrudd_Produksjon_bo_aldkjgr$ermann*max(Hoftebrudd_Produksjon_bo_aldkjgr$alder)
+#  Hoftebrudd_Produksjon_bo_aldkjgr <- Hoftebrudd_Produksjon_bo_aldkjgr[,-c(1, 3:4)]
+#  Hoftebrudd_Produksjon_bo_aldkjgr2015 <- Hoftebrudd_Produksjon_bo_aldkjgr[Hoftebrudd_Produksjon_bo_aldkjgr$aar==2015, ]
+#  Hoftebrudd_Produksjon_bo_aldkjgr2015 <- Hoftebrudd_Produksjon_bo_aldkjgr2015[, -1]
+#  Hoftebrudd_Produksjon_bo_aldkjgr2015 <- tidyr::spread(Hoftebrudd_Produksjon_bo_aldkjgr2015, 'teknikk', 'Antall')
+
+#  tmp <- Hoftebrudd_Produksjon_bo_aldkjgr2015
+#  tmp[is.na(tmp)] <- 0
+
+#  vekt <- tmp[tmp$bohf=='Norge', 6]/sum(tmp[tmp$bohf=='Norge', 6])
+#  vektFrame <- data.frame('AldKjGr'=sort(unique(tmp$AldKjGr)), 'vekt'=vekt)
+
+#  tmp[, 3:5] <- tmp[, 3:5]/tmp$Totalt
+#  tmp[which(is.nan(tmp[, 3])),3:5] <- 0
+#  tmp <- merge(tmp, vektFrame, by='AldKjGr', all.x=T)
+#  tmp[, c(3:5)] <- tmp[, c(3:5)] * tmp$vekt
+#  Hoftebrudd_andeler_2015_bo_justert <- aggregate(tmp[, c(3:6)], by=list(bohf=tmp$bohf), sum)
+#  Hoftebrudd_andeler_2015_bo_justert[,2:4] <- Hoftebrudd_andeler_2015_bo_justert[,2:4]/rowSums(Hoftebrudd_andeler_2015_bo_justert[,2:4])
+#  rownames(Hoftebrudd_andeler_2015_bo_justert) <- Hoftebrudd_andeler_2015_bo_justert$bohf
+#  Hoftebrudd_andeler_2015_bo_justert <- Hoftebrudd_andeler_2015_bo_justert[, -1]
+#  names(Hoftebrudd_andeler_2015_bo_justert)[names(Hoftebrudd_andeler_2015_bo_justert)=='Totalt'] <- 'N'
+#  names(Hoftebrudd_andeler_2015_bo_justert)[names(Hoftebrudd_andeler_2015_bo_justert)=='Pinning'] <- 'To skruer eller pinner'
+#  Hoftebrudd_andeler_2015_bo_justert <- Hoftebrudd_andeler_2015_bo_justert[, c(2,1,3,4)]
+
+## Kan ta med ekstra kategori "ingen" for tilfellet at aldersgruppe ikke har noen av metodene (f.eks. Finnmark og Førde)
+#   tmp$Ingen <- 0
+#   tmp$Ingen[tmp$Totalt==0] <- 1
+#   tmp <- merge(tmp, vektFrame, by='AldKjGr', all.x=T)
+#   tmp[, c(3:5,7)] <- tmp[, c(3:5,7)] * tmp$vekt
+#   andeler <- aggregate(tmp[, c(3:5,7)], by=list(bohf=tmp$Bo), sum)
+#   andeler$sum <- rowSums(andeler[,-1])
+#  save(Hoftebrudd_andeler_2015_bo_justert, file = "Hoftebrudd_andeler_2015_bo_justert.RData")
+
 
