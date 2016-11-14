@@ -8,21 +8,21 @@
 indikatorLastdataOgPreprosesser <- function()
 {
   currentDir <- getwd()
-  setwd('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/data/')
+  setwd('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/testing/data/')
 
   # Standard sykehusnavn
-  sykehusnavn <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/doc/sykehusnavn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  sykehusnavn <- read.table('../doc/sykehusnavn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   names(sykehusnavn) <- c("BehSh_nr","BehSh_lang", "BehSh_kort")
 
   # Standard BOHF-navn
   # I bohf_gammel er OUS erstattet med Oslo (Lovisenberg og Diakonhjemmet mangler)
-  bohf_navn <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/doc/bohf_navn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  bohf_navn <- read.table('../doc/bohf_navn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   names(bohf_navn) <- c("bohf_nr","bohf_gammel", "bohf_navn")
 
   #############################################################################################
   ## Brystkreft - brystbevarende  #####################################################
 
-  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Brystbevarende_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- read.table('../doc/csv/Brystbevarende_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   raatall <- merge(raatall, sykehusnavn[,c('BehSh_lang', 'BehSh_kort')],
                                    by.x = c("Behandlende.sykehus"), by.y = c("BehSh_lang"), all.x = TRUE, all.y = FALSE)
   raatall$Behandlende.sykehus <- raatall$BehSh_kort
@@ -38,7 +38,7 @@ indikatorLastdataOgPreprosesser <- function()
   save(Brystbevarende_sh_v2, file = "Brystbevarende_sh_v2.RData")
 
 
-  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Brystbevarende_bo.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- read.table('../doc/csv/Brystbevarende_bo.csv', header=TRUE, sep=";", encoding = 'UFT-8')
 
   AntTilfeller <- raatall[, 2:4]
   AntTotalt <- raatall[, 5:7]
@@ -50,7 +50,7 @@ indikatorLastdataOgPreprosesser <- function()
   Brystbevarende_bo <- list(AntTilfeller=AntTilfeller, AntTotalt=AntTotalt)
   save(Brystbevarende_bo, file = "Brystbevarende_bo.RData")
 
-  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Brystbevarende_bo_aldersgr.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- read.table('../doc/csv/Brystbevarende_bo_aldersgr.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   AntTilfeller <- raatall[, 2:10]
   AntTotalt <- raatall[, 11:19]
   colnames(AntTilfeller) <- c('2013gr1','2014gr1','2015gr1', '2013gr2','2014gr2','2015gr2', '2013gr3','2014gr3','2015gr3')
@@ -65,7 +65,7 @@ indikatorLastdataOgPreprosesser <- function()
   #############################################################################################
   ## Brystkreft - Ki 67 andeler i stabel ujustert #############################################
 
-  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/Ki67_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- read.table('../doc/csv/Ki67_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   raatall <- merge(raatall, sykehusnavn[,c('BehSh_lang', 'BehSh_kort')],
                    by.x = c("Behandlende.sykehus"), by.y = c("BehSh_lang"), all.x = TRUE, all.y = FALSE)
   raatall$Behandlende.sykehus <- raatall$BehSh_kort
@@ -75,14 +75,14 @@ indikatorLastdataOgPreprosesser <- function()
   save(BrystKi67sh2015_v2, file = "BrystKi672015_sh_v2.RData")
 
 
-  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/ki67_bo.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- read.table('../doc/csv/ki67_bo.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   BrystKi67Bo2015 <- raatall[ , c(1, 4,7,10,13)]
   names(BrystKi67Bo2015) <- c('Boområde', 'Lav <15%', 'Intermediær 15-30%', 'Høy >30%', 'Ukjent')
   save(BrystKi67Bo2015, file = "BrystKi672015_bo.RData")
 
   #### Med aldersgrupper
 
-  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/ki67_bo_aldersgr.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- read.table('../doc/csv/ki67_bo_aldersgr.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   BrystKi67Bo2015_aldersgr <- raatall[ , seq(1,dim(raatall)[2],by=3)]
   names(BrystKi67Bo2015_aldersgr) <- c('Boområde', 'Lav <15% aldgr 1', 'Lav <15% aldgr 2', 'Lav <15% aldgr 3',
                                        'Intermediær 15-30% aldgr 1', 'Intermediær 15-30% aldgr 2', 'Intermediær 15-30% aldgr 3',
@@ -93,7 +93,7 @@ indikatorLastdataOgPreprosesser <- function()
 
   #############################################################################################
   ## Brystkreft - Histologi andeler i stabel  #################################################
-  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/BrystkreftHistologi_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- read.table('../doc/csv/BrystkreftHistologi_sh_v2.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   raatall <- merge(raatall, sykehusnavn[,c('BehSh_lang', 'BehSh_kort')],
                    by.x = c("Behandlende.sykehus"), by.y = c("BehSh_lang"), all.x = TRUE, all.y = FALSE)
   raatall$Behandlende.sykehus <- raatall$BehSh_kort
@@ -102,12 +102,12 @@ indikatorLastdataOgPreprosesser <- function()
   names(BrystkreftHistologi_sh_v2) <- c('Behandlende sykehus', 'Grad 1', 'Grad 2', 'Grad 3', 'Ukjent')
   save(BrystkreftHistologi_sh_v2, file = "BrystkreftHistologi_sh_v2.RData")
 
-  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/BrystkreftHistologi_bo.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- read.table('../doc/csv/BrystkreftHistologi_bo.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   BrystkreftHistologi_bo <- raatall[ , c(1, 4,7,10,13)]
   names(BrystkreftHistologi_bo) <- c('Behandlende sykehus', 'Grad 1', 'Grad 2', 'Grad 3', 'Ukjent')
   save(BrystkreftHistologi_bo, file = "BrystkreftHistologi_bo.RData")
 
-  raatall <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Brystkreft/Resultater/Tilpassede_datasett_KT/BrystkreftHistologi_bo_aldersgr.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  raatall <- read.table('../doc/csv/BrystkreftHistologi_bo_aldersgr.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   BrystkreftHistologi_bo2015_aldersgr <- raatall[ , seq(1,dim(raatall)[2],by=3)]
   names(BrystkreftHistologi_bo2015_aldersgr) <- c('Boområde', 'Grad 1 aldgr 1', 'Grad 1 aldgr 2', 'Grad 1 aldgr 3',
                                        'Grad 2 aldgr 1', 'Grad 2 aldgr 2', 'Grad 2 aldgr 3',
@@ -118,7 +118,7 @@ indikatorLastdataOgPreprosesser <- function()
   ##############################################################################################
   ################  Alder og kjønnsdata #########################################################
 
-  Innb2015aldkj <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/doc/Innbyggere2015aldkj.csv', sep = ';', header = T, encoding = 'UTF-8')
+  Innb2015aldkj <- read.table('../doc/Innbyggere2015aldkj.csv', sep = ';', header = T, encoding = 'UTF-8')
   save(Innb2015aldkj, file = "Innb2015aldkj.RData")
 
 
@@ -127,10 +127,10 @@ indikatorLastdataOgPreprosesser <- function()
 
   ### Ferdig justerte tall ######################################
 
-  Hoftebrudd_Preoperativ_liggetid_bo_justert <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Preoperativ_liggetid.csv', sep = ';', header = T, encoding = 'native')
+  Hoftebrudd_Preoperativ_liggetid_bo_justert <- read.table('../doc/csv/Preoperativ_liggetid.csv', sep = ';', header = T, encoding = 'native')
   save(Hoftebrudd_Preoperativ_liggetid_bo_justert, file = "Hoftebrudd_Preoperativ_liggetid_bo_justert.RData")
 
-  Hoftebrudd_Preoperativ_liggetid_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Preoperativ_liggetid_Behsh_justert.csv', sep = ';', header = T, encoding = 'native')
+  Hoftebrudd_Preoperativ_liggetid_sh_v2 <- read.table('../doc/csv/Preoperativ_liggetid_Behsh_justert.csv', sep = ';', header = T, encoding = 'native')
   Hoftebrudd_Preoperativ_liggetid_sh_v2 <- Hoftebrudd_Preoperativ_liggetid_sh_v2[, c(2:8,1)]
   Hoftebrudd_Preoperativ_liggetid_sh_v2 <- merge(Hoftebrudd_Preoperativ_liggetid_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
                     by.x = c("behsh"), by.y = c("BehSh_nr"), all.x = TRUE, all.y = FALSE)
@@ -141,7 +141,7 @@ indikatorLastdataOgPreprosesser <- function()
   Hoftebrudd_Preoperativ_liggetid_sh_v2 <- Hoftebrudd_Preoperativ_liggetid_sh_v2[ , -which(names(Hoftebrudd_Preoperativ_liggetid_sh_v2)=="behsh_txt")]
   save(Hoftebrudd_Preoperativ_liggetid_sh_v2, file = "Hoftebrudd_Preoperativ_liggetid_sh_v2.RData")
 
-  Hoftebrudd_Produksjon_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebruddteknikk_behsh_v2.csv',
+  Hoftebrudd_Produksjon_sh_v2 <- read.table('../doc/csv/Hoftebruddteknikk_behsh_v2.csv',
                                          sep = ';', header = T, encoding = 'native', strip.white=TRUE)
 
   Hoftebrudd_Produksjon_sh_v2 <- merge(Hoftebrudd_Produksjon_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
@@ -154,7 +154,7 @@ indikatorLastdataOgPreprosesser <- function()
   names(Hoftebrudd_Produksjon_sh_v2)[names(Hoftebrudd_Produksjon_sh_v2)=='BehSh_txt'] <- 'Behandlende.sykehus'
   save(Hoftebrudd_Produksjon_sh_v2, file = "Hoftebrudd_Produksjon_sh_v2.RData")
 
-  Hoftebrudd_Produksjon_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebruddteknikk.csv',
+  Hoftebrudd_Produksjon_bo <- read.table('../doc/csv/Hoftebruddteknikk.csv',
                                          sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   save(Hoftebrudd_Produksjon_bo, file = "Hoftebrudd_Produksjon_bo.RData")
 
@@ -163,7 +163,7 @@ indikatorLastdataOgPreprosesser <- function()
   ##########      UNDER ARBEID      #####################################################################
   ##########      UNDER ARBEID      #####################################################################
 
-  Hoftebrudd_Produksjon_bo_aldkjgr <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebrudd_BO_teknikk_raadata_alt.csv',
+  Hoftebrudd_Produksjon_bo_aldkjgr <- read.table('../doc/csv/Hoftebrudd_BO_teknikk_raadata_alt.csv',
                                                  sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   Hoftebrudd_Produksjon_bo_aldkjgr <- Hoftebrudd_Produksjon_bo_aldkjgr[,-7]
   Hoftebrudd_Produksjon_bo_aldkjgr$bohf <- as.character(Hoftebrudd_Produksjon_bo_aldkjgr$bohf_txt)
@@ -203,7 +203,7 @@ indikatorLastdataOgPreprosesser <- function()
   save(Hoftebrudd_andeler_2015_bo_justert, file = "Hoftebrudd_andeler_2015_bo_justert.RData")
 
   ############ Korrigerte tall!!!!!!!!!!!!!!!
-  Hoftebrudd_Produksjon_bo_aldkjgr_korr <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebrudd_BOHF_teknikk.csv',
+  Hoftebrudd_Produksjon_bo_aldkjgr_korr <- read.table('../doc/csv/Hoftebrudd_BOHF_teknikk.csv',
                                                  sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)[names(Hoftebrudd_Produksjon_bo_aldkjgr_korr)=='Bohf'] <- 'bohf'
   Hoftebrudd_Produksjon_bo_aldkjgr_korr <- merge(Hoftebrudd_Produksjon_bo_aldkjgr_korr, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
@@ -258,7 +258,7 @@ indikatorLastdataOgPreprosesser <- function()
   ##########      UNDER ARBEID      #####################################################################
   ##########      UNDER ARBEID      #####################################################################
 
-  Hoftebrudd_rater <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hoftebrudd/Resultater/Hoftebrudd_justerterater_totalt_bohf_fo.csv',
+  Hoftebrudd_rater <- read.table('../doc/csv/Hoftebrudd_justerterater_totalt_bohf_fo.csv',
              sep = ';', header = T, encoding = 'native', strip.white=TRUE)
 
   Hoftebrudd_rater <- Hoftebrudd_rater[, -1]
@@ -268,7 +268,7 @@ indikatorLastdataOgPreprosesser <- function()
 
   ########## Proteser#####################################################################
 
-  Hofteproteser_rater <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Proteser/Resultater/Rater_hofteproteser.csv',
+  Hofteproteser_rater <- read.table('../doc/csv/Rater_hofteproteser.csv',
                                          sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   Hofteproteser_rater <- merge(Hofteproteser_rater, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
                                                  by.x = c("BoHF"), by.y = c("bohf_nr"), all.x = TRUE, all.y = FALSE)
@@ -279,7 +279,7 @@ indikatorLastdataOgPreprosesser <- function()
   names(Hofteproteser_rater) <- c('aar', 'bohf', 'andel', 'antall', 'N')
   save(Hofteproteser_rater, file = "Hofteproteser_rater.RData")
 
-  Kneproteser_rater <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Proteser/Resultater/Rater_kneproteser.csv',
+  Kneproteser_rater <- read.table('../doc/csv/Rater_kneproteser.csv',
                                     sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   Kneproteser_rater <- merge(Kneproteser_rater, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
                                by.x = c("BoHF"), by.y = c("bohf_nr"), all.x = TRUE, all.y = FALSE)
@@ -291,7 +291,7 @@ indikatorLastdataOgPreprosesser <- function()
   save(Kneproteser_rater, file = "Kneproteser_rater.RData")
 
   ## NKR rater ###############
-  Prolapskirurgi_rater <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Rygg/NPR/Rater_Prolapskirurgi.csv',
+  Prolapskirurgi_rater <- read.table('../doc/csv/Rater_Prolapskirurgi.csv',
                                   sep = ';', header = T, encoding = 'native', strip.white=TRUE)
 
   Prolapskirurgi_rater <- Prolapskirurgi_rater[, -2]
@@ -304,7 +304,7 @@ indikatorLastdataOgPreprosesser <- function()
   ###################################################################################
 
 
-  Angio_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Angio_BEH_v2.csv',
+  Angio_sh_v2 <- read.table('../doc/csv/Angio_BEH_v2.csv',
                          sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   Angio_sh_v2 <- merge(Angio_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
                                        by.x = c("BehSh"), by.y = c("BehSh_nr"), all.x = TRUE, all.y = FALSE)
@@ -313,7 +313,7 @@ indikatorLastdataOgPreprosesser <- function()
   Angio_sh_v2 <- Angio_sh_v2[, -which(names(Angio_sh_v2)=="BehSh")]
   save(Angio_sh_v2, file = "Angio_sh_v2.RData")
 
-  Angio_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Angio_BO.csv',
+  Angio_bo <- read.table('../doc/csv/Angio_BO.csv',
              sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   Angio_bo <- Angio_bo[, -c(2,8)]
   Angio_bo$AldKjGr <- Angio_bo$ald_gr +Angio_bo$ErMann*max(Angio_bo$ald_gr)
@@ -321,7 +321,7 @@ indikatorLastdataOgPreprosesser <- function()
   names(Angio_bo)[c(2,5)] <- c('bohf', 'N')
   save(Angio_bo, file = "Angio_bo.RData")
 
-  Revaskularisering_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Revaskularisering_BEH_v2.csv',
+  Revaskularisering_sh_v2 <- read.table('../doc/csv/Revaskularisering_BEH_v2.csv',
                                      sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   Revaskularisering_sh_v2 <- merge(Revaskularisering_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
                        by.x = c("BehSh"), by.y = c("BehSh_nr"), all.x = TRUE, all.y = FALSE)
@@ -330,7 +330,7 @@ indikatorLastdataOgPreprosesser <- function()
   Revaskularisering_sh_v2 <- Revaskularisering_sh_v2[, -which(names(Revaskularisering_sh_v2)=="BehSh")]
   save(Revaskularisering_sh_v2, file = "Revaskularisering_sh_v2.RData")
 
-  Revaskularisering_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerteinfarkt/Resultater/Revaskularisering_BO.csv',
+  Revaskularisering_bo <- read.table('../doc/csv/Revaskularisering_BO.csv',
              sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   Revaskularisering_bo <- merge(Revaskularisering_bo, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
                              by.x = c("BoHF"), by.y = c("bohf_nr"), all.x = TRUE, all.y = FALSE)
@@ -347,7 +347,7 @@ indikatorLastdataOgPreprosesser <- function()
   ###################################################################################
 
 
-  Hjerneslag_behandlet_slagenhet_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Beh_slagenhet_BO.csv',
+  Hjerneslag_behandlet_slagenhet_bo <- read.table('../doc/csv/Beh_slagenhet_BO.csv',
                                                   sep = ';', header = T, encoding = 'native')
   Hjerneslag_behandlet_slagenhet_bo <- merge(Hjerneslag_behandlet_slagenhet_bo, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
                                by.x = c("BoHF"), by.y = c("bohf_nr"), all.x = TRUE, all.y = FALSE)
@@ -360,7 +360,7 @@ indikatorLastdataOgPreprosesser <- function()
   names(Hjerneslag_behandlet_slagenhet_bo)[c(2,4)] <- c('bohf', 'N')
   save(Hjerneslag_behandlet_slagenhet_bo, file = "Hjerneslag_behandlet_slagenhet_bo.RData")
 
-  Hjerneslag_behandlet_slagenhet_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Beh_slagenhet_BEH_V2.csv', sep = ';', header = T, encoding = 'native')
+  Hjerneslag_behandlet_slagenhet_sh_v2 <- read.table('../doc/csv/Beh_slagenhet_BEH_V2.csv', sep = ';', header = T, encoding = 'native')
   Hjerneslag_behandlet_slagenhet_sh_v2 <- merge(Hjerneslag_behandlet_slagenhet_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
                                    by.x = c("BehSh"), by.y = c("BehSh_nr"), all.x = TRUE, all.y = FALSE)
   Hjerneslag_behandlet_slagenhet_sh_v2$Helseenhet <- Hjerneslag_behandlet_slagenhet_sh_v2$BehSh_kort
@@ -368,7 +368,7 @@ indikatorLastdataOgPreprosesser <- function()
   Hjerneslag_behandlet_slagenhet_sh_v2 <- Hjerneslag_behandlet_slagenhet_sh_v2[, -which(names(Hjerneslag_behandlet_slagenhet_sh_v2)=="BehSh")]
   save(Hjerneslag_behandlet_slagenhet_sh_v2, file = "Hjerneslag_behandlet_slagenhet_sh_v2.RData")
 
-  Hjerneslag_tromsbolyse_bo <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Trombolyse_BO.csv', sep = ';', header = T, encoding = 'native')
+  Hjerneslag_tromsbolyse_bo <- read.table('../doc/csv/Trombolyse_BO.csv', sep = ';', header = T, encoding = 'native')
 
   Hjerneslag_tromsbolyse_bo <- Hjerneslag_tromsbolyse_bo[, -2]
   Hjerneslag_tromsbolyse_bo$AldKjGr <- Hjerneslag_tromsbolyse_bo$ald_gr +
@@ -377,7 +377,7 @@ indikatorLastdataOgPreprosesser <- function()
   names(Hjerneslag_tromsbolyse_bo)[c(2,4)] <- c('bohf', 'N')
   save(Hjerneslag_tromsbolyse_bo, file = "Hjerneslag_tromsbolyse_bo.RData")
 
-  Hjerneslag_tromsbolyse_sh_v2 <- read.table('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Hjerneslag/Resultater/Trombolyse_BEH_v2.csv', sep = ';', header = T, encoding = 'native')
+  Hjerneslag_tromsbolyse_sh_v2 <- read.table('../doc/csv/Trombolyse_BEH_v2.csv', sep = ';', header = T, encoding = 'native')
   Hjerneslag_tromsbolyse_sh_v2 <- merge(Hjerneslag_tromsbolyse_sh_v2, sykehusnavn[,c('BehSh_nr', 'BehSh_kort')],
                                                 by.x = c("BehSh"), by.y = c("BehSh_nr"), all.x = TRUE, all.y = FALSE)
   Hjerneslag_tromsbolyse_sh_v2$Helseenhet <- Hjerneslag_tromsbolyse_sh_v2$BehSh_kort

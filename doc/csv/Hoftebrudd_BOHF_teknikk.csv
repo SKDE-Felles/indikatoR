@@ -1,0 +1,1369 @@
+Teknikk;Ermann;Bohf;Antall;aldergr;aar;teknikk_txt;bohf_txt
+1;0;1;1;1;2013;Pinning;Finnmark
+1;0;1;0;1;2014;Pinning;Finnmark
+1;0;1;0;1;2015;Pinning;Finnmark
+1;0;1;0;2;2013;Pinning;Finnmark
+1;0;1;2;2;2014;Pinning;Finnmark
+1;0;1;0;2;2015;Pinning;Finnmark
+1;0;1;1;3;2013;Pinning;Finnmark
+1;0;1;0;3;2014;Pinning;Finnmark
+1;0;1;0;3;2015;Pinning;Finnmark
+1;0;1;0;4;2013;Pinning;Finnmark
+1;0;1;1;4;2014;Pinning;Finnmark
+1;0;1;0;4;2015;Pinning;Finnmark
+1;0;2;1;1;2013;Pinning;UNN
+1;0;2;1;1;2014;Pinning;UNN
+1;0;2;1;1;2015;Pinning;UNN
+1;0;2;1;2;2013;Pinning;UNN
+1;0;2;4;2;2014;Pinning;UNN
+1;0;2;1;2;2015;Pinning;UNN
+1;0;2;0;3;2013;Pinning;UNN
+1;0;2;2;3;2014;Pinning;UNN
+1;0;2;3;3;2015;Pinning;UNN
+1;0;2;3;4;2013;Pinning;UNN
+1;0;2;2;4;2014;Pinning;UNN
+1;0;2;2;4;2015;Pinning;UNN
+1;0;3;0;1;2013;Pinning;Nordland
+1;0;3;1;1;2014;Pinning;Nordland
+1;0;3;1;1;2015;Pinning;Nordland
+1;0;3;0;2;2013;Pinning;Nordland
+1;0;3;2;2;2014;Pinning;Nordland
+1;0;3;1;2;2015;Pinning;Nordland
+1;0;3;0;3;2013;Pinning;Nordland
+1;0;3;1;3;2014;Pinning;Nordland
+1;0;3;0;3;2015;Pinning;Nordland
+1;0;3;1;4;2013;Pinning;Nordland
+1;0;3;1;4;2014;Pinning;Nordland
+1;0;3;0;4;2015;Pinning;Nordland
+1;0;4;1;1;2013;Pinning;Helgeland
+1;0;4;1;1;2014;Pinning;Helgeland
+1;0;4;0;1;2015;Pinning;Helgeland
+1;0;4;1;2;2013;Pinning;Helgeland
+1;0;4;2;2;2014;Pinning;Helgeland
+1;0;4;1;2;2015;Pinning;Helgeland
+1;0;4;1;3;2013;Pinning;Helgeland
+1;0;4;3;3;2014;Pinning;Helgeland
+1;0;4;1;3;2015;Pinning;Helgeland
+1;0;4;0;4;2013;Pinning;Helgeland
+1;0;4;1;4;2014;Pinning;Helgeland
+1;0;4;1;4;2015;Pinning;Helgeland
+1;0;6;4;1;2013;Pinning;Nord-Trøndelag
+1;0;6;2;1;2014;Pinning;Nord-Trøndelag
+1;0;6;1;1;2015;Pinning;Nord-Trøndelag
+1;0;6;0;2;2013;Pinning;Nord-Trøndelag
+1;0;6;1;2;2014;Pinning;Nord-Trøndelag
+1;0;6;1;2;2015;Pinning;Nord-Trøndelag
+1;0;6;0;3;2013;Pinning;Nord-Trøndelag
+1;0;6;2;3;2014;Pinning;Nord-Trøndelag
+1;0;6;2;3;2015;Pinning;Nord-Trøndelag
+1;0;6;0;4;2013;Pinning;Nord-Trøndelag
+1;0;6;2;4;2014;Pinning;Nord-Trøndelag
+1;0;6;0;4;2015;Pinning;Nord-Trøndelag
+1;0;7;1;1;2013;Pinning;St. Olavs
+1;0;7;2;1;2014;Pinning;St. Olavs
+1;0;7;4;1;2015;Pinning;St. Olavs
+1;0;7;1;2;2013;Pinning;St. Olavs
+1;0;7;1;2;2014;Pinning;St. Olavs
+1;0;7;0;2;2015;Pinning;St. Olavs
+1;0;7;2;3;2013;Pinning;St. Olavs
+1;0;7;0;3;2014;Pinning;St. Olavs
+1;0;7;1;3;2015;Pinning;St. Olavs
+1;0;7;0;4;2013;Pinning;St. Olavs
+1;0;7;3;4;2014;Pinning;St. Olavs
+1;0;7;2;4;2015;Pinning;St. Olavs
+1;0;8;0;1;2013;Pinning;Møre og Romsdal
+1;0;8;0;1;2014;Pinning;Møre og Romsdal
+1;0;8;2;1;2015;Pinning;Møre og Romsdal
+1;0;8;0;2;2013;Pinning;Møre og Romsdal
+1;0;8;1;2;2014;Pinning;Møre og Romsdal
+1;0;8;1;2;2015;Pinning;Møre og Romsdal
+1;0;8;0;3;2013;Pinning;Møre og Romsdal
+1;0;8;0;3;2014;Pinning;Møre og Romsdal
+1;0;8;0;3;2015;Pinning;Møre og Romsdal
+1;0;8;2;4;2013;Pinning;Møre og Romsdal
+1;0;8;0;4;2014;Pinning;Møre og Romsdal
+1;0;8;2;4;2015;Pinning;Møre og Romsdal
+1;0;10;0;1;2013;Pinning;Førde
+1;0;10;0;1;2014;Pinning;Førde
+1;0;10;2;1;2015;Pinning;Førde
+1;0;10;0;2;2013;Pinning;Førde
+1;0;10;0;2;2014;Pinning;Førde
+1;0;10;0;2;2015;Pinning;Førde
+1;0;10;0;3;2013;Pinning;Førde
+1;0;10;0;3;2014;Pinning;Førde
+1;0;10;0;3;2015;Pinning;Førde
+1;0;10;0;4;2013;Pinning;Førde
+1;0;10;0;4;2014;Pinning;Førde
+1;0;10;0;4;2015;Pinning;Førde
+1;0;11;6;1;2013;Pinning;Bergen
+1;0;11;3;1;2014;Pinning;Bergen
+1;0;11;2;1;2015;Pinning;Bergen
+1;0;11;1;2;2013;Pinning;Bergen
+1;0;11;2;2;2014;Pinning;Bergen
+1;0;11;0;2;2015;Pinning;Bergen
+1;0;11;3;3;2013;Pinning;Bergen
+1;0;11;2;3;2014;Pinning;Bergen
+1;0;11;0;3;2015;Pinning;Bergen
+1;0;11;3;4;2013;Pinning;Bergen
+1;0;11;6;4;2014;Pinning;Bergen
+1;0;11;4;4;2015;Pinning;Bergen
+1;0;12;1;1;2013;Pinning;Fonna
+1;0;12;0;1;2014;Pinning;Fonna
+1;0;12;0;1;2015;Pinning;Fonna
+1;0;12;0;2;2013;Pinning;Fonna
+1;0;12;0;2;2014;Pinning;Fonna
+1;0;12;0;2;2015;Pinning;Fonna
+1;0;12;1;3;2013;Pinning;Fonna
+1;0;12;1;3;2014;Pinning;Fonna
+1;0;12;1;3;2015;Pinning;Fonna
+1;0;12;2;4;2013;Pinning;Fonna
+1;0;12;3;4;2014;Pinning;Fonna
+1;0;12;1;4;2015;Pinning;Fonna
+1;0;13;7;1;2013;Pinning;Stavanger
+1;0;13;2;1;2014;Pinning;Stavanger
+1;0;13;0;1;2015;Pinning;Stavanger
+1;0;13;4;2;2013;Pinning;Stavanger
+1;0;13;1;2;2014;Pinning;Stavanger
+1;0;13;1;2;2015;Pinning;Stavanger
+1;0;13;1;3;2013;Pinning;Stavanger
+1;0;13;1;3;2014;Pinning;Stavanger
+1;0;13;1;3;2015;Pinning;Stavanger
+1;0;13;10;4;2013;Pinning;Stavanger
+1;0;13;2;4;2014;Pinning;Stavanger
+1;0;13;3;4;2015;Pinning;Stavanger
+1;0;14;1;1;2013;Pinning;Østfold
+1;0;14;0;1;2014;Pinning;Østfold
+1;0;14;0;1;2015;Pinning;Østfold
+1;0;14;0;2;2013;Pinning;Østfold
+1;0;14;0;2;2014;Pinning;Østfold
+1;0;14;1;2;2015;Pinning;Østfold
+1;0;14;1;3;2013;Pinning;Østfold
+1;0;14;1;3;2014;Pinning;Østfold
+1;0;14;0;3;2015;Pinning;Østfold
+1;0;14;0;4;2013;Pinning;Østfold
+1;0;14;0;4;2014;Pinning;Østfold
+1;0;14;1;4;2015;Pinning;Østfold
+1;0;15;1;1;2013;Pinning;Akershus
+1;0;15;4;1;2014;Pinning;Akershus
+1;0;15;1;1;2015;Pinning;Akershus
+1;0;15;0;2;2013;Pinning;Akershus
+1;0;15;0;2;2014;Pinning;Akershus
+1;0;15;0;2;2015;Pinning;Akershus
+1;0;15;0;3;2013;Pinning;Akershus
+1;0;15;3;3;2014;Pinning;Akershus
+1;0;15;1;3;2015;Pinning;Akershus
+1;0;15;3;4;2013;Pinning;Akershus
+1;0;15;0;4;2014;Pinning;Akershus
+1;0;15;1;4;2015;Pinning;Akershus
+1;0;16;1;1;2013;Pinning;OUS
+1;0;16;3;1;2014;Pinning;OUS
+1;0;16;1;1;2015;Pinning;OUS
+1;0;16;0;2;2013;Pinning;OUS
+1;0;16;0;2;2014;Pinning;OUS
+1;0;16;0;2;2015;Pinning;OUS
+1;0;16;0;3;2013;Pinning;OUS
+1;0;16;0;3;2014;Pinning;OUS
+1;0;16;0;3;2015;Pinning;OUS
+1;0;16;0;4;2013;Pinning;OUS
+1;0;16;1;4;2014;Pinning;OUS
+1;0;16;2;4;2015;Pinning;OUS
+1;0;19;1;1;2013;Pinning;Innlandet
+1;0;19;0;1;2014;Pinning;Innlandet
+1;0;19;0;1;2015;Pinning;Innlandet
+1;0;19;3;2;2013;Pinning;Innlandet
+1;0;19;1;2;2014;Pinning;Innlandet
+1;0;19;1;2;2015;Pinning;Innlandet
+1;0;19;2;3;2013;Pinning;Innlandet
+1;0;19;0;3;2014;Pinning;Innlandet
+1;0;19;1;3;2015;Pinning;Innlandet
+1;0;19;1;4;2013;Pinning;Innlandet
+1;0;19;2;4;2014;Pinning;Innlandet
+1;0;19;2;4;2015;Pinning;Innlandet
+1;0;20;3;1;2013;Pinning;Vestre Viken
+1;0;20;1;1;2014;Pinning;Vestre Viken
+1;0;20;1;1;2015;Pinning;Vestre Viken
+1;0;20;1;2;2013;Pinning;Vestre Viken
+1;0;20;1;2;2014;Pinning;Vestre Viken
+1;0;20;0;2;2015;Pinning;Vestre Viken
+1;0;20;0;3;2013;Pinning;Vestre Viken
+1;0;20;0;3;2014;Pinning;Vestre Viken
+1;0;20;0;3;2015;Pinning;Vestre Viken
+1;0;20;0;4;2013;Pinning;Vestre Viken
+1;0;20;2;4;2014;Pinning;Vestre Viken
+1;0;20;2;4;2015;Pinning;Vestre Viken
+1;0;21;2;1;2013;Pinning;Vestfold
+1;0;21;2;1;2014;Pinning;Vestfold
+1;0;21;1;1;2015;Pinning;Vestfold
+1;0;21;1;2;2013;Pinning;Vestfold
+1;0;21;1;2;2014;Pinning;Vestfold
+1;0;21;0;2;2015;Pinning;Vestfold
+1;0;21;0;3;2013;Pinning;Vestfold
+1;0;21;1;3;2014;Pinning;Vestfold
+1;0;21;0;3;2015;Pinning;Vestfold
+1;0;21;3;4;2013;Pinning;Vestfold
+1;0;21;1;4;2014;Pinning;Vestfold
+1;0;21;4;4;2015;Pinning;Vestfold
+1;0;22;2;1;2013;Pinning;Telemark
+1;0;22;0;1;2014;Pinning;Telemark
+1;0;22;0;1;2015;Pinning;Telemark
+1;0;22;0;2;2013;Pinning;Telemark
+1;0;22;1;2;2014;Pinning;Telemark
+1;0;22;0;2;2015;Pinning;Telemark
+1;0;22;0;3;2013;Pinning;Telemark
+1;0;22;3;3;2014;Pinning;Telemark
+1;0;22;1;3;2015;Pinning;Telemark
+1;0;22;2;4;2013;Pinning;Telemark
+1;0;22;0;4;2014;Pinning;Telemark
+1;0;22;0;4;2015;Pinning;Telemark
+1;0;23;1;1;2013;Pinning;Sørlandet
+1;0;23;3;1;2014;Pinning;Sørlandet
+1;0;23;0;1;2015;Pinning;Sørlandet
+1;0;23;1;2;2013;Pinning;Sørlandet
+1;0;23;1;2;2014;Pinning;Sørlandet
+1;0;23;1;2;2015;Pinning;Sørlandet
+1;0;23;0;3;2013;Pinning;Sørlandet
+1;0;23;2;3;2014;Pinning;Sørlandet
+1;0;23;1;3;2015;Pinning;Sørlandet
+1;0;23;1;4;2013;Pinning;Sørlandet
+1;0;23;4;4;2014;Pinning;Sørlandet
+1;0;23;0;4;2015;Pinning;Sørlandet
+1;1;1;0;1;2013;Pinning;Finnmark
+1;1;1;0;1;2014;Pinning;Finnmark
+1;1;1;1;1;2015;Pinning;Finnmark
+1;1;1;1;2;2013;Pinning;Finnmark
+1;1;1;1;2;2014;Pinning;Finnmark
+1;1;1;0;2;2015;Pinning;Finnmark
+1;1;1;0;3;2013;Pinning;Finnmark
+1;1;1;0;3;2014;Pinning;Finnmark
+1;1;1;0;3;2015;Pinning;Finnmark
+1;1;1;1;4;2013;Pinning;Finnmark
+1;1;1;0;4;2014;Pinning;Finnmark
+1;1;1;0;4;2015;Pinning;Finnmark
+1;1;2;2;1;2013;Pinning;UNN
+1;1;2;0;1;2014;Pinning;UNN
+1;1;2;0;1;2015;Pinning;UNN
+1;1;2;1;2;2013;Pinning;UNN
+1;1;2;1;2;2014;Pinning;UNN
+1;1;2;1;2;2015;Pinning;UNN
+1;1;2;1;3;2013;Pinning;UNN
+1;1;2;1;3;2014;Pinning;UNN
+1;1;2;0;3;2015;Pinning;UNN
+1;1;2;1;4;2013;Pinning;UNN
+1;1;2;0;4;2014;Pinning;UNN
+1;1;2;1;4;2015;Pinning;UNN
+1;1;3;0;1;2013;Pinning;Nordland
+1;1;3;1;1;2014;Pinning;Nordland
+1;1;3;0;1;2015;Pinning;Nordland
+1;1;3;0;2;2013;Pinning;Nordland
+1;1;3;2;2;2014;Pinning;Nordland
+1;1;3;0;2;2015;Pinning;Nordland
+1;1;3;0;3;2013;Pinning;Nordland
+1;1;3;0;3;2014;Pinning;Nordland
+1;1;3;0;3;2015;Pinning;Nordland
+1;1;3;0;4;2013;Pinning;Nordland
+1;1;3;1;4;2014;Pinning;Nordland
+1;1;3;0;4;2015;Pinning;Nordland
+1;1;4;2;1;2013;Pinning;Helgeland
+1;1;4;1;1;2014;Pinning;Helgeland
+1;1;4;2;1;2015;Pinning;Helgeland
+1;1;4;0;2;2013;Pinning;Helgeland
+1;1;4;0;2;2014;Pinning;Helgeland
+1;1;4;0;2;2015;Pinning;Helgeland
+1;1;4;0;3;2013;Pinning;Helgeland
+1;1;4;0;3;2014;Pinning;Helgeland
+1;1;4;0;3;2015;Pinning;Helgeland
+1;1;4;0;4;2013;Pinning;Helgeland
+1;1;4;1;4;2014;Pinning;Helgeland
+1;1;4;0;4;2015;Pinning;Helgeland
+1;1;6;2;1;2013;Pinning;Nord-Trøndelag
+1;1;6;0;1;2014;Pinning;Nord-Trøndelag
+1;1;6;1;1;2015;Pinning;Nord-Trøndelag
+1;1;6;0;2;2013;Pinning;Nord-Trøndelag
+1;1;6;1;2;2014;Pinning;Nord-Trøndelag
+1;1;6;0;2;2015;Pinning;Nord-Trøndelag
+1;1;6;0;3;2013;Pinning;Nord-Trøndelag
+1;1;6;2;3;2014;Pinning;Nord-Trøndelag
+1;1;6;0;3;2015;Pinning;Nord-Trøndelag
+1;1;6;2;4;2013;Pinning;Nord-Trøndelag
+1;1;6;3;4;2014;Pinning;Nord-Trøndelag
+1;1;6;2;4;2015;Pinning;Nord-Trøndelag
+1;1;7;2;1;2013;Pinning;St. Olavs
+1;1;7;2;1;2014;Pinning;St. Olavs
+1;1;7;1;1;2015;Pinning;St. Olavs
+1;1;7;0;2;2013;Pinning;St. Olavs
+1;1;7;0;2;2014;Pinning;St. Olavs
+1;1;7;0;2;2015;Pinning;St. Olavs
+1;1;7;2;3;2013;Pinning;St. Olavs
+1;1;7;2;3;2014;Pinning;St. Olavs
+1;1;7;1;3;2015;Pinning;St. Olavs
+1;1;7;2;4;2013;Pinning;St. Olavs
+1;1;7;1;4;2014;Pinning;St. Olavs
+1;1;7;0;4;2015;Pinning;St. Olavs
+1;1;8;0;1;2013;Pinning;Møre og Romsdal
+1;1;8;1;1;2014;Pinning;Møre og Romsdal
+1;1;8;1;1;2015;Pinning;Møre og Romsdal
+1;1;8;0;2;2013;Pinning;Møre og Romsdal
+1;1;8;1;2;2014;Pinning;Møre og Romsdal
+1;1;8;1;2;2015;Pinning;Møre og Romsdal
+1;1;8;1;3;2013;Pinning;Møre og Romsdal
+1;1;8;2;3;2014;Pinning;Møre og Romsdal
+1;1;8;0;3;2015;Pinning;Møre og Romsdal
+1;1;8;0;4;2013;Pinning;Møre og Romsdal
+1;1;8;5;4;2014;Pinning;Møre og Romsdal
+1;1;8;0;4;2015;Pinning;Møre og Romsdal
+1;1;10;0;1;2013;Pinning;Førde
+1;1;10;0;1;2014;Pinning;Førde
+1;1;10;0;1;2015;Pinning;Førde
+1;1;10;1;2;2013;Pinning;Førde
+1;1;10;0;2;2014;Pinning;Førde
+1;1;10;0;2;2015;Pinning;Førde
+1;1;10;1;3;2013;Pinning;Førde
+1;1;10;0;3;2014;Pinning;Førde
+1;1;10;0;3;2015;Pinning;Førde
+1;1;10;0;4;2013;Pinning;Førde
+1;1;10;1;4;2014;Pinning;Førde
+1;1;10;0;4;2015;Pinning;Førde
+1;1;11;2;1;2013;Pinning;Bergen
+1;1;11;1;1;2014;Pinning;Bergen
+1;1;11;2;1;2015;Pinning;Bergen
+1;1;11;3;2;2013;Pinning;Bergen
+1;1;11;0;2;2014;Pinning;Bergen
+1;1;11;0;2;2015;Pinning;Bergen
+1;1;11;2;3;2013;Pinning;Bergen
+1;1;11;1;3;2014;Pinning;Bergen
+1;1;11;1;3;2015;Pinning;Bergen
+1;1;11;4;4;2013;Pinning;Bergen
+1;1;11;1;4;2014;Pinning;Bergen
+1;1;11;0;4;2015;Pinning;Bergen
+1;1;12;3;1;2013;Pinning;Fonna
+1;1;12;0;1;2014;Pinning;Fonna
+1;1;12;0;1;2015;Pinning;Fonna
+1;1;12;0;2;2013;Pinning;Fonna
+1;1;12;1;2;2014;Pinning;Fonna
+1;1;12;0;2;2015;Pinning;Fonna
+1;1;12;1;3;2013;Pinning;Fonna
+1;1;12;0;3;2014;Pinning;Fonna
+1;1;12;0;3;2015;Pinning;Fonna
+1;1;12;0;4;2013;Pinning;Fonna
+1;1;12;2;4;2014;Pinning;Fonna
+1;1;12;1;4;2015;Pinning;Fonna
+1;1;13;3;1;2013;Pinning;Stavanger
+1;1;13;1;1;2014;Pinning;Stavanger
+1;1;13;2;1;2015;Pinning;Stavanger
+1;1;13;2;2;2013;Pinning;Stavanger
+1;1;13;0;2;2014;Pinning;Stavanger
+1;1;13;0;2;2015;Pinning;Stavanger
+1;1;13;2;3;2013;Pinning;Stavanger
+1;1;13;1;3;2014;Pinning;Stavanger
+1;1;13;1;3;2015;Pinning;Stavanger
+1;1;13;4;4;2013;Pinning;Stavanger
+1;1;13;1;4;2014;Pinning;Stavanger
+1;1;13;2;4;2015;Pinning;Stavanger
+1;1;14;0;1;2013;Pinning;Østfold
+1;1;14;0;1;2014;Pinning;Østfold
+1;1;14;0;1;2015;Pinning;Østfold
+1;1;14;0;2;2013;Pinning;Østfold
+1;1;14;0;2;2014;Pinning;Østfold
+1;1;14;0;2;2015;Pinning;Østfold
+1;1;14;0;3;2013;Pinning;Østfold
+1;1;14;0;3;2014;Pinning;Østfold
+1;1;14;0;3;2015;Pinning;Østfold
+1;1;14;0;4;2013;Pinning;Østfold
+1;1;14;0;4;2014;Pinning;Østfold
+1;1;14;0;4;2015;Pinning;Østfold
+1;1;15;1;1;2013;Pinning;Akershus
+1;1;15;2;1;2014;Pinning;Akershus
+1;1;15;2;1;2015;Pinning;Akershus
+1;1;15;0;2;2013;Pinning;Akershus
+1;1;15;0;2;2014;Pinning;Akershus
+1;1;15;0;2;2015;Pinning;Akershus
+1;1;15;2;3;2013;Pinning;Akershus
+1;1;15;0;3;2014;Pinning;Akershus
+1;1;15;0;3;2015;Pinning;Akershus
+1;1;15;1;4;2013;Pinning;Akershus
+1;1;15;0;4;2014;Pinning;Akershus
+1;1;15;2;4;2015;Pinning;Akershus
+1;1;16;0;1;2013;Pinning;OUS
+1;1;16;0;1;2014;Pinning;OUS
+1;1;16;1;1;2015;Pinning;OUS
+1;1;16;0;2;2013;Pinning;OUS
+1;1;16;0;2;2014;Pinning;OUS
+1;1;16;0;2;2015;Pinning;OUS
+1;1;16;0;3;2013;Pinning;OUS
+1;1;16;0;3;2014;Pinning;OUS
+1;1;16;0;3;2015;Pinning;OUS
+1;1;16;1;4;2013;Pinning;OUS
+1;1;16;1;4;2014;Pinning;OUS
+1;1;16;0;4;2015;Pinning;OUS
+1;1;19;1;1;2013;Pinning;Innlandet
+1;1;19;1;1;2014;Pinning;Innlandet
+1;1;19;3;1;2015;Pinning;Innlandet
+1;1;19;1;2;2013;Pinning;Innlandet
+1;1;19;0;2;2014;Pinning;Innlandet
+1;1;19;0;2;2015;Pinning;Innlandet
+1;1;19;1;3;2013;Pinning;Innlandet
+1;1;19;1;3;2014;Pinning;Innlandet
+1;1;19;1;3;2015;Pinning;Innlandet
+1;1;19;0;4;2013;Pinning;Innlandet
+1;1;19;0;4;2014;Pinning;Innlandet
+1;1;19;0;4;2015;Pinning;Innlandet
+1;1;20;0;1;2013;Pinning;Vestre Viken
+1;1;20;1;1;2014;Pinning;Vestre Viken
+1;1;20;2;1;2015;Pinning;Vestre Viken
+1;1;20;0;2;2013;Pinning;Vestre Viken
+1;1;20;0;2;2014;Pinning;Vestre Viken
+1;1;20;1;2;2015;Pinning;Vestre Viken
+1;1;20;1;3;2013;Pinning;Vestre Viken
+1;1;20;1;3;2014;Pinning;Vestre Viken
+1;1;20;1;3;2015;Pinning;Vestre Viken
+1;1;20;0;4;2013;Pinning;Vestre Viken
+1;1;20;0;4;2014;Pinning;Vestre Viken
+1;1;20;4;4;2015;Pinning;Vestre Viken
+1;1;21;2;1;2013;Pinning;Vestfold
+1;1;21;0;1;2014;Pinning;Vestfold
+1;1;21;0;1;2015;Pinning;Vestfold
+1;1;21;0;2;2013;Pinning;Vestfold
+1;1;21;0;2;2014;Pinning;Vestfold
+1;1;21;0;2;2015;Pinning;Vestfold
+1;1;21;1;3;2013;Pinning;Vestfold
+1;1;21;0;3;2014;Pinning;Vestfold
+1;1;21;0;3;2015;Pinning;Vestfold
+1;1;21;1;4;2013;Pinning;Vestfold
+1;1;21;2;4;2014;Pinning;Vestfold
+1;1;21;1;4;2015;Pinning;Vestfold
+1;1;22;0;1;2013;Pinning;Telemark
+1;1;22;0;1;2014;Pinning;Telemark
+1;1;22;0;1;2015;Pinning;Telemark
+1;1;22;0;2;2013;Pinning;Telemark
+1;1;22;0;2;2014;Pinning;Telemark
+1;1;22;0;2;2015;Pinning;Telemark
+1;1;22;0;3;2013;Pinning;Telemark
+1;1;22;0;3;2014;Pinning;Telemark
+1;1;22;0;3;2015;Pinning;Telemark
+1;1;22;0;4;2013;Pinning;Telemark
+1;1;22;0;4;2014;Pinning;Telemark
+1;1;22;0;4;2015;Pinning;Telemark
+1;1;23;1;1;2013;Pinning;Sørlandet
+1;1;23;0;1;2014;Pinning;Sørlandet
+1;1;23;1;1;2015;Pinning;Sørlandet
+1;1;23;1;2;2013;Pinning;Sørlandet
+1;1;23;1;2;2014;Pinning;Sørlandet
+1;1;23;1;2;2015;Pinning;Sørlandet
+1;1;23;1;3;2013;Pinning;Sørlandet
+1;1;23;2;3;2014;Pinning;Sørlandet
+1;1;23;1;3;2015;Pinning;Sørlandet
+1;1;23;2;4;2013;Pinning;Sørlandet
+1;1;23;0;4;2014;Pinning;Sørlandet
+1;1;23;1;4;2015;Pinning;Sørlandet
+2;0;1;5;1;2013;Hemipro;Finnmark
+2;0;1;6;1;2014;Hemipro;Finnmark
+2;0;1;3;1;2015;Hemipro;Finnmark
+2;0;1;7;2;2013;Hemipro;Finnmark
+2;0;1;4;2;2014;Hemipro;Finnmark
+2;0;1;6;2;2015;Hemipro;Finnmark
+2;0;1;8;3;2013;Hemipro;Finnmark
+2;0;1;7;3;2014;Hemipro;Finnmark
+2;0;1;6;3;2015;Hemipro;Finnmark
+2;0;1;3;4;2013;Hemipro;Finnmark
+2;0;1;5;4;2014;Hemipro;Finnmark
+2;0;1;7;4;2015;Hemipro;Finnmark
+2;0;2;11;1;2013;Hemipro;UNN
+2;0;2;13;1;2014;Hemipro;UNN
+2;0;2;10;1;2015;Hemipro;UNN
+2;0;2;9;2;2013;Hemipro;UNN
+2;0;2;7;2;2014;Hemipro;UNN
+2;0;2;14;2;2015;Hemipro;UNN
+2;0;2;20;3;2013;Hemipro;UNN
+2;0;2;8;3;2014;Hemipro;UNN
+2;0;2;19;3;2015;Hemipro;UNN
+2;0;2;19;4;2013;Hemipro;UNN
+2;0;2;18;4;2014;Hemipro;UNN
+2;0;2;26;4;2015;Hemipro;UNN
+2;0;3;12;1;2013;Hemipro;Nordland
+2;0;3;8;1;2014;Hemipro;Nordland
+2;0;3;13;1;2015;Hemipro;Nordland
+2;0;3;15;2;2013;Hemipro;Nordland
+2;0;3;22;2;2014;Hemipro;Nordland
+2;0;3;12;2;2015;Hemipro;Nordland
+2;0;3;18;3;2013;Hemipro;Nordland
+2;0;3;20;3;2014;Hemipro;Nordland
+2;0;3;21;3;2015;Hemipro;Nordland
+2;0;3;20;4;2013;Hemipro;Nordland
+2;0;3;16;4;2014;Hemipro;Nordland
+2;0;3;13;4;2015;Hemipro;Nordland
+2;0;4;7;1;2013;Hemipro;Helgeland
+2;0;4;7;1;2014;Hemipro;Helgeland
+2;0;4;8;1;2015;Hemipro;Helgeland
+2;0;4;7;2;2013;Hemipro;Helgeland
+2;0;4;1;2;2014;Hemipro;Helgeland
+2;0;4;4;2;2015;Hemipro;Helgeland
+2;0;4;6;3;2013;Hemipro;Helgeland
+2;0;4;5;3;2014;Hemipro;Helgeland
+2;0;4;3;3;2015;Hemipro;Helgeland
+2;0;4;4;4;2013;Hemipro;Helgeland
+2;0;4;9;4;2014;Hemipro;Helgeland
+2;0;4;7;4;2015;Hemipro;Helgeland
+2;0;6;6;1;2013;Hemipro;Nord-Trøndelag
+2;0;6;7;1;2014;Hemipro;Nord-Trøndelag
+2;0;6;11;1;2015;Hemipro;Nord-Trøndelag
+2;0;6;8;2;2013;Hemipro;Nord-Trøndelag
+2;0;6;8;2;2014;Hemipro;Nord-Trøndelag
+2;0;6;16;2;2015;Hemipro;Nord-Trøndelag
+2;0;6;14;3;2013;Hemipro;Nord-Trøndelag
+2;0;6;12;3;2014;Hemipro;Nord-Trøndelag
+2;0;6;16;3;2015;Hemipro;Nord-Trøndelag
+2;0;6;22;4;2013;Hemipro;Nord-Trøndelag
+2;0;6;11;4;2014;Hemipro;Nord-Trøndelag
+2;0;6;9;4;2015;Hemipro;Nord-Trøndelag
+2;0;7;20;1;2013;Hemipro;St. Olavs
+2;0;7;18;1;2014;Hemipro;St. Olavs
+2;0;7;18;1;2015;Hemipro;St. Olavs
+2;0;7;26;2;2013;Hemipro;St. Olavs
+2;0;7;30;2;2014;Hemipro;St. Olavs
+2;0;7;24;2;2015;Hemipro;St. Olavs
+2;0;7;32;3;2013;Hemipro;St. Olavs
+2;0;7;40;3;2014;Hemipro;St. Olavs
+2;0;7;27;3;2015;Hemipro;St. Olavs
+2;0;7;33;4;2013;Hemipro;St. Olavs
+2;0;7;28;4;2014;Hemipro;St. Olavs
+2;0;7;40;4;2015;Hemipro;St. Olavs
+2;0;8;19;1;2013;Hemipro;Møre og Romsdal
+2;0;8;13;1;2014;Hemipro;Møre og Romsdal
+2;0;8;4;1;2015;Hemipro;Møre og Romsdal
+2;0;8;19;2;2013;Hemipro;Møre og Romsdal
+2;0;8;33;2;2014;Hemipro;Møre og Romsdal
+2;0;8;25;2;2015;Hemipro;Møre og Romsdal
+2;0;8;27;3;2013;Hemipro;Møre og Romsdal
+2;0;8;36;3;2014;Hemipro;Møre og Romsdal
+2;0;8;25;3;2015;Hemipro;Møre og Romsdal
+2;0;8;44;4;2013;Hemipro;Møre og Romsdal
+2;0;8;43;4;2014;Hemipro;Møre og Romsdal
+2;0;8;38;4;2015;Hemipro;Møre og Romsdal
+2;0;10;6;1;2013;Hemipro;Førde
+2;0;10;8;1;2014;Hemipro;Førde
+2;0;10;5;1;2015;Hemipro;Førde
+2;0;10;6;2;2013;Hemipro;Førde
+2;0;10;8;2;2014;Hemipro;Førde
+2;0;10;3;2;2015;Hemipro;Førde
+2;0;10;6;3;2013;Hemipro;Førde
+2;0;10;6;3;2014;Hemipro;Førde
+2;0;10;10;3;2015;Hemipro;Førde
+2;0;10;18;4;2013;Hemipro;Førde
+2;0;10;9;4;2014;Hemipro;Førde
+2;0;10;14;4;2015;Hemipro;Førde
+2;0;11;41;1;2013;Hemipro;Bergen
+2;0;11;39;1;2014;Hemipro;Bergen
+2;0;11;33;1;2015;Hemipro;Bergen
+2;0;11;34;2;2013;Hemipro;Bergen
+2;0;11;47;2;2014;Hemipro;Bergen
+2;0;11;41;2;2015;Hemipro;Bergen
+2;0;11;52;3;2013;Hemipro;Bergen
+2;0;11;40;3;2014;Hemipro;Bergen
+2;0;11;40;3;2015;Hemipro;Bergen
+2;0;11;49;4;2013;Hemipro;Bergen
+2;0;11;49;4;2014;Hemipro;Bergen
+2;0;11;56;4;2015;Hemipro;Bergen
+2;0;12;15;1;2013;Hemipro;Fonna
+2;0;12;11;1;2014;Hemipro;Fonna
+2;0;12;14;1;2015;Hemipro;Fonna
+2;0;12;17;2;2013;Hemipro;Fonna
+2;0;12;21;2;2014;Hemipro;Fonna
+2;0;12;22;2;2015;Hemipro;Fonna
+2;0;12;20;3;2013;Hemipro;Fonna
+2;0;12;23;3;2014;Hemipro;Fonna
+2;0;12;15;3;2015;Hemipro;Fonna
+2;0;12;43;4;2013;Hemipro;Fonna
+2;0;12;26;4;2014;Hemipro;Fonna
+2;0;12;23;4;2015;Hemipro;Fonna
+2;0;13;7;1;2013;Hemipro;Stavanger
+2;0;13;4;1;2014;Hemipro;Stavanger
+2;0;13;6;1;2015;Hemipro;Stavanger
+2;0;13;8;2;2013;Hemipro;Stavanger
+2;0;13;12;2;2014;Hemipro;Stavanger
+2;0;13;11;2;2015;Hemipro;Stavanger
+2;0;13;21;3;2013;Hemipro;Stavanger
+2;0;13;32;3;2014;Hemipro;Stavanger
+2;0;13;31;3;2015;Hemipro;Stavanger
+2;0;13;30;4;2013;Hemipro;Stavanger
+2;0;13;40;4;2014;Hemipro;Stavanger
+2;0;13;34;4;2015;Hemipro;Stavanger
+2;0;14;43;1;2013;Hemipro;Østfold
+2;0;14;20;1;2014;Hemipro;Østfold
+2;0;14;36;1;2015;Hemipro;Østfold
+2;0;14;42;2;2013;Hemipro;Østfold
+2;0;14;43;2;2014;Hemipro;Østfold
+2;0;14;44;2;2015;Hemipro;Østfold
+2;0;14;45;3;2013;Hemipro;Østfold
+2;0;14;37;3;2014;Hemipro;Østfold
+2;0;14;43;3;2015;Hemipro;Østfold
+2;0;14;49;4;2013;Hemipro;Østfold
+2;0;14;46;4;2014;Hemipro;Østfold
+2;0;14;47;4;2015;Hemipro;Østfold
+2;0;15;23;1;2013;Hemipro;Akershus
+2;0;15;29;1;2014;Hemipro;Akershus
+2;0;15;31;1;2015;Hemipro;Akershus
+2;0;15;34;2;2013;Hemipro;Akershus
+2;0;15;35;2;2014;Hemipro;Akershus
+2;0;15;36;2;2015;Hemipro;Akershus
+2;0;15;29;3;2013;Hemipro;Akershus
+2;0;15;36;3;2014;Hemipro;Akershus
+2;0;15;32;3;2015;Hemipro;Akershus
+2;0;15;22;4;2013;Hemipro;Akershus
+2;0;15;35;4;2014;Hemipro;Akershus
+2;0;15;37;4;2015;Hemipro;Akershus
+2;0;16;50;1;2013;Hemipro;OUS
+2;0;16;32;1;2014;Hemipro;OUS
+2;0;16;31;1;2015;Hemipro;OUS
+2;0;16;46;2;2013;Hemipro;OUS
+2;0;16;58;2;2014;Hemipro;OUS
+2;0;16;37;2;2015;Hemipro;OUS
+2;0;16;61;3;2013;Hemipro;OUS
+2;0;16;57;3;2014;Hemipro;OUS
+2;0;16;43;3;2015;Hemipro;OUS
+2;0;16;69;4;2013;Hemipro;OUS
+2;0;16;92;4;2014;Hemipro;OUS
+2;0;16;75;4;2015;Hemipro;OUS
+2;0;19;32;1;2013;Hemipro;Innlandet
+2;0;19;40;1;2014;Hemipro;Innlandet
+2;0;19;45;1;2015;Hemipro;Innlandet
+2;0;19;46;2;2013;Hemipro;Innlandet
+2;0;19;42;2;2014;Hemipro;Innlandet
+2;0;19;52;2;2015;Hemipro;Innlandet
+2;0;19;51;3;2013;Hemipro;Innlandet
+2;0;19;67;3;2014;Hemipro;Innlandet
+2;0;19;44;3;2015;Hemipro;Innlandet
+2;0;19;52;4;2013;Hemipro;Innlandet
+2;0;19;56;4;2014;Hemipro;Innlandet
+2;0;19;50;4;2015;Hemipro;Innlandet
+2;0;20;30;1;2013;Hemipro;Vestre Viken
+2;0;20;37;1;2014;Hemipro;Vestre Viken
+2;0;20;33;1;2015;Hemipro;Vestre Viken
+2;0;20;53;2;2013;Hemipro;Vestre Viken
+2;0;20;41;2;2014;Hemipro;Vestre Viken
+2;0;20;42;2;2015;Hemipro;Vestre Viken
+2;0;20;51;3;2013;Hemipro;Vestre Viken
+2;0;20;46;3;2014;Hemipro;Vestre Viken
+2;0;20;52;3;2015;Hemipro;Vestre Viken
+2;0;20;67;4;2013;Hemipro;Vestre Viken
+2;0;20;73;4;2014;Hemipro;Vestre Viken
+2;0;20;61;4;2015;Hemipro;Vestre Viken
+2;0;21;34;1;2013;Hemipro;Vestfold
+2;0;21;35;1;2014;Hemipro;Vestfold
+2;0;21;14;1;2015;Hemipro;Vestfold
+2;0;21;22;2;2013;Hemipro;Vestfold
+2;0;21;29;2;2014;Hemipro;Vestfold
+2;0;21;20;2;2015;Hemipro;Vestfold
+2;0;21;26;3;2013;Hemipro;Vestfold
+2;0;21;25;3;2014;Hemipro;Vestfold
+2;0;21;26;3;2015;Hemipro;Vestfold
+2;0;21;28;4;2013;Hemipro;Vestfold
+2;0;21;29;4;2014;Hemipro;Vestfold
+2;0;21;25;4;2015;Hemipro;Vestfold
+2;0;22;15;1;2013;Hemipro;Telemark
+2;0;22;8;1;2014;Hemipro;Telemark
+2;0;22;6;1;2015;Hemipro;Telemark
+2;0;22;12;2;2013;Hemipro;Telemark
+2;0;22;15;2;2014;Hemipro;Telemark
+2;0;22;18;2;2015;Hemipro;Telemark
+2;0;22;21;3;2013;Hemipro;Telemark
+2;0;22;29;3;2014;Hemipro;Telemark
+2;0;22;28;3;2015;Hemipro;Telemark
+2;0;22;19;4;2013;Hemipro;Telemark
+2;0;22;40;4;2014;Hemipro;Telemark
+2;0;22;36;4;2015;Hemipro;Telemark
+2;0;23;16;1;2013;Hemipro;Sørlandet
+2;0;23;18;1;2014;Hemipro;Sørlandet
+2;0;23;21;1;2015;Hemipro;Sørlandet
+2;0;23;33;2;2013;Hemipro;Sørlandet
+2;0;23;30;2;2014;Hemipro;Sørlandet
+2;0;23;27;2;2015;Hemipro;Sørlandet
+2;0;23;27;3;2013;Hemipro;Sørlandet
+2;0;23;33;3;2014;Hemipro;Sørlandet
+2;0;23;31;3;2015;Hemipro;Sørlandet
+2;0;23;33;4;2013;Hemipro;Sørlandet
+2;0;23;41;4;2014;Hemipro;Sørlandet
+2;0;23;46;4;2015;Hemipro;Sørlandet
+2;1;1;0;1;2013;Hemipro;Finnmark
+2;1;1;4;1;2014;Hemipro;Finnmark
+2;1;1;3;1;2015;Hemipro;Finnmark
+2;1;1;1;2;2013;Hemipro;Finnmark
+2;1;1;3;2;2014;Hemipro;Finnmark
+2;1;1;0;2;2015;Hemipro;Finnmark
+2;1;1;1;3;2013;Hemipro;Finnmark
+2;1;1;2;3;2014;Hemipro;Finnmark
+2;1;1;1;3;2015;Hemipro;Finnmark
+2;1;1;3;4;2013;Hemipro;Finnmark
+2;1;1;3;4;2014;Hemipro;Finnmark
+2;1;1;1;4;2015;Hemipro;Finnmark
+2;1;2;7;1;2013;Hemipro;UNN
+2;1;2;7;1;2014;Hemipro;UNN
+2;1;2;7;1;2015;Hemipro;UNN
+2;1;2;5;2;2013;Hemipro;UNN
+2;1;2;8;2;2014;Hemipro;UNN
+2;1;2;5;2;2015;Hemipro;UNN
+2;1;2;2;3;2013;Hemipro;UNN
+2;1;2;6;3;2014;Hemipro;UNN
+2;1;2;11;3;2015;Hemipro;UNN
+2;1;2;3;4;2013;Hemipro;UNN
+2;1;2;6;4;2014;Hemipro;UNN
+2;1;2;7;4;2015;Hemipro;UNN
+2;1;3;6;1;2013;Hemipro;Nordland
+2;1;3;4;1;2014;Hemipro;Nordland
+2;1;3;0;1;2015;Hemipro;Nordland
+2;1;3;7;2;2013;Hemipro;Nordland
+2;1;3;5;2;2014;Hemipro;Nordland
+2;1;3;9;2;2015;Hemipro;Nordland
+2;1;3;9;3;2013;Hemipro;Nordland
+2;1;3;8;3;2014;Hemipro;Nordland
+2;1;3;4;3;2015;Hemipro;Nordland
+2;1;3;5;4;2013;Hemipro;Nordland
+2;1;3;8;4;2014;Hemipro;Nordland
+2;1;3;7;4;2015;Hemipro;Nordland
+2;1;4;1;1;2013;Hemipro;Helgeland
+2;1;4;3;1;2014;Hemipro;Helgeland
+2;1;4;3;1;2015;Hemipro;Helgeland
+2;1;4;3;2;2013;Hemipro;Helgeland
+2;1;4;2;2;2014;Hemipro;Helgeland
+2;1;4;4;2;2015;Hemipro;Helgeland
+2;1;4;0;3;2013;Hemipro;Helgeland
+2;1;4;1;3;2014;Hemipro;Helgeland
+2;1;4;1;3;2015;Hemipro;Helgeland
+2;1;4;2;4;2013;Hemipro;Helgeland
+2;1;4;3;4;2014;Hemipro;Helgeland
+2;1;4;4;4;2015;Hemipro;Helgeland
+2;1;6;5;1;2013;Hemipro;Nord-Trøndelag
+2;1;6;5;1;2014;Hemipro;Nord-Trøndelag
+2;1;6;10;1;2015;Hemipro;Nord-Trøndelag
+2;1;6;6;2;2013;Hemipro;Nord-Trøndelag
+2;1;6;7;2;2014;Hemipro;Nord-Trøndelag
+2;1;6;1;2;2015;Hemipro;Nord-Trøndelag
+2;1;6;8;3;2013;Hemipro;Nord-Trøndelag
+2;1;6;10;3;2014;Hemipro;Nord-Trøndelag
+2;1;6;4;3;2015;Hemipro;Nord-Trøndelag
+2;1;6;7;4;2013;Hemipro;Nord-Trøndelag
+2;1;6;6;4;2014;Hemipro;Nord-Trøndelag
+2;1;6;3;4;2015;Hemipro;Nord-Trøndelag
+2;1;7;6;1;2013;Hemipro;St. Olavs
+2;1;7;12;1;2014;Hemipro;St. Olavs
+2;1;7;7;1;2015;Hemipro;St. Olavs
+2;1;7;12;2;2013;Hemipro;St. Olavs
+2;1;7;16;2;2014;Hemipro;St. Olavs
+2;1;7;14;2;2015;Hemipro;St. Olavs
+2;1;7;16;3;2013;Hemipro;St. Olavs
+2;1;7;23;3;2014;Hemipro;St. Olavs
+2;1;7;21;3;2015;Hemipro;St. Olavs
+2;1;7;16;4;2013;Hemipro;St. Olavs
+2;1;7;12;4;2014;Hemipro;St. Olavs
+2;1;7;14;4;2015;Hemipro;St. Olavs
+2;1;8;7;1;2013;Hemipro;Møre og Romsdal
+2;1;8;14;1;2014;Hemipro;Møre og Romsdal
+2;1;8;13;1;2015;Hemipro;Møre og Romsdal
+2;1;8;14;2;2013;Hemipro;Møre og Romsdal
+2;1;8;9;2;2014;Hemipro;Møre og Romsdal
+2;1;8;9;2;2015;Hemipro;Møre og Romsdal
+2;1;8;15;3;2013;Hemipro;Møre og Romsdal
+2;1;8;15;3;2014;Hemipro;Møre og Romsdal
+2;1;8;12;3;2015;Hemipro;Møre og Romsdal
+2;1;8;16;4;2013;Hemipro;Møre og Romsdal
+2;1;8;11;4;2014;Hemipro;Møre og Romsdal
+2;1;8;20;4;2015;Hemipro;Møre og Romsdal
+2;1;10;5;1;2013;Hemipro;Førde
+2;1;10;2;1;2014;Hemipro;Førde
+2;1;10;0;1;2015;Hemipro;Førde
+2;1;10;0;2;2013;Hemipro;Førde
+2;1;10;3;2;2014;Hemipro;Førde
+2;1;10;3;2;2015;Hemipro;Førde
+2;1;10;5;3;2013;Hemipro;Førde
+2;1;10;3;3;2014;Hemipro;Førde
+2;1;10;3;3;2015;Hemipro;Førde
+2;1;10;5;4;2013;Hemipro;Førde
+2;1;10;4;4;2014;Hemipro;Førde
+2;1;10;4;4;2015;Hemipro;Førde
+2;1;11;16;1;2013;Hemipro;Bergen
+2;1;11;13;1;2014;Hemipro;Bergen
+2;1;11;16;1;2015;Hemipro;Bergen
+2;1;11;20;2;2013;Hemipro;Bergen
+2;1;11;22;2;2014;Hemipro;Bergen
+2;1;11;21;2;2015;Hemipro;Bergen
+2;1;11;15;3;2013;Hemipro;Bergen
+2;1;11;12;3;2014;Hemipro;Bergen
+2;1;11;17;3;2015;Hemipro;Bergen
+2;1;11;26;4;2013;Hemipro;Bergen
+2;1;11;28;4;2014;Hemipro;Bergen
+2;1;11;20;4;2015;Hemipro;Bergen
+2;1;12;5;1;2013;Hemipro;Fonna
+2;1;12;6;1;2014;Hemipro;Fonna
+2;1;12;11;1;2015;Hemipro;Fonna
+2;1;12;5;2;2013;Hemipro;Fonna
+2;1;12;4;2;2014;Hemipro;Fonna
+2;1;12;7;2;2015;Hemipro;Fonna
+2;1;12;8;3;2013;Hemipro;Fonna
+2;1;12;5;3;2014;Hemipro;Fonna
+2;1;12;11;3;2015;Hemipro;Fonna
+2;1;12;4;4;2013;Hemipro;Fonna
+2;1;12;2;4;2014;Hemipro;Fonna
+2;1;12;9;4;2015;Hemipro;Fonna
+2;1;13;5;1;2013;Hemipro;Stavanger
+2;1;13;1;1;2014;Hemipro;Stavanger
+2;1;13;3;1;2015;Hemipro;Stavanger
+2;1;13;9;2;2013;Hemipro;Stavanger
+2;1;13;4;2;2014;Hemipro;Stavanger
+2;1;13;7;2;2015;Hemipro;Stavanger
+2;1;13;12;3;2013;Hemipro;Stavanger
+2;1;13;7;3;2014;Hemipro;Stavanger
+2;1;13;6;3;2015;Hemipro;Stavanger
+2;1;13;7;4;2013;Hemipro;Stavanger
+2;1;13;12;4;2014;Hemipro;Stavanger
+2;1;13;12;4;2015;Hemipro;Stavanger
+2;1;14;17;1;2013;Hemipro;Østfold
+2;1;14;23;1;2014;Hemipro;Østfold
+2;1;14;14;1;2015;Hemipro;Østfold
+2;1;14;16;2;2013;Hemipro;Østfold
+2;1;14;14;2;2014;Hemipro;Østfold
+2;1;14;15;2;2015;Hemipro;Østfold
+2;1;14;15;3;2013;Hemipro;Østfold
+2;1;14;10;3;2014;Hemipro;Østfold
+2;1;14;13;3;2015;Hemipro;Østfold
+2;1;14;17;4;2013;Hemipro;Østfold
+2;1;14;23;4;2014;Hemipro;Østfold
+2;1;14;18;4;2015;Hemipro;Østfold
+2;1;15;11;1;2013;Hemipro;Akershus
+2;1;15;20;1;2014;Hemipro;Akershus
+2;1;15;12;1;2015;Hemipro;Akershus
+2;1;15;22;2;2013;Hemipro;Akershus
+2;1;15;9;2;2014;Hemipro;Akershus
+2;1;15;18;2;2015;Hemipro;Akershus
+2;1;15;14;3;2013;Hemipro;Akershus
+2;1;15;14;3;2014;Hemipro;Akershus
+2;1;15;12;3;2015;Hemipro;Akershus
+2;1;15;14;4;2013;Hemipro;Akershus
+2;1;15;14;4;2014;Hemipro;Akershus
+2;1;15;16;4;2015;Hemipro;Akershus
+2;1;16;19;1;2013;Hemipro;OUS
+2;1;16;19;1;2014;Hemipro;OUS
+2;1;16;23;1;2015;Hemipro;OUS
+2;1;16;18;2;2013;Hemipro;OUS
+2;1;16;13;2;2014;Hemipro;OUS
+2;1;16;19;2;2015;Hemipro;OUS
+2;1;16;23;3;2013;Hemipro;OUS
+2;1;16;26;3;2014;Hemipro;OUS
+2;1;16;23;3;2015;Hemipro;OUS
+2;1;16;21;4;2013;Hemipro;OUS
+2;1;16;34;4;2014;Hemipro;OUS
+2;1;16;26;4;2015;Hemipro;OUS
+2;1;19;23;1;2013;Hemipro;Innlandet
+2;1;19;16;1;2014;Hemipro;Innlandet
+2;1;19;25;1;2015;Hemipro;Innlandet
+2;1;19;18;2;2013;Hemipro;Innlandet
+2;1;19;28;2;2014;Hemipro;Innlandet
+2;1;19;24;2;2015;Hemipro;Innlandet
+2;1;19;20;3;2013;Hemipro;Innlandet
+2;1;19;23;3;2014;Hemipro;Innlandet
+2;1;19;20;3;2015;Hemipro;Innlandet
+2;1;19;24;4;2013;Hemipro;Innlandet
+2;1;19;25;4;2014;Hemipro;Innlandet
+2;1;19;25;4;2015;Hemipro;Innlandet
+2;1;20;21;1;2013;Hemipro;Vestre Viken
+2;1;20;19;1;2014;Hemipro;Vestre Viken
+2;1;20;25;1;2015;Hemipro;Vestre Viken
+2;1;20;19;2;2013;Hemipro;Vestre Viken
+2;1;20;17;2;2014;Hemipro;Vestre Viken
+2;1;20;20;2;2015;Hemipro;Vestre Viken
+2;1;20;17;3;2013;Hemipro;Vestre Viken
+2;1;20;25;3;2014;Hemipro;Vestre Viken
+2;1;20;19;3;2015;Hemipro;Vestre Viken
+2;1;20;32;4;2013;Hemipro;Vestre Viken
+2;1;20;29;4;2014;Hemipro;Vestre Viken
+2;1;20;20;4;2015;Hemipro;Vestre Viken
+2;1;21;8;1;2013;Hemipro;Vestfold
+2;1;21;9;1;2014;Hemipro;Vestfold
+2;1;21;11;1;2015;Hemipro;Vestfold
+2;1;21;9;2;2013;Hemipro;Vestfold
+2;1;21;10;2;2014;Hemipro;Vestfold
+2;1;21;10;2;2015;Hemipro;Vestfold
+2;1;21;11;3;2013;Hemipro;Vestfold
+2;1;21;7;3;2014;Hemipro;Vestfold
+2;1;21;10;3;2015;Hemipro;Vestfold
+2;1;21;12;4;2013;Hemipro;Vestfold
+2;1;21;14;4;2014;Hemipro;Vestfold
+2;1;21;10;4;2015;Hemipro;Vestfold
+2;1;22;9;1;2013;Hemipro;Telemark
+2;1;22;7;1;2014;Hemipro;Telemark
+2;1;22;6;1;2015;Hemipro;Telemark
+2;1;22;10;2;2013;Hemipro;Telemark
+2;1;22;7;2;2014;Hemipro;Telemark
+2;1;22;13;2;2015;Hemipro;Telemark
+2;1;22;7;3;2013;Hemipro;Telemark
+2;1;22;5;3;2014;Hemipro;Telemark
+2;1;22;5;3;2015;Hemipro;Telemark
+2;1;22;11;4;2013;Hemipro;Telemark
+2;1;22;13;4;2014;Hemipro;Telemark
+2;1;22;11;4;2015;Hemipro;Telemark
+2;1;23;11;1;2013;Hemipro;Sørlandet
+2;1;23;12;1;2014;Hemipro;Sørlandet
+2;1;23;10;1;2015;Hemipro;Sørlandet
+2;1;23;5;2;2013;Hemipro;Sørlandet
+2;1;23;8;2;2014;Hemipro;Sørlandet
+2;1;23;16;2;2015;Hemipro;Sørlandet
+2;1;23;10;3;2013;Hemipro;Sørlandet
+2;1;23;9;3;2014;Hemipro;Sørlandet
+2;1;23;13;3;2015;Hemipro;Sørlandet
+2;1;23;14;4;2013;Hemipro;Sørlandet
+2;1;23;15;4;2014;Hemipro;Sørlandet
+2;1;23;14;4;2015;Hemipro;Sørlandet
+3;0;1;1;1;2013;Totalpr;Finnmark
+3;0;1;3;1;2014;Totalpr;Finnmark
+3;0;1;2;1;2015;Totalpr;Finnmark
+3;0;1;0;2;2013;Totalpr;Finnmark
+3;0;1;0;2;2014;Totalpr;Finnmark
+3;0;1;0;2;2015;Totalpr;Finnmark
+3;0;1;0;3;2013;Totalpr;Finnmark
+3;0;1;1;3;2014;Totalpr;Finnmark
+3;0;1;0;3;2015;Totalpr;Finnmark
+3;0;1;0;4;2013;Totalpr;Finnmark
+3;0;1;0;4;2014;Totalpr;Finnmark
+3;0;1;0;4;2015;Totalpr;Finnmark
+3;0;2;2;1;2013;Totalpr;UNN
+3;0;2;1;1;2014;Totalpr;UNN
+3;0;2;1;1;2015;Totalpr;UNN
+3;0;2;0;2;2013;Totalpr;UNN
+3;0;2;0;2;2014;Totalpr;UNN
+3;0;2;0;2;2015;Totalpr;UNN
+3;0;2;0;3;2013;Totalpr;UNN
+3;0;2;0;3;2014;Totalpr;UNN
+3;0;2;0;3;2015;Totalpr;UNN
+3;0;2;0;4;2013;Totalpr;UNN
+3;0;2;0;4;2014;Totalpr;UNN
+3;0;2;0;4;2015;Totalpr;UNN
+3;0;3;6;1;2013;Totalpr;Nordland
+3;0;3;5;1;2014;Totalpr;Nordland
+3;0;3;4;1;2015;Totalpr;Nordland
+3;0;3;1;2;2013;Totalpr;Nordland
+3;0;3;0;2;2014;Totalpr;Nordland
+3;0;3;1;2;2015;Totalpr;Nordland
+3;0;3;0;3;2013;Totalpr;Nordland
+3;0;3;0;3;2014;Totalpr;Nordland
+3;0;3;1;3;2015;Totalpr;Nordland
+3;0;3;0;4;2013;Totalpr;Nordland
+3;0;3;0;4;2014;Totalpr;Nordland
+3;0;3;0;4;2015;Totalpr;Nordland
+3;0;4;0;1;2013;Totalpr;Helgeland
+3;0;4;0;1;2014;Totalpr;Helgeland
+3;0;4;1;1;2015;Totalpr;Helgeland
+3;0;4;0;2;2013;Totalpr;Helgeland
+3;0;4;0;2;2014;Totalpr;Helgeland
+3;0;4;0;2;2015;Totalpr;Helgeland
+3;0;4;0;3;2013;Totalpr;Helgeland
+3;0;4;0;3;2014;Totalpr;Helgeland
+3;0;4;0;3;2015;Totalpr;Helgeland
+3;0;4;0;4;2013;Totalpr;Helgeland
+3;0;4;0;4;2014;Totalpr;Helgeland
+3;0;4;0;4;2015;Totalpr;Helgeland
+3;0;6;1;1;2013;Totalpr;Nord-Trøndelag
+3;0;6;1;1;2014;Totalpr;Nord-Trøndelag
+3;0;6;0;1;2015;Totalpr;Nord-Trøndelag
+3;0;6;0;2;2013;Totalpr;Nord-Trøndelag
+3;0;6;0;2;2014;Totalpr;Nord-Trøndelag
+3;0;6;0;2;2015;Totalpr;Nord-Trøndelag
+3;0;6;0;3;2013;Totalpr;Nord-Trøndelag
+3;0;6;0;3;2014;Totalpr;Nord-Trøndelag
+3;0;6;1;3;2015;Totalpr;Nord-Trøndelag
+3;0;6;0;4;2013;Totalpr;Nord-Trøndelag
+3;0;6;1;4;2014;Totalpr;Nord-Trøndelag
+3;0;6;0;4;2015;Totalpr;Nord-Trøndelag
+3;0;7;10;1;2013;Totalpr;St. Olavs
+3;0;7;19;1;2014;Totalpr;St. Olavs
+3;0;7;11;1;2015;Totalpr;St. Olavs
+3;0;7;4;2;2013;Totalpr;St. Olavs
+3;0;7;1;2;2014;Totalpr;St. Olavs
+3;0;7;2;2;2015;Totalpr;St. Olavs
+3;0;7;0;3;2013;Totalpr;St. Olavs
+3;0;7;1;3;2014;Totalpr;St. Olavs
+3;0;7;1;3;2015;Totalpr;St. Olavs
+3;0;7;0;4;2013;Totalpr;St. Olavs
+3;0;7;0;4;2014;Totalpr;St. Olavs
+3;0;7;1;4;2015;Totalpr;St. Olavs
+3;0;8;3;1;2013;Totalpr;Møre og Romsdal
+3;0;8;2;1;2014;Totalpr;Møre og Romsdal
+3;0;8;5;1;2015;Totalpr;Møre og Romsdal
+3;0;8;1;2;2013;Totalpr;Møre og Romsdal
+3;0;8;0;2;2014;Totalpr;Møre og Romsdal
+3;0;8;0;2;2015;Totalpr;Møre og Romsdal
+3;0;8;0;3;2013;Totalpr;Møre og Romsdal
+3;0;8;1;3;2014;Totalpr;Møre og Romsdal
+3;0;8;0;3;2015;Totalpr;Møre og Romsdal
+3;0;8;0;4;2013;Totalpr;Møre og Romsdal
+3;0;8;0;4;2014;Totalpr;Møre og Romsdal
+3;0;8;1;4;2015;Totalpr;Møre og Romsdal
+3;0;10;0;1;2013;Totalpr;Førde
+3;0;10;0;1;2014;Totalpr;Førde
+3;0;10;1;1;2015;Totalpr;Førde
+3;0;10;1;2;2013;Totalpr;Førde
+3;0;10;0;2;2014;Totalpr;Førde
+3;0;10;0;2;2015;Totalpr;Førde
+3;0;10;0;3;2013;Totalpr;Førde
+3;0;10;0;3;2014;Totalpr;Førde
+3;0;10;1;3;2015;Totalpr;Førde
+3;0;10;0;4;2013;Totalpr;Førde
+3;0;10;0;4;2014;Totalpr;Førde
+3;0;10;0;4;2015;Totalpr;Førde
+3;0;11;10;1;2013;Totalpr;Bergen
+3;0;11;1;1;2014;Totalpr;Bergen
+3;0;11;3;1;2015;Totalpr;Bergen
+3;0;11;1;2;2013;Totalpr;Bergen
+3;0;11;0;2;2014;Totalpr;Bergen
+3;0;11;0;2;2015;Totalpr;Bergen
+3;0;11;1;3;2013;Totalpr;Bergen
+3;0;11;1;3;2014;Totalpr;Bergen
+3;0;11;0;3;2015;Totalpr;Bergen
+3;0;11;0;4;2013;Totalpr;Bergen
+3;0;11;0;4;2014;Totalpr;Bergen
+3;0;11;0;4;2015;Totalpr;Bergen
+3;0;12;1;1;2013;Totalpr;Fonna
+3;0;12;2;1;2014;Totalpr;Fonna
+3;0;12;2;1;2015;Totalpr;Fonna
+3;0;12;1;2;2013;Totalpr;Fonna
+3;0;12;0;2;2014;Totalpr;Fonna
+3;0;12;1;2;2015;Totalpr;Fonna
+3;0;12;0;3;2013;Totalpr;Fonna
+3;0;12;1;3;2014;Totalpr;Fonna
+3;0;12;1;3;2015;Totalpr;Fonna
+3;0;12;1;4;2013;Totalpr;Fonna
+3;0;12;1;4;2014;Totalpr;Fonna
+3;0;12;0;4;2015;Totalpr;Fonna
+3;0;13;19;1;2013;Totalpr;Stavanger
+3;0;13;22;1;2014;Totalpr;Stavanger
+3;0;13;17;1;2015;Totalpr;Stavanger
+3;0;13;12;2;2013;Totalpr;Stavanger
+3;0;13;14;2;2014;Totalpr;Stavanger
+3;0;13;17;2;2015;Totalpr;Stavanger
+3;0;13;7;3;2013;Totalpr;Stavanger
+3;0;13;7;3;2014;Totalpr;Stavanger
+3;0;13;2;3;2015;Totalpr;Stavanger
+3;0;13;1;4;2013;Totalpr;Stavanger
+3;0;13;1;4;2014;Totalpr;Stavanger
+3;0;13;1;4;2015;Totalpr;Stavanger
+3;0;14;4;1;2013;Totalpr;Østfold
+3;0;14;8;1;2014;Totalpr;Østfold
+3;0;14;4;1;2015;Totalpr;Østfold
+3;0;14;0;2;2013;Totalpr;Østfold
+3;0;14;0;2;2014;Totalpr;Østfold
+3;0;14;0;2;2015;Totalpr;Østfold
+3;0;14;0;3;2013;Totalpr;Østfold
+3;0;14;0;3;2014;Totalpr;Østfold
+3;0;14;0;3;2015;Totalpr;Østfold
+3;0;14;0;4;2013;Totalpr;Østfold
+3;0;14;0;4;2014;Totalpr;Østfold
+3;0;14;0;4;2015;Totalpr;Østfold
+3;0;15;9;1;2013;Totalpr;Akershus
+3;0;15;5;1;2014;Totalpr;Akershus
+3;0;15;14;1;2015;Totalpr;Akershus
+3;0;15;1;2;2013;Totalpr;Akershus
+3;0;15;2;2;2014;Totalpr;Akershus
+3;0;15;1;2;2015;Totalpr;Akershus
+3;0;15;0;3;2013;Totalpr;Akershus
+3;0;15;0;3;2014;Totalpr;Akershus
+3;0;15;1;3;2015;Totalpr;Akershus
+3;0;15;0;4;2013;Totalpr;Akershus
+3;0;15;0;4;2014;Totalpr;Akershus
+3;0;15;0;4;2015;Totalpr;Akershus
+3;0;16;11;1;2013;Totalpr;OUS
+3;0;16;8;1;2014;Totalpr;OUS
+3;0;16;12;1;2015;Totalpr;OUS
+3;0;16;1;2;2013;Totalpr;OUS
+3;0;16;1;2;2014;Totalpr;OUS
+3;0;16;1;2;2015;Totalpr;OUS
+3;0;16;2;3;2013;Totalpr;OUS
+3;0;16;5;3;2014;Totalpr;OUS
+3;0;16;0;3;2015;Totalpr;OUS
+3;0;16;0;4;2013;Totalpr;OUS
+3;0;16;0;4;2014;Totalpr;OUS
+3;0;16;1;4;2015;Totalpr;OUS
+3;0;19;12;1;2013;Totalpr;Innlandet
+3;0;19;8;1;2014;Totalpr;Innlandet
+3;0;19;6;1;2015;Totalpr;Innlandet
+3;0;19;2;2;2013;Totalpr;Innlandet
+3;0;19;0;2;2014;Totalpr;Innlandet
+3;0;19;0;2;2015;Totalpr;Innlandet
+3;0;19;0;3;2013;Totalpr;Innlandet
+3;0;19;0;3;2014;Totalpr;Innlandet
+3;0;19;0;3;2015;Totalpr;Innlandet
+3;0;19;0;4;2013;Totalpr;Innlandet
+3;0;19;0;4;2014;Totalpr;Innlandet
+3;0;19;0;4;2015;Totalpr;Innlandet
+3;0;20;6;1;2013;Totalpr;Vestre Viken
+3;0;20;6;1;2014;Totalpr;Vestre Viken
+3;0;20;6;1;2015;Totalpr;Vestre Viken
+3;0;20;2;2;2013;Totalpr;Vestre Viken
+3;0;20;1;2;2014;Totalpr;Vestre Viken
+3;0;20;1;2;2015;Totalpr;Vestre Viken
+3;0;20;1;3;2013;Totalpr;Vestre Viken
+3;0;20;1;3;2014;Totalpr;Vestre Viken
+3;0;20;0;3;2015;Totalpr;Vestre Viken
+3;0;20;2;4;2013;Totalpr;Vestre Viken
+3;0;20;3;4;2014;Totalpr;Vestre Viken
+3;0;20;1;4;2015;Totalpr;Vestre Viken
+3;0;21;1;1;2013;Totalpr;Vestfold
+3;0;21;1;1;2014;Totalpr;Vestfold
+3;0;21;1;1;2015;Totalpr;Vestfold
+3;0;21;0;2;2013;Totalpr;Vestfold
+3;0;21;0;2;2014;Totalpr;Vestfold
+3;0;21;0;2;2015;Totalpr;Vestfold
+3;0;21;0;3;2013;Totalpr;Vestfold
+3;0;21;0;3;2014;Totalpr;Vestfold
+3;0;21;1;3;2015;Totalpr;Vestfold
+3;0;21;0;4;2013;Totalpr;Vestfold
+3;0;21;0;4;2014;Totalpr;Vestfold
+3;0;21;0;4;2015;Totalpr;Vestfold
+3;0;22;0;1;2013;Totalpr;Telemark
+3;0;22;3;1;2014;Totalpr;Telemark
+3;0;22;6;1;2015;Totalpr;Telemark
+3;0;22;0;2;2013;Totalpr;Telemark
+3;0;22;1;2;2014;Totalpr;Telemark
+3;0;22;0;2;2015;Totalpr;Telemark
+3;0;22;0;3;2013;Totalpr;Telemark
+3;0;22;0;3;2014;Totalpr;Telemark
+3;0;22;0;3;2015;Totalpr;Telemark
+3;0;22;0;4;2013;Totalpr;Telemark
+3;0;22;0;4;2014;Totalpr;Telemark
+3;0;22;0;4;2015;Totalpr;Telemark
+3;0;23;2;1;2013;Totalpr;Sørlandet
+3;0;23;3;1;2014;Totalpr;Sørlandet
+3;0;23;10;1;2015;Totalpr;Sørlandet
+3;0;23;3;2;2013;Totalpr;Sørlandet
+3;0;23;2;2;2014;Totalpr;Sørlandet
+3;0;23;5;2;2015;Totalpr;Sørlandet
+3;0;23;0;3;2013;Totalpr;Sørlandet
+3;0;23;1;3;2014;Totalpr;Sørlandet
+3;0;23;1;3;2015;Totalpr;Sørlandet
+3;0;23;0;4;2013;Totalpr;Sørlandet
+3;0;23;0;4;2014;Totalpr;Sørlandet
+3;0;23;0;4;2015;Totalpr;Sørlandet
+3;1;1;0;1;2013;Totalpr;Finnmark
+3;1;1;0;1;2014;Totalpr;Finnmark
+3;1;1;;1;2015;Totalpr;Finnmark
+3;1;1;0;2;2013;Totalpr;Finnmark
+3;1;1;0;2;2014;Totalpr;Finnmark
+3;1;1;0;2;2015;Totalpr;Finnmark
+3;1;1;0;3;2013;Totalpr;Finnmark
+3;1;1;0;3;2014;Totalpr;Finnmark
+3;1;1;0;3;2015;Totalpr;Finnmark
+3;1;1;0;4;2013;Totalpr;Finnmark
+3;1;1;0;4;2014;Totalpr;Finnmark
+3;1;1;0;4;2015;Totalpr;Finnmark
+3;1;2;1;1;2013;Totalpr;UNN
+3;1;2;0;1;2014;Totalpr;UNN
+3;1;2;;1;2015;Totalpr;UNN
+3;1;2;0;2;2013;Totalpr;UNN
+3;1;2;0;2;2014;Totalpr;UNN
+3;1;2;0;2;2015;Totalpr;UNN
+3;1;2;0;3;2013;Totalpr;UNN
+3;1;2;0;3;2014;Totalpr;UNN
+3;1;2;0;3;2015;Totalpr;UNN
+3;1;2;0;4;2013;Totalpr;UNN
+3;1;2;0;4;2014;Totalpr;UNN
+3;1;2;0;4;2015;Totalpr;UNN
+3;1;3;2;1;2013;Totalpr;Nordland
+3;1;3;3;1;2014;Totalpr;Nordland
+3;1;3;2;1;2015;Totalpr;Nordland
+3;1;3;0;2;2013;Totalpr;Nordland
+3;1;3;0;2;2014;Totalpr;Nordland
+3;1;3;0;2;2015;Totalpr;Nordland
+3;1;3;0;3;2013;Totalpr;Nordland
+3;1;3;0;3;2014;Totalpr;Nordland
+3;1;3;0;3;2015;Totalpr;Nordland
+3;1;3;0;4;2013;Totalpr;Nordland
+3;1;3;0;4;2014;Totalpr;Nordland
+3;1;3;0;4;2015;Totalpr;Nordland
+3;1;4;1;1;2013;Totalpr;Helgeland
+3;1;4;0;1;2014;Totalpr;Helgeland
+3;1;4;1;1;2015;Totalpr;Helgeland
+3;1;4;0;2;2013;Totalpr;Helgeland
+3;1;4;0;2;2014;Totalpr;Helgeland
+3;1;4;0;2;2015;Totalpr;Helgeland
+3;1;4;0;3;2013;Totalpr;Helgeland
+3;1;4;0;3;2014;Totalpr;Helgeland
+3;1;4;1;3;2015;Totalpr;Helgeland
+3;1;4;0;4;2013;Totalpr;Helgeland
+3;1;4;0;4;2014;Totalpr;Helgeland
+3;1;4;0;4;2015;Totalpr;Helgeland
+3;1;6;0;1;2013;Totalpr;Nord-Trøndelag
+3;1;6;0;1;2014;Totalpr;Nord-Trøndelag
+3;1;6;1;1;2015;Totalpr;Nord-Trøndelag
+3;1;6;0;2;2013;Totalpr;Nord-Trøndelag
+3;1;6;0;2;2014;Totalpr;Nord-Trøndelag
+3;1;6;0;2;2015;Totalpr;Nord-Trøndelag
+3;1;6;0;3;2013;Totalpr;Nord-Trøndelag
+3;1;6;1;3;2014;Totalpr;Nord-Trøndelag
+3;1;6;0;3;2015;Totalpr;Nord-Trøndelag
+3;1;6;0;4;2013;Totalpr;Nord-Trøndelag
+3;1;6;0;4;2014;Totalpr;Nord-Trøndelag
+3;1;6;0;4;2015;Totalpr;Nord-Trøndelag
+3;1;7;5;1;2013;Totalpr;St. Olavs
+3;1;7;6;1;2014;Totalpr;St. Olavs
+3;1;7;9;1;2015;Totalpr;St. Olavs
+3;1;7;1;2;2013;Totalpr;St. Olavs
+3;1;7;3;2;2014;Totalpr;St. Olavs
+3;1;7;4;2;2015;Totalpr;St. Olavs
+3;1;7;1;3;2013;Totalpr;St. Olavs
+3;1;7;0;3;2014;Totalpr;St. Olavs
+3;1;7;0;3;2015;Totalpr;St. Olavs
+3;1;7;0;4;2013;Totalpr;St. Olavs
+3;1;7;1;4;2014;Totalpr;St. Olavs
+3;1;7;0;4;2015;Totalpr;St. Olavs
+3;1;8;2;1;2013;Totalpr;Møre og Romsdal
+3;1;8;1;1;2014;Totalpr;Møre og Romsdal
+3;1;8;2;1;2015;Totalpr;Møre og Romsdal
+3;1;8;0;2;2013;Totalpr;Møre og Romsdal
+3;1;8;0;2;2014;Totalpr;Møre og Romsdal
+3;1;8;0;2;2015;Totalpr;Møre og Romsdal
+3;1;8;1;3;2013;Totalpr;Møre og Romsdal
+3;1;8;0;3;2014;Totalpr;Møre og Romsdal
+3;1;8;0;3;2015;Totalpr;Møre og Romsdal
+3;1;8;0;4;2013;Totalpr;Møre og Romsdal
+3;1;8;0;4;2014;Totalpr;Møre og Romsdal
+3;1;8;0;4;2015;Totalpr;Møre og Romsdal
+3;1;10;1;1;2013;Totalpr;Førde
+3;1;10;0;1;2014;Totalpr;Førde
+3;1;10;;1;2015;Totalpr;Førde
+3;1;10;0;2;2013;Totalpr;Førde
+3;1;10;0;2;2014;Totalpr;Førde
+3;1;10;0;2;2015;Totalpr;Førde
+3;1;10;0;3;2013;Totalpr;Førde
+3;1;10;0;3;2014;Totalpr;Førde
+3;1;10;0;3;2015;Totalpr;Førde
+3;1;10;0;4;2013;Totalpr;Førde
+3;1;10;0;4;2014;Totalpr;Førde
+3;1;10;0;4;2015;Totalpr;Førde
+3;1;11;3;1;2013;Totalpr;Bergen
+3;1;11;4;1;2014;Totalpr;Bergen
+3;1;11;2;1;2015;Totalpr;Bergen
+3;1;11;0;2;2013;Totalpr;Bergen
+3;1;11;0;2;2014;Totalpr;Bergen
+3;1;11;1;2;2015;Totalpr;Bergen
+3;1;11;0;3;2013;Totalpr;Bergen
+3;1;11;0;3;2014;Totalpr;Bergen
+3;1;11;0;3;2015;Totalpr;Bergen
+3;1;11;0;4;2013;Totalpr;Bergen
+3;1;11;0;4;2014;Totalpr;Bergen
+3;1;11;0;4;2015;Totalpr;Bergen
+3;1;12;1;1;2013;Totalpr;Fonna
+3;1;12;0;1;2014;Totalpr;Fonna
+3;1;12;1;1;2015;Totalpr;Fonna
+3;1;12;0;2;2013;Totalpr;Fonna
+3;1;12;1;2;2014;Totalpr;Fonna
+3;1;12;0;2;2015;Totalpr;Fonna
+3;1;12;0;3;2013;Totalpr;Fonna
+3;1;12;0;3;2014;Totalpr;Fonna
+3;1;12;0;3;2015;Totalpr;Fonna
+3;1;12;0;4;2013;Totalpr;Fonna
+3;1;12;0;4;2014;Totalpr;Fonna
+3;1;12;0;4;2015;Totalpr;Fonna
+3;1;13;2;1;2013;Totalpr;Stavanger
+3;1;13;7;1;2014;Totalpr;Stavanger
+3;1;13;2;1;2015;Totalpr;Stavanger
+3;1;13;6;2;2013;Totalpr;Stavanger
+3;1;13;2;2;2014;Totalpr;Stavanger
+3;1;13;3;2;2015;Totalpr;Stavanger
+3;1;13;1;3;2013;Totalpr;Stavanger
+3;1;13;0;3;2014;Totalpr;Stavanger
+3;1;13;1;3;2015;Totalpr;Stavanger
+3;1;13;1;4;2013;Totalpr;Stavanger
+3;1;13;1;4;2014;Totalpr;Stavanger
+3;1;13;0;4;2015;Totalpr;Stavanger
+3;1;14;4;1;2013;Totalpr;Østfold
+3;1;14;2;1;2014;Totalpr;Østfold
+3;1;14;2;1;2015;Totalpr;Østfold
+3;1;14;1;2;2013;Totalpr;Østfold
+3;1;14;0;2;2014;Totalpr;Østfold
+3;1;14;0;2;2015;Totalpr;Østfold
+3;1;14;0;3;2013;Totalpr;Østfold
+3;1;14;0;3;2014;Totalpr;Østfold
+3;1;14;0;3;2015;Totalpr;Østfold
+3;1;14;0;4;2013;Totalpr;Østfold
+3;1;14;0;4;2014;Totalpr;Østfold
+3;1;14;0;4;2015;Totalpr;Østfold
+3;1;15;1;1;2013;Totalpr;Akershus
+3;1;15;2;1;2014;Totalpr;Akershus
+3;1;15;3;1;2015;Totalpr;Akershus
+3;1;15;1;2;2013;Totalpr;Akershus
+3;1;15;0;2;2014;Totalpr;Akershus
+3;1;15;0;2;2015;Totalpr;Akershus
+3;1;15;0;3;2013;Totalpr;Akershus
+3;1;15;1;3;2014;Totalpr;Akershus
+3;1;15;0;3;2015;Totalpr;Akershus
+3;1;15;0;4;2013;Totalpr;Akershus
+3;1;15;0;4;2014;Totalpr;Akershus
+3;1;15;0;4;2015;Totalpr;Akershus
+3;1;16;5;1;2013;Totalpr;OUS
+3;1;16;3;1;2014;Totalpr;OUS
+3;1;16;8;1;2015;Totalpr;OUS
+3;1;16;0;2;2013;Totalpr;OUS
+3;1;16;1;2;2014;Totalpr;OUS
+3;1;16;0;2;2015;Totalpr;OUS
+3;1;16;0;3;2013;Totalpr;OUS
+3;1;16;0;3;2014;Totalpr;OUS
+3;1;16;1;3;2015;Totalpr;OUS
+3;1;16;1;4;2013;Totalpr;OUS
+3;1;16;0;4;2014;Totalpr;OUS
+3;1;16;0;4;2015;Totalpr;OUS
+3;1;19;2;1;2013;Totalpr;Innlandet
+3;1;19;2;1;2014;Totalpr;Innlandet
+3;1;19;5;1;2015;Totalpr;Innlandet
+3;1;19;1;2;2013;Totalpr;Innlandet
+3;1;19;0;2;2014;Totalpr;Innlandet
+3;1;19;0;2;2015;Totalpr;Innlandet
+3;1;19;0;3;2013;Totalpr;Innlandet
+3;1;19;0;3;2014;Totalpr;Innlandet
+3;1;19;0;3;2015;Totalpr;Innlandet
+3;1;19;0;4;2013;Totalpr;Innlandet
+3;1;19;0;4;2014;Totalpr;Innlandet
+3;1;19;0;4;2015;Totalpr;Innlandet
+3;1;20;3;1;2013;Totalpr;Vestre Viken
+3;1;20;2;1;2014;Totalpr;Vestre Viken
+3;1;20;6;1;2015;Totalpr;Vestre Viken
+3;1;20;2;2;2013;Totalpr;Vestre Viken
+3;1;20;0;2;2014;Totalpr;Vestre Viken
+3;1;20;0;2;2015;Totalpr;Vestre Viken
+3;1;20;0;3;2013;Totalpr;Vestre Viken
+3;1;20;0;3;2014;Totalpr;Vestre Viken
+3;1;20;0;3;2015;Totalpr;Vestre Viken
+3;1;20;0;4;2013;Totalpr;Vestre Viken
+3;1;20;1;4;2014;Totalpr;Vestre Viken
+3;1;20;0;4;2015;Totalpr;Vestre Viken
+3;1;21;0;1;2013;Totalpr;Vestfold
+3;1;21;0;1;2014;Totalpr;Vestfold
+3;1;21;0;1;2015;Totalpr;Vestfold
+3;1;21;0;2;2013;Totalpr;Vestfold
+3;1;21;0;2;2014;Totalpr;Vestfold
+3;1;21;1;2;2015;Totalpr;Vestfold
+3;1;21;0;3;2013;Totalpr;Vestfold
+3;1;21;0;3;2014;Totalpr;Vestfold
+3;1;21;0;3;2015;Totalpr;Vestfold
+3;1;21;0;4;2013;Totalpr;Vestfold
+3;1;21;0;4;2014;Totalpr;Vestfold
+3;1;21;0;4;2015;Totalpr;Vestfold
+3;1;22;1;1;2013;Totalpr;Telemark
+3;1;22;2;1;2014;Totalpr;Telemark
+3;1;22;2;1;2015;Totalpr;Telemark
+3;1;22;0;2;2013;Totalpr;Telemark
+3;1;22;1;2;2014;Totalpr;Telemark
+3;1;22;1;2;2015;Totalpr;Telemark
+3;1;22;0;3;2013;Totalpr;Telemark
+3;1;22;0;3;2014;Totalpr;Telemark
+3;1;22;0;3;2015;Totalpr;Telemark
+3;1;22;0;4;2013;Totalpr;Telemark
+3;1;22;0;4;2014;Totalpr;Telemark
+3;1;22;0;4;2015;Totalpr;Telemark
+3;1;23;1;1;2013;Totalpr;Sørlandet
+3;1;23;3;1;2014;Totalpr;Sørlandet
+3;1;23;1;1;2015;Totalpr;Sørlandet
+3;1;23;0;2;2013;Totalpr;Sørlandet
+3;1;23;0;2;2014;Totalpr;Sørlandet
+3;1;23;0;2;2015;Totalpr;Sørlandet
+3;1;23;1;3;2013;Totalpr;Sørlandet
+3;1;23;0;3;2014;Totalpr;Sørlandet
+3;1;23;0;3;2015;Totalpr;Sørlandet
+3;1;23;0;4;2013;Totalpr;Sørlandet
+3;1;23;0;4;2014;Totalpr;Sørlandet
+3;1;23;0;4;2015;Totalpr;Sørlandet
