@@ -7,14 +7,16 @@
 indikatorFigAndelGrVar_aldKjJust(Antall, outfile, tittel, width = 800,
   height = 700, decreasing = F, terskel = 30, minstekrav = NA,
   minstekravTxt = "Min", sideTxt = "Boområde/opptaksområde", maal = NA,
-  maalTxt = "Mål", til100 = FALSE, legPlass = "top")
+  maalTxt = "Mål", til100 = FALSE, legPlass = "top", marker = NA)
 }
 \arguments{
 \item{outfile}{Angir filnavn og format pÃ¥ figuren som returneres,}
 
-\item{andeler}{En dataramme med andeler/andeler i spesifisert form}
+\item{marker}{En vektor med navn pÃ¥ enheter som skal markeres med stjerne}
 
-\item{N}{En vektor/matrise med N for ratene}
+\item{AntTilfeller}{En dataramme med antall i spesifisert form}
+
+\item{N}{En dataramme med nevneren i andelsberegningen}
 }
 \value{
 Et plot av andeler over tre Ã¥r

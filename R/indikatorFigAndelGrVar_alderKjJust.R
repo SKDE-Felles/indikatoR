@@ -5,9 +5,11 @@
 #' returnerer et søyleplot hvor søylene representerer sist år, fyllt sirkel er året
 #' før og åpen sirkel to år før
 #'
-#' @param andeler En dataramme med andeler/andeler i spesifisert form
+#' @param AntTilfeller En dataramme med antall i spesifisert form
 #' @param outfile Angir filnavn og format på figuren som returneres,
-#' @param N En vektor/matrise med N for ratene
+#' @param N En dataramme med nevneren i andelsberegningen
+#' @param marker En vektor med navn på enheter som skal markeres med stjerne
+#'
 #' @return Et plot av andeler over tre år
 #'
 #' @export
@@ -15,7 +17,7 @@
 indikatorFigAndelGrVar_aldKjJust <-
                     function(Antall, outfile, tittel, width=800, height=700, decreasing=F, terskel=30,
                              minstekrav = NA, minstekravTxt='Min', sideTxt ='Boområde/opptaksområde',
-                             maal = NA, maalTxt='Mål',  til100=FALSE, legPlass='top')
+                             maal = NA, maalTxt='Mål',  til100=FALSE, legPlass='top', marker=NA)
   {
 
   cexgr <- 1
@@ -59,7 +61,11 @@ indikatorFigAndelGrVar_aldKjJust <-
   farger <- FigTypUt$farger
   soyleFarger <- rep(farger[3], length(andeler[,dim(andeler)[2]]))
   soyleFarger[which(rownames(andeler)=='Norge')] <- farger[4]
-  # if (outfile == '') {windows(width = width, height = height)}
+  if (!is.na(marker[1])) {
+    rownames(andeler)[which(rownames(andeler) %in% marker)] <-
+      paste0(rownames(andeler)[which(rownames(andeler) %in% marker)], '*')
+  }
+
   windows(width = width, height = height)
 
   oldpar_mar <- par()$mar

@@ -8,14 +8,16 @@ indikatorFigAndelGrVar(AntTilfeller, N, outfile, tittel, width = 800,
   height = 700, sideTxt = "Boomr�de/opptaksomr�de", decreasing = F,
   terskel = 30, minstekrav = NA, maal = NA, skriftStr = 1.3,
   pktStr = 1.4, legPlass = "top", minstekravTxt = "Min.",
-  maalTxt = "M�l")
+  maalTxt = "M�l", graaUt = NA)
 }
 \arguments{
-\item{N}{En vektor/matrise med N for ratene}
+\item{AntTilfeller}{En dataramme med antall i spesifisert form}
+
+\item{N}{En dataramme med nevneren i andelsberegningen}
 
 \item{outfile}{Angir filnavn og format på figuren som returneres,}
 
-\item{andeler}{En dataramme med andeler/andeler i spesifisert form}
+\item{graaUt}{En vektor med navn på enheter som skal ha grå søyler}
 }
 \value{
 Et plot av andeler over tre år

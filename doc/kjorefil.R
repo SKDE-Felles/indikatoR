@@ -311,7 +311,7 @@ if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
 terskel <- terskel_bo3
 indikatorFigAndelGrVar_aldKjJust(Antall=Antall, outfile=outfile, tittel=tittel, width=600, height=600,
                                  decreasing=F, terskel=terskel, minstekrav = 80, minstekravTxt = 'Moderat',
-                                 maal = 90, maalTxt='Høy', til100=FALSE)
+                                 maal = 90, maalTxt='Høy', til100=FALSE, marker=c('Oslo', 'Finnmark', 'Bergen', 'Akershus', 'Innlandet'))
 
 
 AntTilfeller <- tidyr::spread(Hjerneslag_behandlet_slagenhet_sh_v2[,1:3], 'Aar', 'TellerC')
@@ -330,7 +330,7 @@ terskel <- terskel_sh2
 indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Behandlende sykehus',
                        minstekrav = 80, maal = 90, skriftStr=1, pktStr=1,
                        width=600, height=800, decreasing=decreasing, terskel=terskel,
-                       minstekravTxt = 'Moderat', maalTxt='Høy')
+                       minstekravTxt = 'Moderat', maalTxt='Høy', graaUt=c('Rikshospitalet', 'Ahus', 'Hamar', 'Haukeland', 'Kirkenes'))
 
 
 Antall <- Hjerneslag_tromsbolyse_bo
@@ -345,7 +345,8 @@ if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
 terskel <- terskel_bo3
 indikatorFigAndelGrVar_aldKjJust(Antall=Antall, outfile=outfile, tittel=tittel, width=600, height=600,
                                  decreasing=F, terskel=terskel, minstekrav = 30, minstekravTxt = 'Moderat',
-                                 maal = 50, maalTxt='Høy', til100=FALSE, legPlass='top') #
+                                 maal = 50, maalTxt='Høy', til100=FALSE, legPlass='top',
+                                 marker=c('Oslo', 'Finnmark', 'Bergen', 'Akershus', 'Innlandet')) #
 
 
 AntTilfeller <- tidyr::spread(Hjerneslag_tromsbolyse_sh_v2[,1:3], 'Aar', 'TellerE')
@@ -364,7 +365,7 @@ terskel <- terskel_sh2
 indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel, sideTxt='Behandlende sykehus',
                        width=600, height=800, decreasing=F, terskel=terskel,
                        skriftStr=1, pktStr=1, minstekrav = 30, minstekravTxt = 'Moderat',
-                       maal = 50, maalTxt='Høy', legPlass='top')
+                       maal = 50, maalTxt='Høy', legPlass='top', graaUt=c('Rikshospitalet', 'Ahus', 'Hamar', 'Haukeland', 'Kirkenes'))
 
 
 ################# Prolapsrater ############################################

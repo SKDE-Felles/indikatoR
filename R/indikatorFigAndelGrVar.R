@@ -5,16 +5,17 @@
 #' returnerer et søyleplot hvor søylene representerer sist år, fyllt sirkel er året
 #' før og åpen sirkel to år før
 #'
-#' @param andeler En dataramme med andeler/andeler i spesifisert form
+#' @param AntTilfeller En dataramme med antall i spesifisert form
 #' @param outfile Angir filnavn og format på figuren som returneres,
-#' @param N En vektor/matrise med N for ratene
+#' @param N En dataramme med nevneren i andelsberegningen
+#' @param graaUt En vektor med navn på enheter som skal ha grå søyler
 #' @return Et plot av andeler over tre år
 #'
 #' @export
 #'
 indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, height=700, sideTxt='Boområde/opptaksområde',
                                    decreasing=F, terskel=30, minstekrav = NA, maal = NA, skriftStr=1.3, pktStr=1.4, legPlass='top',
-                                   minstekravTxt='Min.', maalTxt='Mål')
+                                   minstekravTxt='Min.', maalTxt='Mål', graaUt=NA)
 {
   andeler <- AntTilfeller/N * 100
 
@@ -36,7 +37,8 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
   farger <- FigTypUt$farger
   soyleFarger <- rep(farger[3], length(andeler[,dim(andeler)[2]]))
   soyleFarger[which(rownames(andeler)=='Norge')] <- farger[4]
-  # if (outfile == '') {windows(width = width, height = height)}
+  if (!is.na(graaUt[1])) {soyleFarger[which(rownames(andeler) %in% graaUt)] <- 'gray88'}
+
   windows(width = width, height = height)
 
   oldpar_mar <- par()$mar
@@ -46,7 +48,6 @@ indikatorFigAndelGrVar <- function(AntTilfeller, N, outfile, tittel, width=800, 
   cexgr <- skriftStr
 
   vmarg <- max(0, strwidth(rownames(andeler), units='figure', cex=cexgr)*0.7)
-  # hmarg <- max(0, 3*strwidth(max(N), units='figure', cex=cexgr)*0.7)
   par('fig'=c(vmarg, 1, 0, 1))
   par('mar'=c(5.1, 4.1, 5.1, 9.1))
   par('oma'=c(0,1,0,0))
