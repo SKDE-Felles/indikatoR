@@ -29,4 +29,3 @@ antallet som har fått brystbevarende kirugi for alle aktuelle sykehus i årene
 2013-2015, den andre angir antallet som var aktuelle for det.
 }
 \keyword{datasets}
-

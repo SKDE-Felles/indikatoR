@@ -6,8 +6,8 @@ hjemkatalog <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/
 figurkatalog <- 'E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/'
 
 
-skrivSKDEdisk <- F
-skrivSKDEdiskPNG <- T
+skrivSKDEdisk <- T
+skrivSKDEdiskPNG <- F
 
 skrivTittel <- F
 tittel <- c('')
@@ -251,7 +251,7 @@ if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
 if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
 terskel <- terskel_bo3
 indikatorFigAndelGrVar_aldKjJust(Antall=Antall, outfile=outfile, tittel=tittel, width=600, height=600,
-                                             decreasing=F, terskel=terskel, minstekrav = 50, minstekravTxt = 'Moderat', maalTxt = 'Høy',
+                                             decreasing=F, terskel=terskel, minstekrav = 50, minstekravTxt = 'God', maalTxt = 'Meget god',
                                              maal = 80, til100=F, legPlass='top')
 
 AntTilfeller <- tidyr::spread(Angio_sh_v2[,1:3], 'Aar', 'under72t')
@@ -268,7 +268,7 @@ if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
 if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
 terskel <- terskel_sh
 indikatorFigAndelGrVar(AntTilfeller=AntTilfeller, N=N, outfile=outfile, tittel=tittel,
-                       sideTxt='Behandlende sykehus', minstekrav = 50, maal=80,width=600, height=800, minstekravTxt = 'Moderat', maalTxt = 'Høy',
+                       sideTxt='Behandlende sykehus', minstekrav = 50, maal=80,width=600, height=800, minstekravTxt = 'God', maalTxt = 'Meget god',
                        decreasing=decreasing, terskel=terskel, skriftStr=0.9, pktStr=1.0, legPlass='top')
 
 ## Revaskularisering
@@ -282,7 +282,7 @@ if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
 if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
 terskel <- terskel_bo3
 indikatorFigAndelGrVar_aldKjJust_1aar(Antall=Antall, outfile=outfile, tittel=tittel, width=600, height=600,
-                                 decreasing=F, terskel=terskel, minstekrav = 50, minstekravTxt = 'Moderat', maalTxt = 'Høy',
+                                 decreasing=F, terskel=terskel, minstekrav = 50, minstekravTxt = 'God', maalTxt = 'Meget god',
                                  maal = 80, til100=F)
 
 Antall <- Revaskularisering_sh_v2[, -4]
@@ -294,8 +294,8 @@ if (skrivSKDEdisk) {outfile <- paste0(figurkatalog,'PDF/',figurnavn,'.pdf')}
 if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
 terskel <- terskel_sh
 indikatorFigAndelGrVar_1aar(Antall, outfile, tittel, width=600, height=800,
-                            decreasing=F, terskel=terskel, minstekrav = 50, minstekravTxt = 'Moderat',
-                            maal = 80, maalTxt='Høy', til100=F, skriftStr=1)
+                            decreasing=F, terskel=terskel, minstekrav = 50, minstekravTxt = 'God',
+                            maal = 80, maalTxt='Meget god', til100=F, skriftStr=1)
 
 ############ Hjerneslag ############################################################
 ###################################################################################
@@ -379,6 +379,6 @@ if (skrivSKDEdiskPNG) {outfile <- paste0(figurkatalog,'png/',figurnavn,'.png')}
 if (skrivTittel){tittel <- 'Rater prolapskirurgi etter boområde'}
 terskel <- terskel_bo3
 indikatorFigRaterGrVar(Andeler=Andeler, outfile=outfile, tittel=tittel, width=600, height=600, til100=til100,
-                       decreasing=F, terskel=0, minstekrav=NA, maal=NA,
+                       decreasing=F, terskel=30, minstekrav=NA, maal=NA,
                        xtekst ='Antall pr. 100 000 innbyggere')
 

@@ -22,6 +22,7 @@ indikatorFigAndelGrVar_aldKjJust <-
 
   cexgr <- 1
 
+  # Finner andel i hver kjønns-/aldersgruppe i referansepopulasjonen. Her: Registerpopulasjon 2015.
   vekt <- tapply(Antall$N[which(Antall$aar==2015)], Antall$AldKjGr[which(Antall$aar==2015)], sum)
   vekt <- vekt/sum(vekt)
 

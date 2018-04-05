@@ -8,15 +8,15 @@
 indikatorLastdataOgPreprosesser <- function()
 {
   currentDir <- getwd()
-  setwd('E:/FELLES/Prosjekter/Indikatorprosjektet/Analyse/Figurer/R-kode/indikatoR/data/')
+  setwd('E:/Felles SKDE/Eksterne oppdrag til SKDE/Indikatorprosjekt_2016/Analyse/Figurer og R-koder brukt i rapporten/R-kode/indikatoR/data/')
 
   # Standard sykehusnavn
-  sykehusnavn <- read.table('../doc/sykehusnavn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  sykehusnavn <- read.table('E:/Felles SKDE/Eksterne oppdrag til SKDE/Indikatorprosjekt_2016/Analyse/Figurer og R-koder brukt i rapporten/R-kode/indikatoR/doc/sykehusnavn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   names(sykehusnavn) <- c("BehSh_nr","BehSh_lang", "BehSh_kort")
 
   # Standard BOHF-navn
   # I bohf_gammel er OUS erstattet med Oslo (Lovisenberg og Diakonhjemmet mangler)
-  bohf_navn <- read.table('../doc/bohf_navn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
+  bohf_navn <- read.table('E:/Felles SKDE/Eksterne oppdrag til SKDE/Indikatorprosjekt_2016/Analyse/Figurer og R-koder brukt i rapporten/R-kode/indikatoR/doc/bohf_navn.csv', header=TRUE, sep=";", encoding = 'UFT-8')
   names(bohf_navn) <- c("bohf_nr","bohf_gammel", "bohf_navn")
 
   #############################################################################################
@@ -270,7 +270,7 @@ indikatorLastdataOgPreprosesser <- function()
   Revaskularisering_sh_v2 <- Revaskularisering_sh_v2[, -which(names(Revaskularisering_sh_v2)=="BehSh")]
   save(Revaskularisering_sh_v2, file = "Revaskularisering_sh_v2.RData")
 
-  Revaskularisering_bo <- read.table('../doc/csv/Revaskularisering_BO.csv',
+  Revaskularisering_bo <- read.table('E:/Felles SKDE/Eksterne oppdrag til SKDE/Indikatorprosjekt_2016/Analyse/Figurer og R-koder brukt i rapporten/R-kode/indikatoR/doc/csv/Revaskularisering_BO.csv',
              sep = ';', header = T, encoding = 'native', strip.white=TRUE)
   Revaskularisering_bo <- merge(Revaskularisering_bo, bohf_navn[,c('bohf_nr', 'bohf_gammel')],
                              by.x = c("BoHF"), by.y = c("bohf_nr"), all.x = TRUE, all.y = FALSE)
